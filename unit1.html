@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Python Fundamentals - Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Unit 1: Python Fundamentals</h1>
+            
+            <div class="toc">
+                <h3>Topics Covered:</h3>
+                <ul>
+                    <li><a href="#intro">Introduction to Python</a></li>
+                    <li><a href="#setup">Python Setup and Installation</a></li>
+                    <li><a href="#variables">Variables and Data Types</a></li>
+                    <li><a href="#operators">Operators</a></li>
+                    <li><a href="#io">Input/Output Operations</a></li>
+                    <li><a href="#type-conversion">Type Conversion</a></li>
+                </ul>
+            </div>
+
+            <section id="intro" class="topic">
+                <h2>1. Introduction to Python</h2>
+                <p><strong>What is Python?</strong></p>
+                <ul>
+                    <li>Python is a high-level, interpreted programming language</li>
+                    <li>Created by Guido van Rossum in 1991</li>
+                    <li>Known for simple and readable syntax</li>
+                    <li>Supports multiple programming paradigms (procedural, OOP, functional)</li>
+                </ul>
+                <p><strong>Advantages of Python:</strong></p>
+                <ul>
+                    <li>Easy to learn and read</li>
+                    <li>Large standard library</li>
+                    <li>Interpreted language (no compilation needed)</li>
+                    <li>Platform independent</li>
+                    <li>Supports dynamic typing</li>
+                </ul>
+            </section>
+
+            <section id="setup" class="topic">
+                <h2>2. Python Setup and Installation</h2>
+                <p><strong>Installation Steps:</strong></p>
+                <ol>
+                    <li>Download Python from www.python.org</li>
+                    <li>Run the installer</li>
+                    <li>Add Python to PATH (important)</li>
+                    <li>Verify installation: <code>python --version</code></li>
+                </ol>
+                <p><strong>IDEs and Editors:</strong></p>
+                <ul>
+                    <li>IDLE (included with Python)</li>
+                    <li>PyCharm</li>
+                    <li>VS Code</li>
+                    <li>Jupyter Notebook</li>
+                </ul>
+            </section>
+
+            <section id="variables" class="topic">
+                <h2>3. Variables and Data Types</h2>
+                <p><strong>Variables:</strong></p>
+                <pre><code>name = "Python"      # String
+age = 30             # Integer
+height = 5.9         # Float
+is_active = True     # Boolean</code></pre>
+                
+                <p><strong>Data Types:</strong></p>
+                <ul>
+                    <li><strong>int:</strong> Integer numbers (-5, 0, 100)</li>
+                    <li><strong>float:</strong> Decimal numbers (3.14, 2.5)</li>
+                    <li><strong>str:</strong> Text (strings) ("Hello", 'World')</li>
+                    <li><strong>bool:</strong> Boolean (True, False)</li>
+                    <li><strong>list:</strong> Ordered collection [1, 2, 3]</li>
+                    <li><strong>dict:</strong> Key-value pairs {"name": "John"}</li>
+                    <li><strong>tuple:</strong> Immutable collection (1, 2, 3)</li>
+                    <li><strong>set:</strong> Unique items {1, 2, 3}</li>
+                </ul>
+                <pre><code># Checking data type
+print(type(5))      # <class 'int'>
+print(type(3.14))   # <class 'float'>
+print(type("text")) # <class 'str'></code></pre>
+            </section>
+
+            <section id="operators" class="topic">
+                <h2>4. Operators</h2>
+                <p><strong>Arithmetic Operators:</strong></p>
+                <table>
+                    <tr>
+                        <th>Operator</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>Addition</td>
+                        <td>10 + 5 = 15</td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>Subtraction</td>
+                        <td>10 - 5 = 5</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Multiplication</td>
+                        <td>10 * 5 = 50</td>
+                    </tr>
+                    <tr>
+                        <td>/</td>
+                        <td>Division</td>
+                        <td>10 / 5 = 2.0</td>
+                    </tr>
+                    <tr>
+                        <td>//</td>
+                        <td>Floor Division</td>
+                        <td>10 // 3 = 3</td>
+                    </tr>
+                    <tr>
+                        <td>%</td>
+                        <td>Modulus</td>
+                        <td>10 % 3 = 1</td>
+                    </tr>
+                    <tr>
+                        <td>**</td>
+                        <td>Exponentiation</td>
+                        <td>2 ** 3 = 8</td>
+                    </tr>
+                </table>
+
+                <p><strong>Comparison Operators:</strong></p>
+                <pre><code>== (equal to)
+!= (not equal to)
+> (greater than)
+< (less than)
+>= (greater than or equal to)
+<= (less than or equal to)</code></pre>
+
+                <p><strong>Logical Operators:</strong></p>
+                <pre><code>and  # Both conditions true
+or   # At least one condition true
+not  # Negates the condition</code></pre>
+
+                <p><strong>Assignment Operators:</strong></p>
+                <pre><code>= (assign)
++= (add and assign)
+-= (subtract and assign)
+*= (multiply and assign)
+/= (divide and assign)</code></pre>
+            </section>
+
+            <section id="io" class="topic">
+                <h2>5. Input/Output Operations</h2>
+                <p><strong>Output with print():</strong></p>
+                <pre><code>print("Hello, World!")
+print("Name:", "John", "Age:", 25)
+print(10 + 5)
+x = 50
+print(f"The value is {x}")</code></pre>
+
+                <p><strong>Input with input():</strong></p>
+                <pre><code>name = input("Enter your name: ")
+age = input("Enter your age: ")
+print("Name:", name, "Age:", age)</code></pre>
+            </section>
+
+            <section id="type-conversion" class="topic">
+                <h2>6. Type Conversion</h2>
+                <pre><code># Convert to integer
+num = int("123")      # 123
+num = int(45.67)      # 45
+
+# Convert to float
+num = float("3.14")   # 3.14
+num = float(10)       # 10.0
+
+# Convert to string
+text = str(123)       # "123"
+text = str(3.14)      # "3.14"
+
+# Convert to boolean
+bool_val = bool(1)    # True
+bool_val = bool(0)    # False</code></pre>
+            </section>
+
+            <div class="unit-nav">
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+                <a href="unit1-viva.html" class="btn btn-primary">Unit 1 Viva Questions →</a>
+            </div>
+            
+            <div class="unit-nav" style="margin-top: 1rem;">
+                <a href="unit2.html" class="btn btn-primary">Next Unit →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

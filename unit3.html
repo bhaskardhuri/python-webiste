@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: Functions - Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Unit 3: Functions</h1>
+            
+            <div class="toc">
+                <h3>Topics Covered:</h3>
+                <ul>
+                    <li><a href="#intro">Function Basics</a></li>
+                    <li><a href="#params">Parameters and Arguments</a></li>
+                    <li><a href="#return">Return Statements</a></li>
+                    <li><a href="#scope">Variable Scope</a></li>
+                    <li><a href="#recursion">Recursion</a></li>
+                    <li><a href="#builtin">Built-in Functions</a></li>
+                </ul>
+            </div>
+
+            <section id="intro" class="topic">
+                <h2>1. Function Basics</h2>
+                <p>A function is a reusable block of code that performs a specific task.</p>
+                <pre><code>def greet():
+    print("Hello, World!")
+
+greet()  # Calling the function</code></pre>
+
+                <p><strong>Function naming conventions:</strong></p>
+                <ul>
+                    <li>Use lowercase letters</li>
+                    <li>Use underscores to separate words</li>
+                    <li>Be descriptive about what the function does</li>
+                </ul>
+                <pre><code>def calculate_average():
+    pass
+
+def is_even(number):
+    pass</code></pre>
+            </section>
+
+            <section id="params" class="topic">
+                <h2>2. Parameters and Arguments</h2>
+                <p><strong>Function with parameters:</strong></p>
+                <pre><code>def add(a, b):
+    print(a + b)
+
+add(5, 10)  # Positional arguments</code></pre>
+
+                <p><strong>Default parameters:</strong></p>
+                <pre><code>def greet(name="Guest"):
+    print(f"Hello, {name}!")
+
+greet()           # Uses default
+greet("Alice")    # Overrides default</code></pre>
+
+                <p><strong>Keyword arguments:</strong></p>
+                <pre><code>def person_info(name, age, city):
+    print(f"{name}, {age}, {city}")
+
+person_info(age=25, name="John", city="NYC")</code></pre>
+
+                <p><strong>Variable-length arguments (*args):</strong></p>
+                <pre><code>def add_numbers(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+print(add_numbers(1, 2, 3, 4, 5))</code></pre>
+
+                <p><strong>Keyword variable arguments (**kwargs):</strong></p>
+                <pre><code>def print_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+print_info(name="John", age=25, city="NYC")</code></pre>
+            </section>
+
+            <section id="return" class="topic">
+                <h2>3. Return Statements</h2>
+                <p><strong>Returning values:</strong></p>
+                <pre><code>def multiply(a, b):
+    return a * b
+
+result = multiply(5, 10)
+print(result)  # 50</code></pre>
+
+                <p><strong>Returning multiple values:</strong></p>
+                <pre><code>def get_min_max(numbers):
+    return min(numbers), max(numbers)
+
+min_val, max_val = get_min_max([1, 5, 3, 9, 2])
+print(min_val, max_val)  # 1 9</code></pre>
+
+                <p><strong>Early return:</strong></p>
+                <pre><code>def check_password(password):
+    if len(password) < 6:
+        return False
+    if not any(char.isdigit() for char in password):
+        return False
+    return True</code></pre>
+            </section>
+
+            <section id="scope" class="topic">
+                <h2>4. Variable Scope</h2>
+                <p><strong>Local Scope:</strong> Variables defined inside a function</p>
+                <pre><code>def my_function():
+    x = 10  # Local variable
+    print(x)
+
+my_function()
+# print(x)  # Error: x is not defined</code></pre>
+
+                <p><strong>Global Scope:</strong> Variables defined outside functions</p>
+                <pre><code>x = 10  # Global variable
+
+def my_function():
+    print(x)  # Can access global x
+
+my_function()
+print(x)</code></pre>
+
+                <p><strong>Global keyword:</strong></p>
+                <pre><code>x = 10
+
+def modify():
+    global x
+    x = 20
+
+modify()
+print(x)  # 20</code></pre>
+
+                <p><strong>Nonlocal keyword:</strong></p>
+                <pre><code>def outer():
+    x = 10
+    def inner():
+        nonlocal x
+        x = 20
+    inner()
+    print(x)  # 20
+
+outer()</code></pre>
+            </section>
+
+            <section id="recursion" class="topic">
+                <h2>5. Recursion</h2>
+                <p>A function calling itself is called recursion.</p>
+                <p><strong>Factorial using recursion:</strong></p>
+                <pre><code>def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # 120</code></pre>
+
+                <p><strong>Fibonacci sequence:</strong></p>
+                <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+for i in range(10):
+    print(fibonacci(i))</code></pre>
+
+                <p><strong>Important:</strong> Always have a base case to avoid infinite recursion!</p>
+            </section>
+
+            <section id="builtin" class="topic">
+                <h2>6. Built-in Functions</h2>
+                <table>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>len()</td>
+                        <td>Length of object</td>
+                        <td>len("hello") = 5</td>
+                    </tr>
+                    <tr>
+                        <td>max()</td>
+                        <td>Maximum value</td>
+                        <td>max(1,5,3) = 5</td>
+                    </tr>
+                    <tr>
+                        <td>min()</td>
+                        <td>Minimum value</td>
+                        <td>min(1,5,3) = 1</td>
+                    </tr>
+                    <tr>
+                        <td>sum()</td>
+                        <td>Sum of values</td>
+                        <td>sum([1,2,3]) = 6</td>
+                    </tr>
+                    <tr>
+                        <td>abs()</td>
+                        <td>Absolute value</td>
+                        <td>abs(-5) = 5</td>
+                    </tr>
+                    <tr>
+                        <td>round()</td>
+                        <td>Round number</td>
+                        <td>round(3.7) = 4</td>
+                    </tr>
+                    <tr>
+                        <td>sorted()</td>
+                        <td>Sort items</td>
+                        <td>sorted([3,1,2]) = [1,2,3]</td>
+                    </tr>
+                    <tr>
+                        <td>reversed()</td>
+                        <td>Reverse order</td>
+                        <td>list(reversed([1,2,3]))</td>
+                    </tr>
+                </table>
+            </section>
+
+            <div class="unit-nav">
+                <a href="unit2.html" class="btn btn-secondary">← Previous Unit</a>
+                <a href="unit4.html" class="btn btn-primary">Next Unit →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

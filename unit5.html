@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: Object-Oriented Programming - Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Unit 5: Object-Oriented Programming (OOP)</h1>
+            
+            <div class="toc">
+                <h3>Topics Covered:</h3>
+                <ul>
+                    <li><a href="#intro">OOP Concepts</a></li>
+                    <li><a href="#classes">Classes and Objects</a></li>
+                    <li><a href="#methods">Methods and Attributes</a></li>
+                    <li><a href="#inheritance">Inheritance</a></li>
+                    <li><a href="#polymorphism">Polymorphism</a></li>
+                    <li><a href="#encapsulation">Encapsulation</a></li>
+                </ul>
+            </div>
+
+            <section id="intro" class="topic">
+                <h2>1. OOP Concepts</h2>
+                <p><strong>Four Pillars of OOP:</strong></p>
+                <ul>
+                    <li><strong>Encapsulation:</strong> Bundling data and methods together, hiding internal details</li>
+                    <li><strong>Inheritance:</strong> Creating new classes from existing ones</li>
+                    <li><strong>Polymorphism:</strong> Objects of different classes responding to the same method call</li>
+                    <li><strong>Abstraction:</strong> Hiding complex implementation details</li>
+                </ul>
+
+                <p><strong>Benefits of OOP:</strong></p>
+                <ul>
+                    <li>Code reusability</li>
+                    <li>Better organization and maintainability</li>
+                    <li>Easier to debug and test</li>
+                    <li>Models real-world entities effectively</li>
+                </ul>
+            </section>
+
+            <section id="classes" class="topic">
+                <h2>2. Classes and Objects</h2>
+                <p><strong>Basic class definition:</strong></p>
+                <pre><code>class Dog:
+    pass
+
+# Creating an object
+dog = Dog()</code></pre>
+
+                <p><strong>Class with attributes:</strong></p>
+                <pre><code>class Dog:
+    breed = "Unknown"  # Class attribute
+    
+    def __init__(self, name, age):
+        self.name = name    # Instance attribute
+        self.age = age
+
+# Creating objects
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Max", 5)
+
+print(dog1.name)  # Buddy
+print(dog2.age)   # 5</code></pre>
+
+                <p><strong>Understanding self:</strong></p>
+                <ul>
+                    <li><strong>self</strong> refers to the instance of the class</li>
+                    <li>It's always the first parameter in instance methods</li>
+                    <li>It allows access to instance variables and methods</li>
+                </ul>
+            </section>
+
+            <section id="methods" class="topic">
+                <h2>3. Methods and Attributes</h2>
+                <p><strong>Instance methods:</strong></p>
+                <pre><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def bark(self):
+        return f"{self.name} says Woof!"
+    
+    def greet(self, person):
+        return f"{self.name} greets {person}"
+
+dog = Dog("Buddy")
+print(dog.bark())           # Buddy says Woof!
+print(dog.greet("Alice"))   # Buddy greets Alice</code></pre>
+
+                <p><strong>Class methods:</strong></p>
+                <pre><code>class Dog:
+    count = 0
+    
+    def __init__(self, name):
+        self.name = name
+        Dog.count += 1
+    
+    @classmethod
+    def total_dogs(cls):
+        return f"Total dogs: {cls.count}"
+
+dog1 = Dog("Buddy")
+dog2 = Dog("Max")
+print(Dog.total_dogs())  # Total dogs: 2</code></pre>
+
+                <p><strong>Static methods:</strong></p>
+                <pre><code>class Dog:
+    @staticmethod
+    def description():
+        return "Dogs are friendly animals"
+
+print(Dog.description())  # Dogs are friendly animals</code></pre>
+
+                <p><strong>Special methods (Magic methods):</strong></p>
+                <pre><code>class Dog:
+    def __init__(self, name):
+        self.name = name
+    
+    def __str__(self):
+        return f"Dog: {self.name}"
+    
+    def __repr__(self):
+        return f"Dog('{self.name}')"
+    
+    def __len__(self):
+        return len(self.name)
+
+dog = Dog("Buddy")
+print(str(dog))    # Dog: Buddy
+print(repr(dog))   # Dog('Buddy')
+print(len(dog))    # 5</code></pre>
+            </section>
+
+            <section id="inheritance" class="topic">
+                <h2>4. Inheritance</h2>
+                <p>Inheritance allows a class to inherit properties and methods from another class.</p>
+                <pre><code>class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        return f"{self.name} makes a sound"
+
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} barks"
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} meows"
+
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+print(dog.speak())  # Buddy barks
+print(cat.speak())  # Whiskers meows</code></pre>
+
+                <p><strong>Calling parent class methods:</strong></p>
+                <pre><code>class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)  # Call parent __init__
+        self.breed = breed
+    
+    def speak(self):
+        parent_speak = super().speak()
+        return f"{parent_speak} (woof!)"</code></pre>
+
+                <p><strong>Multiple inheritance:</strong></p>
+                <pre><code>class FlyingAbility:
+    def fly(self):
+        return "Flying..."
+
+class SwimmingAbility:
+    def swim(self):
+        return "Swimming..."
+
+class Duck(FlyingAbility, SwimmingAbility):
+    pass
+
+duck = Duck()
+print(duck.fly())    # Flying...
+print(duck.swim())   # Swimming...</code></pre>
+            </section>
+
+            <section id="polymorphism" class="topic">
+                <h2>5. Polymorphism</h2>
+                <p>Polymorphism allows objects of different classes to be used interchangeably.</p>
+                <pre><code>class Dog:
+    def speak(self):
+        return "Woof!"
+
+class Cat:
+    def speak(self):
+        return "Meow!"
+
+class Bird:
+    def speak(self):
+        return "Tweet!"
+
+animals = [Dog(), Cat(), Bird()]
+for animal in animals:
+    print(animal.speak())  # Different output for each</code></pre>
+
+                <p><strong>Duck typing:</strong></p>
+                <p>"If it walks like a duck and quacks like a duck, it's a duck"</p>
+                <pre><code>def make_sound(creature):
+    print(creature.speak())  # Works with any object that has speak()
+
+make_sound(Dog())
+make_sound(Cat())</code></pre>
+
+                <p><strong>Method overriding:</strong></p>
+                <p>A subclass can override methods from the parent class</p>
+                <pre><code>class Vehicle:
+    def start(self):
+        return "Engine started"
+
+class Car(Vehicle):
+    def start(self):
+        return "Car engine started with key"
+
+car = Car()
+print(car.start())  # Car engine started with key</code></pre>
+            </section>
+
+            <section id="encapsulation" class="topic">
+                <h2>6. Encapsulation</h2>
+                <p>Encapsulation hides internal details and controls access to data.</p>
+                <p><strong>Private attributes (single underscore convention):</strong></p>
+                <pre><code>class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance  # Protected
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+    
+    def get_balance(self):
+        return self._balance
+
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # 1500</code></pre>
+
+                <p><strong>Private attributes (double underscore):</strong></p>
+                <pre><code>class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+    
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+# account.__balance  # Error: cannot access directly</code></pre>
+
+                <p><strong>Properties and setters:</strong></p>
+                <pre><code>class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value > 0:
+            self._radius = value
+    
+    @property
+    def area(self):
+        return 3.14 * self._radius ** 2
+
+circle = Circle(5)
+print(circle.area)      # 78.5
+circle.radius = 10
+print(circle.area)      # 314.0</code></pre>
+            </section>
+
+            <div class="unit-nav">
+                <a href="unit4.html" class="btn btn-secondary">← Previous Unit</a>
+                <a href="unit6.html" class="btn btn-primary">Next Unit →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

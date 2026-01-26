@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6: Advanced Topics - Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Unit 6: Advanced Topics</h1>
+            
+            <div class="toc">
+                <h3>Topics Covered:</h3>
+                <ul>
+                    <li><a href="#exceptions">Exception Handling</a></li>
+                    <li><a href="#modules">Modules and Packages</a></li>
+                    <li><a href="#decorators">Decorators</a></li>
+                    <li><a href="#regex">Regular Expressions</a></li>
+                    <li><a href="#lambda">Lambda Functions</a></li>
+                    <li><a href="#generators">Generators</a></li>
+                </ul>
+            </div>
+
+            <section id="exceptions" class="topic">
+                <h2>1. Exception Handling</h2>
+                <p>Exception handling allows graceful error management.</p>
+                <p><strong>Basic try-except:</strong></p>
+                <pre><code>try:
+    num = int("abc")
+except ValueError:
+    print("Invalid input")</code></pre>
+
+                <p><strong>Multiple except blocks:</strong></p>
+                <pre><code>try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+except ValueError:
+    print("Please enter a valid number")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except Exception as e:
+    print(f"An error occurred: {e}")</code></pre>
+
+                <p><strong>Try-except-else-finally:</strong></p>
+                <pre><code>try:
+    file = open("file.txt", "r")
+    content = file.read()
+except FileNotFoundError:
+    print("File not found")
+else:
+    print("File read successfully")
+finally:
+    file.close()  # Always executed</code></pre>
+
+                <p><strong>Raising exceptions:</strong></p>
+                <pre><code>def validate_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    return age
+
+try:
+    validate_age(-5)
+except ValueError as e:
+    print(f"Error: {e}")</code></pre>
+
+                <p><strong>Common exceptions:</strong></p>
+                <ul>
+                    <li><strong>ValueError:</strong> Invalid value</li>
+                    <li><strong>TypeError:</strong> Wrong data type</li>
+                    <li><strong>ZeroDivisionError:</strong> Division by zero</li>
+                    <li><strong>IndexError:</strong> Index out of range</li>
+                    <li><strong>KeyError:</strong> Key not found in dictionary</li>
+                    <li><strong>FileNotFoundError:</strong> File doesn't exist</li>
+                    <li><strong>AttributeError:</strong> Attribute doesn't exist</li>
+                </ul>
+            </section>
+
+            <section id="modules" class="topic">
+                <h2>2. Modules and Packages</h2>
+                <p><strong>Importing modules:</strong></p>
+                <pre><code>import math
+print(math.sqrt(16))   # 4.0
+
+from math import sqrt, pi
+print(sqrt(25))        # 5.0
+print(pi)              # 3.14159...
+
+from math import *     # Import all (not recommended)</code></pre>
+
+                <p><strong>Creating a module:</strong></p>
+                <pre><code># mymodule.py
+def greet(name):
+    return f"Hello, {name}!"
+
+PI = 3.14159
+
+# Using the module
+import mymodule
+print(mymodule.greet("Alice"))  # Hello, Alice!</code></pre>
+
+                <p><strong>Popular built-in modules:</strong></p>
+                <ul>
+                    <li><strong>math:</strong> Mathematical functions</li>
+                    <li><strong>random:</strong> Random number generation</li>
+                    <li><strong>datetime:</strong> Date and time operations</li>
+                    <li><strong>os:</strong> Operating system operations</li>
+                    <li><strong>sys:</strong> System parameters</li>
+                    <li><strong>json:</strong> JSON operations</li>
+                </ul>
+
+                <p><strong>Packages:</strong> Directories with __init__.py file</p>
+                <pre><code>mypackage/
+  __init__.py
+  module1.py
+  module2.py
+  subpackage/
+    __init__.py
+    module3.py
+
+# Importing from package
+from mypackage.module1 import function
+from mypackage.subpackage.module3 import another_function</code></pre>
+            </section>
+
+            <section id="decorators" class="topic">
+                <h2>3. Decorators</h2>
+                <p>Decorators modify or enhance functions without changing their code.</p>
+                <p><strong>Basic decorator:</strong></p>
+                <pre><code>def my_decorator(func):
+    def wrapper():
+        print("Something before")
+        func()
+        print("Something after")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Something before
+# Hello!
+# Something after</code></pre>
+
+                <p><strong>Decorator with arguments:</strong></p>
+                <pre><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def add(a, b):
+    return a + b
+
+print(add(5, 3))  # Calling add, returns 8</code></pre>
+
+                <p><strong>Common decorators:</strong></p>
+                <pre><code>@property          # Make method a property
+@staticmethod      # Static method
+@classmethod       # Class method
+@functools.wraps   # Preserve function metadata</code></pre>
+            </section>
+
+            <section id="regex" class="topic">
+                <h2>4. Regular Expressions</h2>
+                <p>Regular expressions provide pattern matching capabilities.</p>
+                <pre><code>import re
+
+# Basic matching
+text = "The price is 100 dollars"
+if re.search(r"\d+", text):
+    print("Found a number")
+
+# Finding patterns
+numbers = re.findall(r"\d+", text)
+print(numbers)  # ['100']
+
+# Replacing patterns
+new_text = re.sub(r"\d+", "XXX", text)
+print(new_text)  # "The price is XXX dollars"</code></pre>
+
+                <p><strong>Common patterns:</strong></p>
+                <ul>
+                    <li><strong>\d:</strong> Digit (0-9)</li>
+                    <li><strong>\w:</strong> Word character (a-z, A-Z, 0-9, _)</li>
+                    <li><strong>\s:</strong> Whitespace</li>
+                    <li><strong>.</strong> Any character</li>
+                    <li><strong>+:</strong> One or more</li>
+                    <li><strong>*:</strong> Zero or more</li>
+                    <li><strong>?:</strong> Zero or one</li>
+                    <li><strong>^:</strong> Start of string</li>
+                    <li><strong>$:</strong> End of string</li>
+                </ul>
+
+                <p><strong>Email validation:</strong></p>
+                <pre><code>import re
+
+def validate_email(email):
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    return re.match(pattern, email) is not None
+
+print(validate_email("john@example.com"))  # True
+print(validate_email("invalid.email"))     # False</code></pre>
+            </section>
+
+            <section id="lambda" class="topic">
+                <h2>5. Lambda Functions</h2>
+                <p>Lambda functions are small anonymous functions.</p>
+                <p><strong>Basic lambda:</strong></p>
+                <pre><code>square = lambda x: x ** 2
+print(square(5))  # 25
+
+add = lambda x, y: x + y
+print(add(3, 4))  # 7</code></pre>
+
+                <p><strong>Lambda with map():</strong></p>
+                <pre><code>numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+print(squared)  # [1, 4, 9, 16, 25]</code></pre>
+
+                <p><strong>Lambda with filter():</strong></p>
+                <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # [2, 4, 6, 8, 10]</code></pre>
+
+                <p><strong>Lambda with sorted():</strong></p>
+                <pre><code>students = [("Alice", 85), ("Bob", 75), ("Charlie", 90)]
+sorted_students = sorted(students, key=lambda x: x[1], reverse=True)
+print(sorted_students)
+# [('Charlie', 90), ('Alice', 85), ('Bob', 75)]</code></pre>
+            </section>
+
+            <section id="generators" class="topic">
+                <h2>6. Generators</h2>
+                <p>Generators are functions that yield values one at a time.</p>
+                <p><strong>Basic generator:</strong></p>
+                <pre><code>def count_up(n):
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+
+for num in count_up(5):
+    print(num)  # Prints 1 to 5</code></pre>
+
+                <p><strong>Generator with values:</strong></p>
+                <pre><code>def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+fib = fibonacci(8)
+print(list(fib))  # [0, 1, 1, 2, 3, 5, 8, 13]</code></pre>
+
+                <p><strong>Generator expressions:</strong></p>
+                <pre><code>gen = (x ** 2 for x in range(5))
+print(list(gen))  # [0, 1, 4, 9, 16]
+
+# More efficient than list comprehension for large data</code></pre>
+
+                <p><strong>Why generators?</strong></p>
+                <ul>
+                    <li>Memory efficient (yields values one at a time)</li>
+                    <li>Lazy evaluation</li>
+                    <li>Useful for large datasets</li>
+                    <li>Can represent infinite sequences</li>
+                </ul>
+            </section>
+
+            <div class="unit-nav">
+                <a href="unit5.html" class="btn btn-secondary">← Previous Unit</a>
+                <a href="practicals.html" class="btn btn-primary">View Practicals →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

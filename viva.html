@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Questions - Python Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html" class="active">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Viva Questions</h1>
+            <p>Important questions and answers for each unit.</p>
+
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" onclick="switchTab('general', this)">General Viva</button>
+                <button class="tab-btn" onclick="switchTab('unit-wise', this)">Unit-Wise Viva</button>
+                <button class="tab-btn" onclick="switchTab('pdf-download', this)">Download PDFs</button>
+            </div>
+
+            <!-- General Viva Questions Tab -->
+            <div id="general" class="tab-content active">
+
+            <div class="viva-qa">
+                <h2>Q1. What is Python? List its advantages.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Python is a high-level, interpreted, dynamically-typed programming language created by Guido van Rossum in 1991.</p>
+                    <p><strong>Advantages:</strong></p>
+                    <ul>
+                        <li>Easy to learn and read (simple syntax)</li>
+                        <li>Interpreted language (no compilation)</li>
+                        <li>Platform-independent (write once, run anywhere)</li>
+                        <li>Large standard library</li>
+                        <li>Supports multiple programming paradigms (OOP, procedural, functional)</li>
+                        <li>Dynamic typing</li>
+                        <li>Extensive third-party modules</li>
+                        <li>Good community support</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q2. What's the difference between a list and tuple?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <table>
+                        <tr>
+                            <th>Feature</th>
+                            <th>List</th>
+                            <th>Tuple</th>
+                        </tr>
+                        <tr>
+                            <td>Mutability</td>
+                            <td>Mutable (can be changed)</td>
+                            <td>Immutable (cannot be changed)</td>
+                        </tr>
+                        <tr>
+                            <td>Syntax</td>
+                            <td>[1, 2, 3]</td>
+                            <td>(1, 2, 3)</td>
+                        </tr>
+                        <tr>
+                            <td>Performance</td>
+                            <td>Slower</td>
+                            <td>Faster</td>
+                        </tr>
+                        <tr>
+                            <td>Dictionary Keys</td>
+                            <td>Cannot be used</td>
+                            <td>Can be used</td>
+                        </tr>
+                        <tr>
+                            <td>Memory</td>
+                            <td>More memory</td>
+                            <td>Less memory</td>
+                        </tr>
+                    </table>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q3. Explain the difference between == and is operators.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <ul>
+                        <li><strong>==</strong> compares the VALUES of two objects</li>
+                        <li><strong>is</strong> compares if two objects are the SAME OBJECT in memory</li>
+                    </ul>
+                    <pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)  # True (same values)
+print(a is b)  # False (different objects)
+print(a is c)  # True (same object reference)</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q4. What is a lambda function?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Lambda functions are small, anonymous functions defined with the <code>lambda</code> keyword.</p>
+                    <p><strong>Syntax:</strong> <code>lambda arguments: expression</code></p>
+                    <pre><code>square = lambda x: x ** 2
+print(square(5))  # 25
+
+# Used with map, filter, sorted
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))
+evens = list(filter(lambda x: x % 2 == 0, numbers))</code></pre>
+                    <p><strong>Advantages:</strong></p>
+                    <ul>
+                        <li>Useful for small, one-time operations</li>
+                        <li>Can be used with higher-order functions</li>
+                        <li>Reduces code verbosity</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q5. What is the difference between append() and extend()?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <pre><code>list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+# append() - adds entire object as single element
+list1.append(list2)
+print(list1)  # [1, 2, 3, [4, 5, 6]]
+
+# extend() - adds individual elements
+list1 = [1, 2, 3]
+list1.extend(list2)
+print(list1)  # [1, 2, 3, 4, 5, 6]</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q6. Explain the concept of inheritance in OOP.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Inheritance is a mechanism to create new classes from existing classes, allowing code reuse and establishing relationships.</p>
+                    <pre><code>class Animal:
+    def speak(self):
+        return "Sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Bark"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow"
+
+dog = Dog()
+cat = Cat()
+print(dog.speak())  # Bark
+print(cat.speak())  # Meow</code></pre>
+                    <p><strong>Types of inheritance:</strong></p>
+                    <ul>
+                        <li>Single inheritance</li>
+                        <li>Multiple inheritance</li>
+                        <li>Multilevel inheritance</li>
+                        <li>Hierarchical inheritance</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q7. What is polymorphism? Give examples.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Polymorphism means "many forms." It allows objects to take on multiple forms and enables using objects of different classes interchangeably.</p>
+                    <p><strong>Method Overriding (Runtime Polymorphism):</strong></p>
+                    <pre><code>class Dog:
+    def speak(self):
+        return "Woof"
+
+class Cat:
+    def speak(self):
+        return "Meow"
+
+def make_sound(animal):
+    print(animal.speak())
+
+make_sound(Dog())  # Woof
+make_sound(Cat())  # Meow</code></pre>
+                    <p><strong>Operator Overloading:</strong></p>
+                    <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q8. What is a decorator?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>A decorator is a function that modifies or enhances another function or class without permanently changing its source code.</p>
+                    <pre><code>def my_decorator(func):
+    def wrapper():
+        print("Before calling function")
+        func()
+        print("After calling function")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Before calling function
+# Hello!
+# After calling function</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q9. Explain exception handling. What is try-except?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Exception handling allows graceful error management in programs.</p>
+                    <pre><code>try:
+    # Code that might raise an exception
+    num = int(input("Enter a number: "))
+    result = 10 / num
+except ValueError:
+    print("Please enter a valid number")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except Exception as e:
+    print(f"An error occurred: {e}")
+else:
+    print("No error occurred")
+finally:
+    print("This always executes")</code></pre>
+                    <p><strong>Common exceptions:</strong></p>
+                    <ul>
+                        <li>ValueError, TypeError, ZeroDivisionError</li>
+                        <li>IndexError, KeyError, AttributeError</li>
+                        <li>FileNotFoundError, IOError</li>
+                    </ul>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q10. What is the difference between == and is?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <ul>
+                        <li><strong>==</strong> checks for VALUE equality</li>
+                        <li><strong>is</strong> checks for IDENTITY (same object in memory)</li>
+                    </ul>
+                    <pre><code>x = [1, 2, 3]
+y = [1, 2, 3]
+z = x
+
+print(x == y)  # True (same values)
+print(x is y)  # False (different objects)
+print(x is z)  # True (same reference)</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q11. What is slicing? Give examples.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Slicing is a technique to extract a portion of a sequence using the slice operator [start:end:step].</p>
+                    <pre><code>s = "Python"
+list = [1, 2, 3, 4, 5]
+
+# Basic slicing
+print(s[0:2])        # Py (start=0, end=2)
+print(list[1:4])     # [2, 3, 4]
+
+# With step
+print(s[::2])        # Pto (every 2nd character)
+print(list[::2])     # [1, 3, 5]
+
+# Negative indices
+print(s[-3:])        # hon (last 3 characters)
+print(list[:-2])     # [1, 2, 3]
+
+# Reverse
+print(s[::-1])       # nohtyP
+print(list[::-1])    # [5, 4, 3, 2, 1]</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q12. What is *args and **kwargs?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p><strong>*args:</strong> Allows passing variable number of non-keyword arguments</p>
+                    <pre><code>def add(*args):
+    return sum(args)
+
+print(add(1, 2, 3, 4, 5))  # 15</code></pre>
+                    
+                    <p><strong>**kwargs:</strong> Allows passing variable number of keyword arguments</p>
+                    <pre><code>def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="John", age=25, city="NYC")</code></pre>
+
+                    <p><strong>Both together:</strong></p>
+                    <pre><code>def func(*args, **kwargs):
+    print("args:", args)
+    print("kwargs:", kwargs)
+
+func(1, 2, 3, name="John", age=25)</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q13. What is a generator?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>A generator is a function that yields values one at a time instead of returning all at once. It's memory efficient.</p>
+                    <pre><code>def count_up(n):
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+
+for num in count_up(5):
+    print(num)  # 1, 2, 3, 4, 5</code></pre>
+                    <p><strong>Fibonacci using generators:</strong></p>
+                    <pre><code>def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+fib = fibonacci(8)
+print(list(fib))  # [0, 1, 1, 2, 3, 5, 8, 13]</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q14. Explain the concept of scope in Python.</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <p>Scope determines the visibility and accessibility of variables.</p>
+                    <p><strong>Types of scope (LEGB rule):</strong></p>
+                    <ul>
+                        <li><strong>Local:</strong> Inside function</li>
+                        <li><strong>Enclosing:</strong> In outer function (nested functions)</li>
+                        <li><strong>Global:</strong> Outside all functions</li>
+                        <li><strong>Built-in:</strong> Python built-in scope</li>
+                    </ul>
+                    <pre><code>x = 10  # Global
+
+def outer():
+    y = 20  # Enclosing (for inner)
+    
+    def inner():
+        z = 30  # Local
+        print(x, y, z)  # Can access all
+    
+    inner()
+
+outer()</code></pre>
+                </details>
+            </div>
+
+            <div class="viva-qa">
+                <h2>Q15. What are the differences between pass, break, and continue?</h2>
+                <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong></p>
+                    <table>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Purpose</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td><strong>pass</strong></td>
+                            <td>Null operation (do nothing)</td>
+                            <td><code>if condition: pass</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>break</strong></td>
+                            <td>Exit the loop immediately</td>
+                            <td><code>if i == 5: break</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>continue</strong></td>
+                            <td>Skip current iteration</td>
+                            <td><code>if i % 2 == 0: continue</code></td>
+                        </tr>
+                    </table>
+                    <pre><code># pass example
+for i in range(5):
+    pass  # Do nothing
+
+# break example
+for i in range(10):
+    if i == 5:
+        break
+    print(i)  # Prints 0 to 4
+
+# continue example
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)  # Prints 0, 1, 3, 4</code></pre>
+                </details>
+            </div>
+
+            <div class="unit-nav">
+                <a href="practicals.html" class="btn btn-secondary">← Practicals</a>
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+            </div>
+            </div>
+
+            <!-- Unit-Wise Viva Questions Tab -->
+            <div id="unit-wise" class="tab-content">
+                <h2>Unit-Wise Viva Questions</h2>
+                <p>Access detailed viva questions organized by unit.</p>
+                
+                <div class="units-grid">
+                    <div class="unit-card">
+                        <h3>Unit 1: Fundamentals</h3>
+                        <p>Basic Syntax, Data Types, Operators, I/O, and Data Structures</p>
+                        <a href="unit1-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                    <div class="unit-card">
+                        <h3>Unit 2: Control Flow</h3>
+                        <p>Conditional Statements, Loops, and Program Control</p>
+                        <a href="unit2-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                    <div class="unit-card">
+                        <h3>Unit 3: Functions</h3>
+                        <p>Function Definition, Parameters, Return Values, and Scope</p>
+                        <a href="unit3-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                    <div class="unit-card">
+                        <h3>Unit 4: Data Structures</h3>
+                        <p>Lists, Tuples, Dictionaries, Sets, and File Handling</p>
+                        <a href="unit4-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                    <div class="unit-card">
+                        <h3>Unit 5: OOP</h3>
+                        <p>Classes, Objects, Inheritance, Polymorphism, and Encapsulation</p>
+                        <a href="unit5-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                    <div class="unit-card">
+                        <h3>Unit 6: Advanced Topics</h3>
+                        <p>Exception Handling, Modules, Decorators, and Generators</p>
+                        <a href="unit6-viva.html" class="btn btn-small">View Questions</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Download Tab -->
+            <div id="pdf-download" class="tab-content">
+                <h2>Download Viva Question PDFs</h2>
+                <p class="table-note">Download complete viva questions with answers for each unit in PDF format.</p>
+                <p class="table-note">Place your PDF files inside a <strong>pdfs/</strong> folder next to this page using the exact file names listed below.</p>
+
+                <div class="table-wrapper">
+                    <table class="download-table">
+                        <thead>
+                            <tr>
+                                <th>Unit Name</th>
+                                <th>Questions</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Unit 1: Fundamentals</td>
+                                <td>30 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit1-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr>
+                                <td>Unit 2: Control Flow</td>
+                                <td>25 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit2-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr>
+                                <td>Unit 3: Functions</td>
+                                <td>28 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit3-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr>
+                                <td>Unit 4: Data Structures</td>
+                                <td>30 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit4-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr>
+                                <td>Unit 5: OOP</td>
+                                <td>32 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit5-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr>
+                                <td>Unit 6: Advanced Topics</td>
+                                <td>26 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/unit6-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                            <tr style="background-color: #e8f5e9; font-weight: bold;">
+                                <td>Complete Viva Question Bank</td>
+                                <td>171 Questions</td>
+                                <td class="download-cell"><a class="btn btn-primary download-btn" href="pdfs/complete-viva-questions.pdf" target="_blank" rel="noopener noreferrer" download>Download PDF</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

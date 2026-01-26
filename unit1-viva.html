@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 - Viva Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Unit 1: Viva Questions</h1>
+            <p>Module-wise viva questions for Unit 1</p>
+
+            <!-- Module 1: Basic Syntax and Data Types -->
+            <div class="module-section">
+                <h2>Module 1: Basic Syntax and Data Types - Variables, Data types, Operators, Input and Output</h2>
+                
+                <div class="viva-qa">
+                    <h3>Q1. What is Python? Why is it popular?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Python is a high-level, interpreted, dynamically-typed programming language created by Guido van Rossum in 1991.</p>
+                        <p><strong>Why it's popular:</strong></p>
+                        <ul>
+                            <li>Easy to learn and read - simple syntax</li>
+                            <li>Interpreted language - no compilation needed</li>
+                            <li>Platform-independent - write once, run anywhere</li>
+                            <li>Large standard library and packages</li>
+                            <li>Supports multiple programming paradigms</li>
+                            <li>Great community support</li>
+                            <li>Used in AI, ML, web development, data science</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q2. What are variables? How do you declare them in Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Variables are containers for storing data values. In Python, you don't need to explicitly declare variables or their type.</p>
+                        <pre><code># Simple variable declaration
+name = "John"
+age = 25
+height = 5.9
+is_student = True
+
+# Multiple assignment
+x, y, z = 1, 2, 3
+
+# Dynamic typing
+var = 10      # integer
+var = "hello" # now it's a string</code></pre>
+                        <p><strong>Naming conventions:</strong></p>
+                        <ul>
+                            <li>Use lowercase letters</li>
+                            <li>Use underscores for multiple words</li>
+                            <li>Start with letter or underscore</li>
+                            <li>Cannot start with a number</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q3. What are the basic data types in Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Python has several built-in data types:</p>
+                        <table>
+                            <tr>
+                                <th>Data Type</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><strong>int</strong></td>
+                                <td>Integer numbers</td>
+                                <td>5, -10, 0</td>
+                            </tr>
+                            <tr>
+                                <td><strong>float</strong></td>
+                                <td>Decimal numbers</td>
+                                <td>3.14, -2.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>str</strong></td>
+                                <td>Text/strings</td>
+                                <td>"hello", 'world'</td>
+                            </tr>
+                            <tr>
+                                <td><strong>bool</strong></td>
+                                <td>Boolean</td>
+                                <td>True, False</td>
+                            </tr>
+                            <tr>
+                                <td><strong>list</strong></td>
+                                <td>Ordered collection</td>
+                                <td>[1, 2, 3]</td>
+                            </tr>
+                            <tr>
+                                <td><strong>tuple</strong></td>
+                                <td>Immutable collection</td>
+                                <td>(1, 2, 3)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>dict</strong></td>
+                                <td>Key-value pairs</td>
+                                <td>{"name": "John"}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>set</strong></td>
+                                <td>Unique items</td>
+                                <td>{1, 2, 3}</td>
+                            </tr>
+                        </table>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q4. What are operators in Python? List different types.</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Operators are symbols used to perform operations on variables and values.</p>
+                        <p><strong>Types of operators:</strong></p>
+                        <ul>
+                            <li><strong>Arithmetic:</strong> +, -, *, /, //, %, **</li>
+                            <li><strong>Comparison:</strong> ==, !=, >, <, >=, <=</li>
+                            <li><strong>Logical:</strong> and, or, not</li>
+                            <li><strong>Assignment:</strong> =, +=, -=, *=, /=, //=, %=, **=</li>
+                            <li><strong>Membership:</strong> in, not in</li>
+                            <li><strong>Identity:</strong> is, is not</li>
+                            <li><strong>Bitwise:</strong> &, |, ^, ~, <<, >></li>
+                        </ul>
+                        <pre><code># Examples
+a = 10
+b = 3
+
+print(a + b)    # 13 (addition)
+print(a - b)    # 7 (subtraction)
+print(a * b)    # 30 (multiplication)
+print(a / b)    # 3.33 (division)
+print(a // b)   # 3 (floor division)
+print(a % b)    # 1 (modulus)
+print(a ** b)   # 1000 (exponentiation)</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q5. What's the difference between / and // operators?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <ul>
+                            <li><strong>/ (Division):</strong> Returns quotient as float</li>
+                            <li><strong>// (Floor Division):</strong> Returns quotient as integer (rounded down)</li>
+                        </ul>
+                        <pre><code>print(10 / 3)   # 3.333... (float)
+print(10 // 3)  # 3 (integer)
+print(-10 / 3)  # -3.333...
+print(-10 // 3) # -4 (rounded down to nearest integer)</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q6. What is the difference between == and is?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <ul>
+                            <li><strong>==:</strong> Compares VALUES of two objects</li>
+                            <li><strong>is:</strong> Compares if two objects are the SAME OBJECT in memory (identity)</li>
+                        </ul>
+                        <pre><code>a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)  # True (same values)
+print(a is b)  # False (different objects)
+print(a is c)  # True (same reference)</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q7. How do you take input from the user in Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Use the <code>input()</code> function to take input from the user. It always returns a string.</p>
+                        <pre><code># Basic input
+name = input("Enter your name: ")
+print(name)  # Returns string
+
+# Converting input to other types
+age = int(input("Enter your age: "))
+height = float(input("Enter your height: "))
+
+# Multiple inputs
+x, y = input("Enter two values: ").split()
+
+# Getting input with default message
+city = input()  # Will wait for user input</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q8. How do you display output in Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Use the <code>print()</code> function to display output.</p>
+                        <pre><code># Basic print
+print("Hello, World!")
+
+# Print multiple values
+print("Name:", "John", "Age:", 25)
+
+# Print with separator
+print("apple", "banana", "cherry", sep=", ")
+
+# Print with end parameter
+print("Hello", end=" ")
+print("World")  # Output: Hello World
+
+# F-strings (formatted strings)
+name = "Alice"
+age = 25
+print(f"Name: {name}, Age: {age}")
+
+# String formatting
+print("I have {} apples".format(10))
+print("Name: %s, Age: %d" % ("Bob", 30))</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q9. What is type conversion? Give examples.</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Type conversion is converting one data type to another.</p>
+                        <pre><code># Convert to int
+int("123")     # 123
+int(45.67)     # 45
+int(True)      # 1
+
+# Convert to float
+float("3.14")  # 3.14
+float(10)      # 10.0
+float(True)    # 1.0
+
+# Convert to string
+str(123)       # "123"
+str(3.14)      # "3.14"
+str(True)      # "True"
+
+# Convert to boolean
+bool(1)        # True
+bool(0)        # False
+bool("")       # False
+bool("text")   # True
+bool([])       # False
+bool([1, 2])   # True</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q10. What happens if you try to add a string and a number?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>You will get a <strong>TypeError</strong> because Python cannot directly add incompatible types.</p>
+                        <pre><code>print("Hello" + 5)  # TypeError: can only concatenate str (not "int") to str
+
+# Solution 1: Convert number to string
+print("Hello" + str(5))  # Output: Hello5
+
+# Solution 2: Use f-string
+print(f"Hello {5}")  # Output: Hello 5</code></pre>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 2: Data Structures -->
+            <div class="module-section">
+                <h2>Module 2: Data Structures - List, Tuple, Set and Dictionary</h2>
+                
+                <div class="viva-qa">
+                    <h3>Q1. What is a list? How do you create and access elements?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>A list is an ordered, mutable (changeable) collection of items enclosed in square brackets.</p>
+                        <pre><code># Creating a list
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "hello", 3.14, True]
+empty_list = []
+
+# Accessing elements
+print(fruits[0])      # apple (first element)
+print(fruits[-1])     # cherry (last element)
+print(fruits[1:3])    # ['banana', 'cherry'] (slicing)
+
+# Modifying elements
+fruits[0] = "orange"
+fruits.append("date")
+fruits.extend([1, 2])
+fruits.insert(1, "grape")</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q2. What is the difference between list and tuple?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Feature</th>
+                                <th>List</th>
+                                <th>Tuple</th>
+                            </tr>
+                            <tr>
+                                <td>Mutability</td>
+                                <td>Mutable (can change)</td>
+                                <td>Immutable (fixed)</td>
+                            </tr>
+                            <tr>
+                                <td>Syntax</td>
+                                <td>[1, 2, 3]</td>
+                                <td>(1, 2, 3)</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>Slower</td>
+                                <td>Faster</td>
+                            </tr>
+                            <tr>
+                                <td>Dict Keys</td>
+                                <td>Cannot be used</td>
+                                <td>Can be used</td>
+                            </tr>
+                            <tr>
+                                <td>Methods</td>
+                                <td>More methods</td>
+                                <td>Fewer methods</td>
+                            </tr>
+                        </table>
+                        <pre><code># List example
+list = [1, 2, 3]
+list[0] = 10  # Allowed
+
+# Tuple example
+tuple = (1, 2, 3)
+tuple[0] = 10  # Error: 'tuple' object does not support item assignment</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q3. What is a tuple and what are its advantages?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>A tuple is an ordered, immutable collection of items enclosed in parentheses.</p>
+                        <pre><code># Creating tuples
+colors = ("red", "green", "blue")
+single = (1,)  # Note the comma for single element
+mixed = (1, "hello", 3.14, True)
+
+# Accessing elements
+print(colors[0])  # red
+print(colors[1:]) # ('green', 'blue')</code></pre>
+                        <p><strong>Advantages:</strong></p>
+                        <ul>
+                            <li>Immutability ensures data integrity</li>
+                            <li>Can be used as dictionary keys</li>
+                            <li>Slightly faster than lists</li>
+                            <li>Prevent accidental modifications</li>
+                            <li>Thread-safe for concurrent access</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q4. What are sets? How are they different from lists?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>A set is an unordered collection of unique items enclosed in curly braces.</p>
+                        <pre><code># Creating sets
+numbers = {1, 2, 3, 2, 1}  # {1, 2, 3} - duplicates removed
+colors = {"red", "green", "blue"}
+empty_set = set()  # Note: {} creates empty dict, not set
+
+# Adding elements
+colors.add("yellow")
+
+# Removing elements
+colors.remove("red")      # Error if not found
+colors.discard("green")   # No error if not found</code></pre>
+                        <p><strong>Differences from lists:</strong></p>
+                        <ul>
+                            <li>Unordered (no indexing)</li>
+                            <li>No duplicates allowed</li>
+                            <li>Mutable (can add/remove elements)</li>
+                            <li>Faster membership testing</li>
+                            <li>Cannot contain unhashable types</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q5. What are set operations? Give examples.</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Sets support mathematical operations.</p>
+                        <pre><code>a = {1, 2, 3}
+b = {3, 4, 5}
+
+# Union - all elements from both sets
+print(a | b)        # {1, 2, 3, 4, 5}
+print(a.union(b))   # {1, 2, 3, 4, 5}
+
+# Intersection - common elements
+print(a & b)              # {3}
+print(a.intersection(b))  # {3}
+
+# Difference - elements in first set but not in second
+print(a - b)         # {1, 2}
+print(a.difference(b))  # {1, 2}
+
+# Symmetric Difference - elements in either set but not both
+print(a ^ b)                  # {1, 2, 4, 5}
+print(a.symmetric_difference(b))  # {1, 2, 4, 5}</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q6. What is a dictionary? How do you create and access elements?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>A dictionary is an unordered, mutable collection of key-value pairs enclosed in curly braces.</p>
+                        <pre><code># Creating dictionaries
+student = {
+    "name": "John",
+    "age": 20,
+    "city": "NYC",
+    "marks": [90, 85, 88]
+}
+
+# Accessing values
+print(student["name"])       # John
+print(student.get("age"))    # 20
+print(student.get("email", "Not found"))  # Not found
+
+# Modifying values
+student["age"] = 21
+student["email"] = "john@example.com"
+
+# Removing items
+del student["email"]
+student.pop("city")</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q7. What dictionary methods do you know?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <pre><code>d = {"a": 1, "b": 2, "c": 3}
+
+# Get keys, values, and items
+print(d.keys())        # dict_keys(['a', 'b', 'c'])
+print(d.values())      # dict_values([1, 2, 3])
+print(d.items())       # dict_items([('a', 1), ('b', 2), ('c', 3)])
+
+# Get value with default
+print(d.get("a", 0))   # 1
+print(d.get("x", 0))   # 0
+
+# Update dictionary
+d.update({"d": 4})     # Add new key-value
+d.update({"a": 10})    # Modify existing key
+
+# Clear and copy
+d.clear()              # Remove all items
+copy = d.copy()        # Create a copy
+
+# Check if key exists
+print("a" in d)        # True
+print("x" in d)        # False
+
+# Pop and popitem
+d.pop("a")             # Remove and return value
+d.popitem()            # Remove last item</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q8. What is list slicing? Explain with examples.</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Slicing extracts a portion of a sequence using [start:end:step] syntax.</p>
+                        <pre><code>list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Basic slicing
+print(list[0:5])       # [0, 1, 2, 3, 4] (start=0, end=5)
+print(list[2:7])       # [2, 3, 4, 5, 6]
+
+# Omit start or end
+print(list[:5])        # [0, 1, 2, 3, 4] (from beginning)
+print(list[5:])        # [5, 6, 7, 8, 9] (to end)
+
+# Step parameter
+print(list[::2])       # [0, 2, 4, 6, 8] (every 2nd)
+print(list[1::2])      # [1, 3, 5, 7, 9]
+
+# Negative indices
+print(list[-3:])       # [7, 8, 9] (last 3)
+print(list[:-2])       # [0, 1, 2, 3, 4, 5, 6, 7] (all except last 2)
+
+# Reverse
+print(list[::-1])      # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q9. What is the difference between mutable and immutable data types?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Mutable</th>
+                                <th>Immutable</th>
+                            </tr>
+                            <tr>
+                                <td>Can be changed after creation</td>
+                                <td>Cannot be changed after creation</td>
+                            </tr>
+                            <tr>
+                                <td>list, dict, set</td>
+                                <td>int, float, str, tuple, bool</td>
+                            </tr>
+                            <tr>
+                                <td>Slower</td>
+                                <td>Faster</td>
+                            </tr>
+                            <tr>
+                                <td>Not usable as dict keys</td>
+                                <td>Can be used as dict keys</td>
+                            </tr>
+                        </table>
+                        <pre><code># Mutable
+list = [1, 2, 3]
+list[0] = 10  # Allowed
+
+# Immutable
+string = "hello"
+string[0] = "H"  # Error: 'str' object does not support item assignment</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q10. How do you check if an element exists in a list or dictionary?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p>Use the <code>in</code> operator to check membership.</p>
+                        <pre><code># Check in list
+fruits = ["apple", "banana", "cherry"]
+if "apple" in fruits:
+    print("Apple is in the list")
+
+# Check in dictionary (checks keys by default)
+student = {"name": "John", "age": 20}
+if "name" in student:
+    print("Name key exists")
+
+if "John" in student.values():
+    print("John is a value")
+
+# Check in tuple
+colors = ("red", "green", "blue")
+if "red" in colors:
+    print("Red is in colors")
+
+# Using index for list (will raise error if not found)
+try:
+    index = fruits.index("banana")
+    print(f"Banana is at index {index}")
+except ValueError:
+    print("Not found")</code></pre>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Module 3: Syntax Transition -->
+            <div class="module-section">
+                <h2>Module 3: Understanding the Syntax Transition: From C to Python</h2>
+                
+                <div class="viva-qa">
+                    <h3>Q1. What are the major differences between C and Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <table>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>C</th>
+                                <th>Python</th>
+                            </tr>
+                            <tr>
+                                <td>Compilation</td>
+                                <td>Compiled language</td>
+                                <td>Interpreted language</td>
+                            </tr>
+                            <tr>
+                                <td>Variable Declaration</td>
+                                <td>Must declare type</td>
+                                <td>Dynamic typing</td>
+                            </tr>
+                            <tr>
+                                <td>Syntax</td>
+                                <td>Complex, uses {}</td>
+                                <td>Simple, uses indentation</td>
+                            </tr>
+                            <tr>
+                                <td>Speed</td>
+                                <td>Faster execution</td>
+                                <td>Slower execution</td>
+                            </tr>
+                            <tr>
+                                <td>Memory Management</td>
+                                <td>Manual (malloc/free)</td>
+                                <td>Automatic (garbage collection)</td>
+                            </tr>
+                            <tr>
+                                <td>Functions</td>
+                                <td>void, int, char, etc.</td>
+                                <td>def keyword</td>
+                            </tr>
+                        </table>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q2. How does variable declaration differ between C and Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Static typing):</strong></p>
+                        <pre><code>// Must declare type
+int age = 25;
+float height = 5.9;
+char name[] = "John";
+int arr[5] = {1, 2, 3, 4, 5};</code></pre>
+                        
+                        <p><strong>Python (Dynamic typing):</strong></p>
+                        <pre><code># No need to declare type
+age = 25              # Automatically int
+height = 5.9          # Automatically float
+name = "John"         # Automatically str
+arr = [1, 2, 3, 4, 5] # Automatically list
+
+# Type can change
+var = 10      # int
+var = "hello" # Now string</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q3. Explain indentation in Python vs braces in C.</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Uses braces {}):</strong></p>
+                        <pre><code>if (age > 18) {
+    printf("You are an adult");
+} else {
+    printf("You are a minor");
+}
+
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", i);
+}</code></pre>
+                        
+                        <p><strong>Python (Uses indentation):</strong></p>
+                        <pre><code>if age > 18:
+    print("You are an adult")
+else:
+    print("You are a minor")
+
+for i in range(5):
+    print(i)</code></pre>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>Python uses indentation (whitespace) to define code blocks</li>
+                            <li>C uses curly braces {} for code blocks</li>
+                            <li>Python indentation must be consistent</li>
+                            <li>Python is more readable due to enforced indentation</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q4. How do you print in C vs Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (printf):</strong></p>
+                        <pre><code>#include &lt;stdio.h&gt;
+
+printf("Hello, World!\n");
+printf("Name: %s, Age: %d\n", "John", 25);
+printf("Height: %.2f\n", 5.9);</code></pre>
+                        
+                        <p><strong>Python (print):</strong></p>
+                        <pre><code>print("Hello, World!")
+print("Name:", "John", "Age:", 25)
+print(f"Name: John, Age: 25")
+print("Height: {:.2f}".format(5.9))</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q5. How does input work in C vs Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (scanf):</strong></p>
+                        <pre><code>#include &lt;stdio.h&gt;
+
+int age;
+char name[50];
+
+scanf("%d", &age);
+scanf("%s", name);
+printf("Age: %d, Name: %s\n", age, name);</code></pre>
+                        
+                        <p><strong>Python (input):</strong></p>
+                        <pre><code>age = int(input("Enter age: "))
+name = input("Enter name: ")
+print(f"Age: {age}, Name: {name}")</code></pre>
+                        <p><strong>Differences:</strong></p>
+                        <ul>
+                            <li>C requires format specifiers (%d, %s, etc.)</li>
+                            <li>Python input() always returns string</li>
+                            <li>Python simpler and more intuitive</li>
+                            <li>C requires variable declaration before input</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q6. How do you declare and use arrays in C vs Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Fixed-size arrays):</strong></p>
+                        <pre><code>int arr[5] = {1, 2, 3, 4, 5};
+printf("%d\n", arr[0]);  // Access first element
+
+// Cannot change size after creation
+char name[50];  // Fixed 50 characters</code></pre>
+                        
+                        <p><strong>Python (Dynamic lists):</strong></p>
+                        <pre><code>arr = [1, 2, 3, 4, 5]
+print(arr[0])  # Access first element
+
+# Can change size dynamically
+arr.append(6)
+arr.extend([7, 8])
+arr.insert(0, 0)  # Insert at position
+
+name = "Hello"  # String can grow</code></pre>
+                        <p><strong>Key differences:</strong></p>
+                        <ul>
+                            <li>C arrays have fixed size</li>
+                            <li>Python lists are dynamic</li>
+                            <li>C requires contiguous memory</li>
+                            <li>Python lists are more flexible</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q7. How do you define functions in C vs Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Must specify return type):</strong></p>
+                        <pre><code>int add(int a, int b) {
+    return a + b;
+}
+
+void greet() {
+    printf("Hello!\n");
+}
+
+int main() {
+    int result = add(5, 3);
+    greet();
+    return 0;
+}</code></pre>
+                        
+                        <p><strong>Python (Dynamic return types):</strong></p>
+                        <pre><code>def add(a, b):
+    return a + b
+
+def greet():
+    print("Hello!")
+
+# Can return different types
+def get_value(choice):
+    if choice == 1:
+        return 10      # int
+    else:
+        return "text"  # string</code></pre>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q8. What is the purpose of header files in C? Does Python need them?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Header files):</strong></p>
+                        <pre><code>#include &lt;stdio.h&gt;   // Standard I/O
+#include &lt;stdlib.h&gt;  // Standard library
+#include &lt;string.h&gt;  // String functions
+#include "myheader.h" // Custom header</code></pre>
+                        <p><strong>Purpose:</strong></p>
+                        <ul>
+                            <li>Declare functions before use</li>
+                            <li>Import standard libraries</li>
+                            <li>Avoid duplication of declarations</li>
+                        </ul>
+
+                        <p><strong>Python (No headers needed):</strong></p>
+                        <pre><code>import math        # Import module
+from os import path  # Import specific function
+from math import sqrt, pi  # Import multiple</code></pre>
+                        <p><strong>Key differences:</strong></p>
+                        <ul>
+                            <li>Python uses import instead of #include</li>
+                            <li>Python modules are loaded at runtime</li>
+                            <li>No separate compilation needed</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q9. How does memory management differ between C and Python?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <p><strong>C (Manual memory management):</strong></p>
+                        <pre><code>#include &lt;stdlib.h&gt;
+
+int *ptr = (int *)malloc(sizeof(int) * 5);  // Allocate
+ptr[0] = 10;
+free(ptr);  // Must free memory
+
+// Memory leaks if you forget free()</code></pre>
+                        
+                        <p><strong>Python (Automatic garbage collection):</strong></p>
+                        <pre><code>list = [1, 2, 3, 4, 5]
+# Memory automatically freed when not needed
+del list  # Optional, automatic cleanup happens</code></pre>
+                        <p><strong>Differences:</strong></p>
+                        <ul>
+                            <li>C requires malloc/free</li>
+                            <li>Python has automatic garbage collection</li>
+                            <li>C faster but error-prone</li>
+                            <li>Python safer but slightly slower</li>
+                        </ul>
+                    </details>
+                </div>
+
+                <div class="viva-qa">
+                    <h3>Q10. What are the advantages of learning Python after C?</h3>
+                    <details>
+                        <summary>Show Answer</summary>
+                        <p><strong>Answer:</strong></p>
+                        <ul>
+                            <li><strong>Better understanding of fundamentals:</strong> C teaches low-level concepts</li>
+                            <li><strong>Appreciation for high-level features:</strong> Python's automatic memory management feels effortless</li>
+                            <li><strong>Faster development:</strong> Python allows rapid prototyping</li>
+                            <li><strong>Reduced bugs:</strong> Python's dynamic typing catches errors early</li>
+                            <li><strong>Better readability:</strong> Python's syntax is more intuitive</li>
+                            <li><strong>Applicable to modern domains:</strong> Python is used in AI, ML, Data Science</li>
+                            <li><strong>Easy transition:</strong> Both are procedural, making the shift easier</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+
+            <div class="unit-nav">
+                <a href="unit1.html" class="btn btn-secondary">← Back to Unit 1</a>
+                <a href="viva.html" class="btn btn-primary">General Viva Questions →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
