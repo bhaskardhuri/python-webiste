@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Highlight current active link
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    // reuse previously defined `navLinks` NodeList
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === currentPage) {

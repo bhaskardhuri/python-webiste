@@ -143,7 +143,7 @@ img {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: var(--white);
+  background-color: var(--secondary-color);
     border-radius: 2px;
     transition: all 0.3s ease;
 }
@@ -424,7 +424,7 @@ img {
 
 /* Code Styles */
 code {
-    background-color: var(--light-bg);
+   background-color: var(--secondary-color);
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
@@ -1480,6 +1480,7 @@ footer {
     .btn-secondary {
         background-color: var(--light-bg);
         color: var(--text-dark);
+        border: 1px solid rgba(0,0,0,0.06);
     }
 
     .download-btn, .view-btn {
@@ -1516,14 +1517,19 @@ footer {
 
     .unit-card {
         padding: 1rem;
+        background-color: var(--secondary-color);
+        color: var(--text-dark);
+        border-left: 4px solid var(--primary-color);
     }
 
     .unit-card h3 {
         font-size: 1rem;
+        color: var(--primary-color);
     }
 
     .unit-card p {
         font-size: 0.85rem;
+        color: var(--text-dark);
     }
 
     /* Cards */
@@ -1558,6 +1564,10 @@ footer {
         left: 50%;
         z-index: 1001;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        background-color: var(--white);
+        color: var(--text-dark);
+        padding: 1rem;
+        border-radius: 8px;
     }
 
     /* Viva Questions */
@@ -1734,8 +1744,7 @@ footer {
     /* Code Blocks */
     pre {
         border-radius: 4px;
-        border: 1px solid var(--light-bg);
-        background-color: #f5f5f5;
+        background-color: var(--secondary-color);
         margin-bottom: 1rem;
     }
 
