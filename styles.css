@@ -766,6 +766,312 @@ footer {
     transform: translateX(5px);
 }
 
+/* About Me Page Styles */
+.about-section {
+    padding: 2rem 0;
+}
+
+.about-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.about-header h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.about-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.about-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.teaching-philosophy {
+    margin-bottom: 3rem;
+}
+
+.teaching-philosophy h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 1rem;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.philosophy-item {
+    background: linear-gradient(135deg, #f5f5f5 0%, var(--light-bg) 100%);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: var(--box-shadow);
+}
+
+.philosophy-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.philosophy-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.resources-offered {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+}
+
+.resources-offered h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 1rem;
+}
+
+.resources-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.resource-item {
+    display: flex;
+    gap: 1.5rem;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    align-items: flex-start;
+}
+
+.resource-icon {
+    font-size: 2rem;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resource-item h4 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.resource-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.contact-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.contact-info {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.closing-message {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* About Hover Card - ID Card Style */
+.about-hover-trigger {
+    position: relative;
+}
+
+.about-hover-card {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: linear-gradient(to bottom, #2c3e50 0%, #2c3e50 42%, #ffffff 42%, #ffffff 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(52, 152, 219, 0.3);
+    width: 320px;
+    overflow: hidden;
+    z-index: 1000;
+    animation: slideDown 0.3s ease-out;
+    border: 3px solid #3498db;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-hover-trigger:hover .about-hover-card {
+    display: block;
+}
+
+.about-profile-photo {
+    background: transparent;
+    padding: 1.5rem 1rem 0.5rem;
+    text-align: center;
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 4px solid #3498db;
+    object-fit: cover;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background: #fff;
+}
+
+.profile-name {
+    margin: 0.8rem 0 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 700;
+    padding: 0 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.profile-role {
+    background: #3498db;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.4rem 1.5rem;
+    padding: 0.4rem 1rem;
+    text-align: center;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
+}
+
+.about-info-compact {
+    padding: 0.8rem 1rem 1rem;
+    background: #f8f9fa;
+    margin: 0.8rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+}
+
+.about-info-compact p {
+    margin: 0.4rem 0;
+    font-size: 0.85rem;
+    color: #2c3e50;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.about-info-compact strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.email-link {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid #dee2e6;
+}
+
+.email-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.email-link a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
 @media (max-width: 480px) {
     .navbar .container {
         flex-direction: column;

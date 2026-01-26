@@ -246,3 +246,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// About Modal Functions
+function openAbout(event) {
+    event.preventDefault();
+    const modal = document.getElementById('aboutModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+function closeAbout() {
+    const modal = document.getElementById('aboutModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('aboutModal');
+    if (modal && event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
