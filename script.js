@@ -24,6 +24,38 @@ function switchTab(tabName, button) {
 
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Hamburger menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (hamburger) {
+                hamburger.classList.remove('active');
+            }
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (hamburger && !event.target.closest('.navbar')) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
     // Add smooth scrolling for anchor links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
