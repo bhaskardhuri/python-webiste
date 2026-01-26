@@ -5,6 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 1: Python Fundamentals - Study Material</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Mobile-friendly enhancements for Unit 1 */
+        .note-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .note-box strong {
+            color: #ffd700;
+        }
+        .warning-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .tip-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        .comparison-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .comparison-box {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+        .comparison-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .comparison-box pre {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+        .data-structure-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+        .data-structure-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .data-structure-card .badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: normal;
+        }
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.5rem;
+            margin: 0.75rem 0;
+        }
+        .method-item {
+            background: #f8f9fa;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            text-align: center;
+            word-break: break-word;
+        }
+        .syntax-highlight {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .syntax-highlight code {
+            color: #f8f8f2;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .c-to-python-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .c-to-python-table th, .c-to-python-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        .c-to-python-table th {
+            background: var(--secondary-color);
+            color: white;
+        }
+        .c-to-python-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .feature-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .subsection {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+        .subsection h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            .c-to-python-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            pre, code {
+                font-size: 0.8rem !important;
+            }
+            .data-structure-card {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+            .note-box, .warning-box, .tip-box {
+                padding: 0.85rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -45,178 +227,1894 @@
             <h1>Unit 1: Python Fundamentals</h1>
             
             <div class="toc">
-                <h3>Topics Covered:</h3>
+                <h3>📚 Topics Covered:</h3>
                 <ul>
                     <li><a href="#intro">Introduction to Python</a></li>
                     <li><a href="#setup">Python Setup and Installation</a></li>
-                    <li><a href="#variables">Variables and Data Types</a></li>
-                    <li><a href="#operators">Operators</a></li>
+                    <li><a href="#variables">Variables and Data Types (Detailed)</a></li>
+                    <li><a href="#operators">Operators (All Types)</a></li>
                     <li><a href="#io">Input/Output Operations</a></li>
                     <li><a href="#type-conversion">Type Conversion</a></li>
+                    <li><a href="#data-structures">Data Structures (List, Tuple, Set, Dictionary)</a></li>
+                    <li><a href="#c-to-python">C to Python: Syntax Transition Guide</a></li>
                 </ul>
             </div>
 
+            <!-- ==================== SECTION 1: INTRODUCTION ==================== -->
             <section id="intro" class="topic">
                 <h2>1. Introduction to Python</h2>
                 <p><strong>What is Python?</strong></p>
                 <ul>
                     <li>Python is a high-level, interpreted programming language</li>
-                    <li>Created by Guido van Rossum in 1991</li>
+                    <li>Created by <strong>Guido van Rossum</strong> in 1991</li>
                     <li>Known for simple and readable syntax</li>
                     <li>Supports multiple programming paradigms (procedural, OOP, functional)</li>
+                    <li>Named after the comedy group "Monty Python"</li>
                 </ul>
-                <p><strong>Advantages of Python:</strong></p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">📖</span>
+                        <div>
+                            <strong>Easy to Learn</strong>
+                            <p>Simple syntax similar to English</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📚</span>
+                        <div>
+                            <strong>Rich Libraries</strong>
+                            <p>Extensive standard library</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌐</span>
+                        <div>
+                            <strong>Cross-Platform</strong>
+                            <p>Runs on Windows, Mac, Linux</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div>
+                            <strong>Interpreted</strong>
+                            <p>No compilation required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p><strong>Applications of Python:</strong></p>
                 <ul>
-                    <li>Easy to learn and read</li>
-                    <li>Large standard library</li>
-                    <li>Interpreted language (no compilation needed)</li>
-                    <li>Platform independent</li>
-                    <li>Supports dynamic typing</li>
+                    <li>Web Development (Django, Flask)</li>
+                    <li>Data Science & Machine Learning (NumPy, Pandas, TensorFlow)</li>
+                    <li>Automation & Scripting</li>
+                    <li>Game Development (Pygame)</li>
+                    <li>Desktop Applications (Tkinter, PyQt)</li>
                 </ul>
             </section>
 
+            <!-- ==================== SECTION 2: SETUP ==================== -->
             <section id="setup" class="topic">
                 <h2>2. Python Setup and Installation</h2>
                 <p><strong>Installation Steps:</strong></p>
                 <ol>
-                    <li>Download Python from www.python.org</li>
+                    <li>Download Python from <a href="https://www.python.org" target="_blank">www.python.org</a></li>
                     <li>Run the installer</li>
-                    <li>Add Python to PATH (important)</li>
+                    <li>✅ <strong>Check "Add Python to PATH"</strong> (Very Important!)</li>
                     <li>Verify installation: <code>python --version</code></li>
                 </ol>
+                
+                <div class="tip-box">
+                    💡 <strong>Tip:</strong> Always download the latest stable version of Python 3.x. Python 2.x is deprecated.
+                </div>
+
                 <p><strong>IDEs and Editors:</strong></p>
                 <ul>
-                    <li>IDLE (included with Python)</li>
-                    <li>PyCharm</li>
-                    <li>VS Code</li>
-                    <li>Jupyter Notebook</li>
+                    <li><strong>IDLE</strong> - Included with Python (great for beginners)</li>
+                    <li><strong>PyCharm</strong> - Professional IDE</li>
+                    <li><strong>VS Code</strong> - Lightweight and versatile</li>
+                    <li><strong>Jupyter Notebook</strong> - Interactive, great for data science</li>
                 </ul>
             </section>
 
+            <!-- ==================== SECTION 3: VARIABLES AND DATA TYPES (DETAILED) ==================== -->
             <section id="variables" class="topic">
-                <h2>3. Variables and Data Types</h2>
-                <p><strong>Variables:</strong></p>
-                <pre><code>name = "Python"      # String
-age = 30             # Integer
-height = 5.9         # Float
-is_active = True     # Boolean</code></pre>
+                <h2>3. Variables and Data Types (Detailed)</h2>
                 
-                <p><strong>Data Types:</strong></p>
-                <ul>
-                    <li><strong>int:</strong> Integer numbers (-5, 0, 100)</li>
-                    <li><strong>float:</strong> Decimal numbers (3.14, 2.5)</li>
-                    <li><strong>str:</strong> Text (strings) ("Hello", 'World')</li>
-                    <li><strong>bool:</strong> Boolean (True, False)</li>
-                    <li><strong>list:</strong> Ordered collection [1, 2, 3]</li>
-                    <li><strong>dict:</strong> Key-value pairs {"name": "John"}</li>
-                    <li><strong>tuple:</strong> Immutable collection (1, 2, 3)</li>
-                    <li><strong>set:</strong> Unique items {1, 2, 3}</li>
-                </ul>
-                <pre><code># Checking data type
-print(type(5))      # <class 'int'>
-print(type(3.14))   # <class 'float'>
-print(type("text")) # <class 'str'></code></pre>
+                <div class="subsection">
+                    <h4>3.1 What are Variables?</h4>
+                    <p>Variables are <strong>containers for storing data values</strong>. Unlike other programming languages, Python has no command for declaring a variable. A variable is created the moment you first assign a value to it.</p>
+                    
+                    <pre><code># Creating variables
+name = "Python"      # String variable
+age = 30             # Integer variable
+height = 5.9         # Float variable
+is_active = True     # Boolean variable</code></pre>
+
+                    <div class="note-box">
+                        📝 <strong>Note:</strong> Python is <strong>dynamically typed</strong>, meaning you don't need to declare the type of a variable. The type is determined automatically based on the value assigned.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>3.2 Variable Naming Rules</h4>
+                    <ul>
+                        <li>Must start with a <strong>letter (a-z, A-Z)</strong> or <strong>underscore (_)</strong></li>
+                        <li>Cannot start with a number</li>
+                        <li>Can only contain alphanumeric characters and underscores (A-z, 0-9, _)</li>
+                        <li>Variable names are <strong>case-sensitive</strong> (age, Age, AGE are different)</li>
+                        <li>Cannot use Python <strong>keywords</strong> (if, else, for, while, etc.)</li>
+                    </ul>
+
+                    <pre><code># Valid variable names
+my_name = "John"
+_private = 100
+userName2 = "Alice"
+CONSTANT_VALUE = 3.14
+
+# Invalid variable names (will cause error)
+# 2name = "Invalid"    # Cannot start with number
+# my-name = "Invalid"  # Cannot use hyphen
+# class = "Invalid"    # Cannot use keyword</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>3.3 Python Data Types in Detail</h4>
+                    
+                    <p><strong>Python has the following built-in data types:</strong></p>
+
+                    <!-- Numeric Types -->
+                    <div class="data-structure-card">
+                        <h4>🔢 Numeric Types</h4>
+                        
+                        <p><strong>1. Integer (int)</strong> - Whole numbers without decimal points</p>
+                        <pre><code># Integer examples
+x = 10
+y = -50
+z = 0
+big_number = 1234567890123456789  # Python handles large integers automatically
+
+print(type(x))  # Output: &lt;class 'int'&gt;</code></pre>
+
+                        <p><strong>2. Float (float)</strong> - Numbers with decimal points</p>
+                        <pre><code># Float examples
+pi = 3.14159
+temperature = -40.5
+scientific = 2.5e4  # Scientific notation (25000.0)
+
+print(type(pi))  # Output: &lt;class 'float'&gt;</code></pre>
+
+                        <p><strong>3. Complex (complex)</strong> - Numbers with real and imaginary parts</p>
+                        <pre><code># Complex examples
+c1 = 3 + 4j
+c2 = complex(2, 5)  # 2 + 5j
+
+print(c1.real)  # Output: 3.0
+print(c1.imag)  # Output: 4.0</code></pre>
+                    </div>
+
+                    <!-- String Type -->
+                    <div class="data-structure-card">
+                        <h4>📝 String Type (str)</h4>
+                        <p>Strings are sequences of characters enclosed in quotes.</p>
+                        
+                        <pre><code># String creation methods
+single_quote = 'Hello'
+double_quote = "World"
+multi_line = '''This is a
+multi-line string'''
+
+# String with quotes inside
+quote1 = "He said 'Hello'"
+quote2 = 'She said "Hi"'
+
+# Escape characters
+escaped = "Hello\nWorld"  # \n = new line
+tab_string = "Hello\tWorld"  # \t = tab</code></pre>
+
+                        <p><strong>String Operations:</strong></p>
+                        <pre><code>text = "Python Programming"
+
+# Indexing (starts from 0)
+print(text[0])     # Output: P
+print(text[-1])    # Output: g (negative index from end)
+
+# Slicing
+print(text[0:6])   # Output: Python
+print(text[7:])    # Output: Programming
+print(text[:6])    # Output: Python
+
+# String methods
+print(text.upper())        # PYTHON PROGRAMMING
+print(text.lower())        # python programming
+print(text.split())        # ['Python', 'Programming']
+print(len(text))           # 18 (length)
+print(text.replace("Python", "Java"))  # Java Programming</code></pre>
+
+                        <p><strong>String Formatting:</strong></p>
+                        <pre><code>name = "Alice"
+age = 25
+
+# Method 1: f-strings (Python 3.6+) - Recommended
+print(f"My name is {name} and I am {age} years old")
+
+# Method 2: format() method
+print("My name is {} and I am {} years old".format(name, age))
+
+# Method 3: % operator (old style)
+print("My name is %s and I am %d years old" % (name, age))</code></pre>
+                    </div>
+
+                    <!-- Boolean Type -->
+                    <div class="data-structure-card">
+                        <h4>✅ Boolean Type (bool)</h4>
+                        <p>Boolean represents one of two values: <code>True</code> or <code>False</code></p>
+                        
+                        <pre><code># Boolean examples
+is_student = True
+is_adult = False
+
+# Boolean from comparisons
+print(10 > 5)     # True
+print(10 == 5)    # False
+print(10 != 5)    # True
+
+# Truthy and Falsy values
+print(bool(1))     # True
+print(bool(0))     # False
+print(bool(""))    # False (empty string)
+print(bool("Hi"))  # True (non-empty string)
+print(bool([]))    # False (empty list)
+print(bool([1,2])) # True (non-empty list)</code></pre>
+
+                        <div class="warning-box">
+                            ⚠️ <strong>Important:</strong> In Python, <code>True</code> and <code>False</code> must start with capital letters!
+                        </div>
+                    </div>
+
+                    <!-- None Type -->
+                    <div class="data-structure-card">
+                        <h4>❌ None Type (NoneType)</h4>
+                        <p>None represents the absence of a value or null value.</p>
+                        
+                        <pre><code># None examples
+result = None
+print(result)       # None
+print(type(result)) # &lt;class 'NoneType'&gt;
+
+# Common use: Function that doesn't return anything
+def greet(name):
+    print(f"Hello, {name}")
+
+x = greet("Alice")  # Prints: Hello, Alice
+print(x)            # None (function returned nothing)</code></pre>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>3.4 Checking Data Types</h4>
+                    <pre><code># Using type() function
+x = 10
+y = 3.14
+z = "Hello"
+w = True
+
+print(type(x))  # &lt;class 'int'&gt;
+print(type(y))  # &lt;class 'float'&gt;
+print(type(z))  # &lt;class 'str'&gt;
+print(type(w))  # &lt;class 'bool'&gt;
+
+# Using isinstance() function
+print(isinstance(x, int))    # True
+print(isinstance(y, float))  # True
+print(isinstance(z, str))    # True</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>3.5 Multiple Assignment</h4>
+                    <pre><code># Assign same value to multiple variables
+x = y = z = 100
+print(x, y, z)  # 100 100 100
+
+# Assign different values to multiple variables
+a, b, c = 1, 2, 3
+print(a, b, c)  # 1 2 3
+
+# Swap variables
+x, y = 10, 20
+x, y = y, x  # Swap!
+print(x, y)  # 20 10</code></pre>
+                </div>
             </section>
 
+            <!-- ==================== SECTION 4: OPERATORS (DETAILED) ==================== -->
             <section id="operators" class="topic">
-                <h2>4. Operators</h2>
-                <p><strong>Arithmetic Operators:</strong></p>
-                <table>
-                    <tr>
-                        <th>Operator</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                    </tr>
-                    <tr>
-                        <td>+</td>
-                        <td>Addition</td>
-                        <td>10 + 5 = 15</td>
-                    </tr>
-                    <tr>
-                        <td>-</td>
-                        <td>Subtraction</td>
-                        <td>10 - 5 = 5</td>
-                    </tr>
-                    <tr>
-                        <td>*</td>
-                        <td>Multiplication</td>
-                        <td>10 * 5 = 50</td>
-                    </tr>
-                    <tr>
-                        <td>/</td>
-                        <td>Division</td>
-                        <td>10 / 5 = 2.0</td>
-                    </tr>
-                    <tr>
-                        <td>//</td>
-                        <td>Floor Division</td>
-                        <td>10 // 3 = 3</td>
-                    </tr>
-                    <tr>
-                        <td>%</td>
-                        <td>Modulus</td>
-                        <td>10 % 3 = 1</td>
-                    </tr>
-                    <tr>
-                        <td>**</td>
-                        <td>Exponentiation</td>
-                        <td>2 ** 3 = 8</td>
-                    </tr>
-                </table>
+                <h2>4. Operators (Complete Guide)</h2>
+                
+                <div class="subsection">
+                    <h4>4.1 Arithmetic Operators</h4>
+                    <p>Used for mathematical operations.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Name</th>
+                                <th>Example</th>
+                                <th>Result</th>
+                            </tr>
+                            <tr>
+                                <td><code>+</code></td>
+                                <td>Addition</td>
+                                <td>10 + 5</td>
+                                <td>15</td>
+                            </tr>
+                            <tr>
+                                <td><code>-</code></td>
+                                <td>Subtraction</td>
+                                <td>10 - 5</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td><code>*</code></td>
+                                <td>Multiplication</td>
+                                <td>10 * 5</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td><code>/</code></td>
+                                <td>Division</td>
+                                <td>10 / 3</td>
+                                <td>3.333...</td>
+                            </tr>
+                            <tr>
+                                <td><code>//</code></td>
+                                <td>Floor Division</td>
+                                <td>10 // 3</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><code>%</code></td>
+                                <td>Modulus (Remainder)</td>
+                                <td>10 % 3</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td><code>**</code></td>
+                                <td>Exponentiation</td>
+                                <td>2 ** 3</td>
+                                <td>8</td>
+                            </tr>
+                        </table>
+                    </div>
 
-                <p><strong>Comparison Operators:</strong></p>
-                <pre><code>== (equal to)
-!= (not equal to)
-> (greater than)
-< (less than)
->= (greater than or equal to)
-<= (less than or equal to)</code></pre>
+                    <pre><code># Arithmetic operators in action
+a, b = 17, 5
 
-                <p><strong>Logical Operators:</strong></p>
-                <pre><code>and  # Both conditions true
-or   # At least one condition true
-not  # Negates the condition</code></pre>
+print(f"Addition: {a} + {b} = {a + b}")        # 22
+print(f"Subtraction: {a} - {b} = {a - b}")     # 12
+print(f"Multiplication: {a} * {b} = {a * b}")  # 85
+print(f"Division: {a} / {b} = {a / b}")        # 3.4
+print(f"Floor Division: {a} // {b} = {a // b}")# 3
+print(f"Modulus: {a} % {b} = {a % b}")         # 2
+print(f"Power: {a} ** 2 = {a ** 2}")           # 289</code></pre>
+                </div>
 
-                <p><strong>Assignment Operators:</strong></p>
-                <pre><code>= (assign)
-+= (add and assign)
--= (subtract and assign)
-*= (multiply and assign)
-/= (divide and assign)</code></pre>
+                <div class="subsection">
+                    <h4>4.2 Comparison (Relational) Operators</h4>
+                    <p>Used to compare two values. Returns <code>True</code> or <code>False</code>.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Name</th>
+                                <th>Example</th>
+                                <th>Result</th>
+                            </tr>
+                            <tr>
+                                <td><code>==</code></td>
+                                <td>Equal to</td>
+                                <td>5 == 5</td>
+                                <td>True</td>
+                            </tr>
+                            <tr>
+                                <td><code>!=</code></td>
+                                <td>Not equal to</td>
+                                <td>5 != 3</td>
+                                <td>True</td>
+                            </tr>
+                            <tr>
+                                <td><code>></code></td>
+                                <td>Greater than</td>
+                                <td>5 > 3</td>
+                                <td>True</td>
+                            </tr>
+                            <tr>
+                                <td><code><</code></td>
+                                <td>Less than</td>
+                                <td>5 < 3</td>
+                                <td>False</td>
+                            </tr>
+                            <tr>
+                                <td><code>>=</code></td>
+                                <td>Greater than or equal</td>
+                                <td>5 >= 5</td>
+                                <td>True</td>
+                            </tr>
+                            <tr>
+                                <td><code><=</code></td>
+                                <td>Less than or equal</td>
+                                <td>5 <= 3</td>
+                                <td>False</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Comparison operators
+x, y = 10, 20
+
+print(x == y)   # False
+print(x != y)   # True
+print(x > y)    # False
+print(x < y)    # True
+print(x >= 10)  # True
+print(y <= 20)  # True
+
+# Chained comparisons (Python special feature!)
+age = 25
+print(18 <= age <= 65)  # True (age is between 18 and 65)</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.3 Logical Operators</h4>
+                    <p>Used to combine conditional statements.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>and</code></td>
+                                <td>Returns True if both statements are true</td>
+                                <td>(5 > 3) and (10 > 5) → True</td>
+                            </tr>
+                            <tr>
+                                <td><code>or</code></td>
+                                <td>Returns True if one statement is true</td>
+                                <td>(5 > 3) or (10 < 5) → True</td>
+                            </tr>
+                            <tr>
+                                <td><code>not</code></td>
+                                <td>Reverses the result</td>
+                                <td>not(5 > 3) → False</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Logical operators
+a, b = True, False
+
+print(a and b)  # False (both must be True)
+print(a or b)   # True (at least one is True)
+print(not a)    # False (reverses True)
+print(not b)    # True (reverses False)
+
+# Practical example
+age = 25
+has_license = True
+
+can_drive = (age >= 18) and has_license
+print(f"Can drive: {can_drive}")  # True</code></pre>
+
+                    <div class="note-box">
+                        📝 <strong>Truth Table:</strong><br>
+                        <code>True and True = True</code><br>
+                        <code>True and False = False</code><br>
+                        <code>False and True = False</code><br>
+                        <code>False and False = False</code><br><br>
+                        <code>True or True = True</code><br>
+                        <code>True or False = True</code><br>
+                        <code>False or True = True</code><br>
+                        <code>False or False = False</code>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.4 Assignment Operators</h4>
+                    <p>Used to assign values to variables.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Example</th>
+                                <th>Same As</th>
+                            </tr>
+                            <tr>
+                                <td><code>=</code></td>
+                                <td>x = 5</td>
+                                <td>x = 5</td>
+                            </tr>
+                            <tr>
+                                <td><code>+=</code></td>
+                                <td>x += 3</td>
+                                <td>x = x + 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>-=</code></td>
+                                <td>x -= 3</td>
+                                <td>x = x - 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>*=</code></td>
+                                <td>x *= 3</td>
+                                <td>x = x * 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>/=</code></td>
+                                <td>x /= 3</td>
+                                <td>x = x / 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>//=</code></td>
+                                <td>x //= 3</td>
+                                <td>x = x // 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>%=</code></td>
+                                <td>x %= 3</td>
+                                <td>x = x % 3</td>
+                            </tr>
+                            <tr>
+                                <td><code>**=</code></td>
+                                <td>x **= 3</td>
+                                <td>x = x ** 3</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Assignment operators
+x = 10
+
+x += 5   # x = 15
+x -= 3   # x = 12
+x *= 2   # x = 24
+x /= 4   # x = 6.0
+x //= 2  # x = 3.0
+x **= 2  # x = 9.0
+
+print(x)  # 9.0</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.5 Bitwise Operators</h4>
+                    <p>Used to perform bit-level operations.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>&</code></td>
+                                <td>AND</td>
+                                <td>Sets bit to 1 if both bits are 1</td>
+                            </tr>
+                            <tr>
+                                <td><code>|</code></td>
+                                <td>OR</td>
+                                <td>Sets bit to 1 if one of bits is 1</td>
+                            </tr>
+                            <tr>
+                                <td><code>^</code></td>
+                                <td>XOR</td>
+                                <td>Sets bit to 1 if only one bit is 1</td>
+                            </tr>
+                            <tr>
+                                <td><code>~</code></td>
+                                <td>NOT</td>
+                                <td>Inverts all the bits</td>
+                            </tr>
+                            <tr>
+                                <td><code><<</code></td>
+                                <td>Left Shift</td>
+                                <td>Shift left by pushing zeros from right</td>
+                            </tr>
+                            <tr>
+                                <td><code>>></code></td>
+                                <td>Right Shift</td>
+                                <td>Shift right by pushing copies of leftmost bit</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Bitwise operators
+a = 5   # Binary: 0101
+b = 3   # Binary: 0011
+
+print(a & b)   # 1  (0001)
+print(a | b)   # 7  (0111)
+print(a ^ b)   # 6  (0110)
+print(~a)      # -6 (inverts bits)
+print(a << 1)  # 10 (1010) - shift left
+print(a >> 1)  # 2  (0010) - shift right</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.6 Identity Operators</h4>
+                    <p>Used to compare if two objects are the same object (same memory location).</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>is</code></td>
+                                <td>Returns True if both variables are the same object</td>
+                            </tr>
+                            <tr>
+                                <td><code>is not</code></td>
+                                <td>Returns True if both variables are not the same object</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Identity operators
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b)      # True (same values)
+print(a is b)      # False (different objects)
+print(a is c)      # True (same object)
+print(a is not b)  # True</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.7 Membership Operators</h4>
+                    <p>Used to test if a value is present in a sequence.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td><code>in</code></td>
+                                <td>Returns True if value is present in sequence</td>
+                            </tr>
+                            <tr>
+                                <td><code>not in</code></td>
+                                <td>Returns True if value is not present in sequence</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Membership operators
+fruits = ["apple", "banana", "cherry"]
+text = "Hello World"
+
+print("apple" in fruits)      # True
+print("grape" in fruits)      # False
+print("grape" not in fruits)  # True
+
+print("Hello" in text)        # True
+print("hello" in text)        # False (case-sensitive)</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>4.8 Operator Precedence</h4>
+                    <p>Order in which operators are evaluated (highest to lowest):</p>
+                    <ol>
+                        <li><code>()</code> - Parentheses</li>
+                        <li><code>**</code> - Exponentiation</li>
+                        <li><code>~, +, -</code> - Unary operators</li>
+                        <li><code>*, /, //, %</code> - Multiplication, Division</li>
+                        <li><code>+, -</code> - Addition, Subtraction</li>
+                        <li><code>>>, <<</code> - Bitwise shifts</li>
+                        <li><code>&</code> - Bitwise AND</li>
+                        <li><code>^</code> - Bitwise XOR</li>
+                        <li><code>|</code> - Bitwise OR</li>
+                        <li><code>==, !=, >, <, >=, <=</code> - Comparisons</li>
+                        <li><code>not</code> - Logical NOT</li>
+                        <li><code>and</code> - Logical AND</li>
+                        <li><code>or</code> - Logical OR</li>
+                    </ol>
+
+                    <pre><code># Operator precedence examples
+result = 2 + 3 * 4      # 14 (not 20)
+result = (2 + 3) * 4    # 20 (parentheses first)
+result = 2 ** 3 ** 2    # 512 (right to left: 3**2=9, 2**9=512)</code></pre>
+                </div>
             </section>
 
+            <!-- ==================== SECTION 5: INPUT/OUTPUT ==================== -->
             <section id="io" class="topic">
-                <h2>5. Input/Output Operations</h2>
-                <p><strong>Output with print():</strong></p>
-                <pre><code>print("Hello, World!")
-print("Name:", "John", "Age:", 25)
-print(10 + 5)
-x = 50
-print(f"The value is {x}")</code></pre>
+                <h2>5. Input/Output Operations (Detailed)</h2>
+                
+                <div class="subsection">
+                    <h4>5.1 Output with print()</h4>
+                    <p>The <code>print()</code> function outputs data to the console.</p>
+                    
+                    <pre><code># Basic print
+print("Hello, World!")
 
-                <p><strong>Input with input():</strong></p>
-                <pre><code>name = input("Enter your name: ")
+# Print multiple values
+print("Name:", "John", "Age:", 25)
+
+# Print with separator
+print("A", "B", "C", sep="-")  # A-B-C
+
+# Print without newline
+print("Hello", end=" ")
+print("World")  # Hello World (on same line)
+
+# Print with variables
+name = "Alice"
+age = 25
+print("Name:", name, "Age:", age)
+
+# Formatted output using f-strings
+print(f"My name is {name} and I am {age} years old")
+
+# Formatting numbers
+pi = 3.14159265359
+print(f"Pi = {pi:.2f}")      # Pi = 3.14 (2 decimal places)
+print(f"Pi = {pi:.4f}")      # Pi = 3.1416 (4 decimal places)
+
+# Alignment
+print(f"{'Left':<10}")    # Left aligned, width 10
+print(f"{'Right':>10}")   # Right aligned, width 10
+print(f"{'Center':^10}")  # Center aligned, width 10</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>5.2 Input with input()</h4>
+                    <p>The <code>input()</code> function reads user input from keyboard.</p>
+                    
+                    <pre><code># Basic input
+name = input("Enter your name: ")
+print("Hello,", name)
+
+# Input always returns a string!
 age = input("Enter your age: ")
-print("Name:", name, "Age:", age)</code></pre>
+print(type(age))  # &lt;class 'str'&gt;
+
+# Convert input to number
+age = int(input("Enter your age: "))
+height = float(input("Enter your height: "))
+
+# Multiple inputs on one line
+x, y = input("Enter two numbers: ").split()
+x, y = int(x), int(y)
+print(f"Sum = {x + y}")
+
+# Alternative: using map()
+a, b = map(int, input("Enter two numbers: ").split())
+print(f"Sum = {a + b}")</code></pre>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Important:</strong> The <code>input()</code> function always returns a string. You must convert it to the appropriate type (int, float) for mathematical operations!
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>5.3 Practical Examples</h4>
+                    
+                    <pre><code># Example 1: Simple Calculator
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+operation = input("Enter operation (+, -, *, /): ")
+
+if operation == "+":
+    result = num1 + num2
+elif operation == "-":
+    result = num1 - num2
+elif operation == "*":
+    result = num1 * num2
+elif operation == "/":
+    result = num1 / num2 if num2 != 0 else "Error: Division by zero"
+
+print(f"Result: {result}")
+
+# Example 2: Temperature Converter
+celsius = float(input("Enter temperature in Celsius: "))
+fahrenheit = (celsius * 9/5) + 32
+print(f"{celsius}°C = {fahrenheit}°F")</code></pre>
+                </div>
             </section>
 
+            <!-- ==================== SECTION 6: TYPE CONVERSION ==================== -->
             <section id="type-conversion" class="topic">
-                <h2>6. Type Conversion</h2>
-                <pre><code># Convert to integer
-num = int("123")      # 123
-num = int(45.67)      # 45
+                <h2>6. Type Conversion (Type Casting)</h2>
+                
+                <div class="subsection">
+                    <h4>6.1 Implicit Type Conversion (Automatic)</h4>
+                    <p>Python automatically converts one data type to another.</p>
+                    
+                    <pre><code># Implicit conversion
+x = 10      # int
+y = 3.14    # float
+z = x + y   # Python converts x to float automatically
+
+print(z)         # 13.14
+print(type(z))   # &lt;class 'float'&gt;</code></pre>
+                </div>
+
+                <div class="subsection">
+                    <h4>6.2 Explicit Type Conversion (Manual)</h4>
+                    <p>Programmer manually converts data types using built-in functions.</p>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Function</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>int()</code></td>
+                                <td>Converts to integer</td>
+                                <td>int("123") → 123</td>
+                            </tr>
+                            <tr>
+                                <td><code>float()</code></td>
+                                <td>Converts to float</td>
+                                <td>float("3.14") → 3.14</td>
+                            </tr>
+                            <tr>
+                                <td><code>str()</code></td>
+                                <td>Converts to string</td>
+                                <td>str(123) → "123"</td>
+                            </tr>
+                            <tr>
+                                <td><code>bool()</code></td>
+                                <td>Converts to boolean</td>
+                                <td>bool(1) → True</td>
+                            </tr>
+                            <tr>
+                                <td><code>list()</code></td>
+                                <td>Converts to list</td>
+                                <td>list("abc") → ['a','b','c']</td>
+                            </tr>
+                            <tr>
+                                <td><code>tuple()</code></td>
+                                <td>Converts to tuple</td>
+                                <td>tuple([1,2]) → (1,2)</td>
+                            </tr>
+                            <tr>
+                                <td><code>set()</code></td>
+                                <td>Converts to set</td>
+                                <td>set([1,1,2]) → {1,2}</td>
+                            </tr>
+                            <tr>
+                                <td><code>dict()</code></td>
+                                <td>Converts to dictionary</td>
+                                <td>dict([('a',1)]) → {'a':1}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <pre><code># Convert to integer
+num = int("123")      # String to int: 123
+num = int(45.67)      # Float to int: 45 (truncates decimal)
+num = int(True)       # Bool to int: 1
 
 # Convert to float
-num = float("3.14")   # 3.14
-num = float(10)       # 10.0
+num = float("3.14")   # String to float: 3.14
+num = float(10)       # Int to float: 10.0
 
 # Convert to string
-text = str(123)       # "123"
-text = str(3.14)      # "3.14"
+text = str(123)       # Int to string: "123"
+text = str(3.14)      # Float to string: "3.14"
+text = str(True)      # Bool to string: "True"
 
 # Convert to boolean
-bool_val = bool(1)    # True
-bool_val = bool(0)    # False</code></pre>
+bool_val = bool(1)    # True (non-zero is True)
+bool_val = bool(0)    # False
+bool_val = bool("")   # False (empty string)
+bool_val = bool("Hi") # True (non-empty string)
+
+# Convert between collections
+my_list = list("Hello")         # ['H', 'e', 'l', 'l', 'o']
+my_tuple = tuple([1, 2, 3])     # (1, 2, 3)
+my_set = set([1, 2, 2, 3, 3])   # {1, 2, 3}</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    💡 <strong>Tip:</strong> Always validate user input before type conversion to avoid errors!
+                    <pre style="margin-top: 0.5rem;"><code>user_input = input("Enter a number: ")
+if user_input.isdigit():
+    number = int(user_input)
+else:
+    print("Invalid input!")</code></pre>
+                </div>
+            </section>
+
+            <!-- ==================== SECTION 7: DATA STRUCTURES ==================== -->
+            <section id="data-structures" class="topic">
+                <h2>7. Data Structures (List, Tuple, Set, Dictionary)</h2>
+                
+                <div class="note-box">
+                    📝 <strong>Overview:</strong> Python has four built-in data structures to store collections of data:
+                    <ul style="margin-top: 0.5rem;">
+                        <li><strong>List</strong> - Ordered, mutable, allows duplicates</li>
+                        <li><strong>Tuple</strong> - Ordered, immutable, allows duplicates</li>
+                        <li><strong>Set</strong> - Unordered, mutable, no duplicates</li>
+                        <li><strong>Dictionary</strong> - Key-value pairs, unordered*, mutable</li>
+                    </ul>
+                </div>
+
+                <!-- LIST -->
+                <div class="data-structure-card">
+                    <h4>📋 List <span class="badge">Ordered</span> <span class="badge">Mutable</span> <span class="badge">Duplicates Allowed</span></h4>
+                    
+                    <p>Lists are used to store multiple items in a single variable. Lists are created using square brackets <code>[]</code>.</p>
+                    
+                    <pre><code># Creating Lists
+empty_list = []
+numbers = [1, 2, 3, 4, 5]
+fruits = ["apple", "banana", "cherry"]
+mixed = [1, "Hello", 3.14, True]  # Can store different types
+
+# List with list() constructor
+my_list = list((1, 2, 3))  # From tuple
+
+print(fruits)       # ['apple', 'banana', 'cherry']
+print(len(fruits))  # 3</code></pre>
+
+                    <p><strong>Accessing List Elements:</strong></p>
+                    <pre><code>fruits = ["apple", "banana", "cherry", "date", "elderberry"]
+
+# Positive indexing (starts from 0)
+print(fruits[0])    # apple
+print(fruits[2])    # cherry
+
+# Negative indexing (starts from -1)
+print(fruits[-1])   # elderberry (last item)
+print(fruits[-2])   # date (second last)
+
+# Slicing
+print(fruits[1:4])    # ['banana', 'cherry', 'date']
+print(fruits[:3])     # ['apple', 'banana', 'cherry']
+print(fruits[2:])     # ['cherry', 'date', 'elderberry']
+print(fruits[::2])    # ['apple', 'cherry', 'elderberry'] (step 2)
+print(fruits[::-1])   # Reverse the list</code></pre>
+
+                    <p><strong>Modifying Lists:</strong></p>
+                    <pre><code>fruits = ["apple", "banana", "cherry"]
+
+# Change item
+fruits[1] = "blueberry"
+print(fruits)  # ['apple', 'blueberry', 'cherry']
+
+# Add items
+fruits.append("date")        # Add at end
+fruits.insert(1, "apricot")  # Add at specific position
+fruits.extend(["fig", "grape"])  # Add multiple items
+
+# Remove items
+fruits.remove("apple")   # Remove by value
+del fruits[0]            # Remove by index
+popped = fruits.pop()    # Remove and return last item
+popped = fruits.pop(1)   # Remove and return item at index
+fruits.clear()           # Remove all items</code></pre>
+
+                    <p><strong>List Methods:</strong></p>
+                    <div class="method-grid">
+                        <div class="method-item">append()</div>
+                        <div class="method-item">insert()</div>
+                        <div class="method-item">extend()</div>
+                        <div class="method-item">remove()</div>
+                        <div class="method-item">pop()</div>
+                        <div class="method-item">clear()</div>
+                        <div class="method-item">sort()</div>
+                        <div class="method-item">reverse()</div>
+                        <div class="method-item">copy()</div>
+                        <div class="method-item">count()</div>
+                        <div class="method-item">index()</div>
+                    </div>
+
+                    <pre><code>numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# Sorting
+numbers.sort()           # Sort ascending: [1, 1, 2, 3, 4, 5, 6, 9]
+numbers.sort(reverse=True)  # Sort descending
+
+# Other operations
+numbers.reverse()        # Reverse the list
+count = numbers.count(1) # Count occurrences of 1
+idx = numbers.index(5)   # Find index of 5
+
+# List comprehension
+squares = [x**2 for x in range(1, 6)]  # [1, 4, 9, 16, 25]
+evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]</code></pre>
+                </div>
+
+                <!-- TUPLE -->
+                <div class="data-structure-card">
+                    <h4>📦 Tuple <span class="badge">Ordered</span> <span class="badge">Immutable</span> <span class="badge">Duplicates Allowed</span></h4>
+                    
+                    <p>Tuples are used to store multiple items that cannot be changed. Tuples are created using parentheses <code>()</code>.</p>
+                    
+                    <pre><code># Creating Tuples
+empty_tuple = ()
+single_item = (1,)  # Note the comma! Without it, it's just (1)
+numbers = (1, 2, 3, 4, 5)
+fruits = ("apple", "banana", "cherry")
+mixed = (1, "Hello", 3.14, True)
+
+# Tuple with tuple() constructor
+my_tuple = tuple([1, 2, 3])  # From list
+
+print(fruits)       # ('apple', 'banana', 'cherry')
+print(len(fruits))  # 3</code></pre>
+
+                    <p><strong>Accessing Tuple Elements:</strong></p>
+                    <pre><code>fruits = ("apple", "banana", "cherry", "date")
+
+# Same as list indexing
+print(fruits[0])    # apple
+print(fruits[-1])   # date
+print(fruits[1:3])  # ('banana', 'cherry')
+
+# Tuple unpacking
+a, b, c, d = fruits
+print(a)  # apple
+print(b)  # banana
+
+# Using * for remaining items
+first, *middle, last = (1, 2, 3, 4, 5)
+print(first)   # 1
+print(middle)  # [2, 3, 4]
+print(last)    # 5</code></pre>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Important:</strong> Tuples are <strong>immutable</strong> - you cannot change, add, or remove items after creation!
+                        <pre style="margin-top: 0.5rem;"><code>fruits = ("apple", "banana")
+# fruits[0] = "cherry"  # This will cause an error!</code></pre>
+                    </div>
+
+                    <p><strong>Why Use Tuples?</strong></p>
+                    <ul>
+                        <li>Faster than lists</li>
+                        <li>Protect data from modification</li>
+                        <li>Can be used as dictionary keys (lists cannot)</li>
+                        <li>Used for returning multiple values from functions</li>
+                    </ul>
+
+                    <pre><code># Tuple methods (only 2 methods!)
+numbers = (1, 2, 3, 2, 4, 2)
+print(numbers.count(2))  # 3 (count occurrences)
+print(numbers.index(3))  # 2 (find index)
+
+# Convert tuple to list to modify
+fruits = ("apple", "banana")
+temp_list = list(fruits)
+temp_list.append("cherry")
+fruits = tuple(temp_list)
+print(fruits)  # ('apple', 'banana', 'cherry')</code></pre>
+                </div>
+
+                <!-- SET -->
+                <div class="data-structure-card">
+                    <h4>🎯 Set <span class="badge">Unordered</span> <span class="badge">Mutable</span> <span class="badge">No Duplicates</span></h4>
+                    
+                    <p>Sets are used to store unique items only. Sets are created using curly braces <code>{}</code>.</p>
+                    
+                    <pre><code># Creating Sets
+empty_set = set()  # Note: {} creates an empty dictionary!
+numbers = {1, 2, 3, 4, 5}
+fruits = {"apple", "banana", "cherry"}
+
+# Duplicates are automatically removed
+numbers = {1, 2, 2, 3, 3, 3}
+print(numbers)  # {1, 2, 3}
+
+# Set with set() constructor
+my_set = set([1, 2, 2, 3, 3])  # {1, 2, 3}
+
+print(fruits)       # {'apple', 'banana', 'cherry'}
+print(len(fruits))  # 3</code></pre>
+
+                    <div class="note-box">
+                        📝 <strong>Note:</strong> Sets are <strong>unordered</strong>, so you cannot access items by index. The order may change each time you print!
+                    </div>
+
+                    <p><strong>Adding and Removing Items:</strong></p>
+                    <pre><code>fruits = {"apple", "banana", "cherry"}
+
+# Add items
+fruits.add("date")           # Add single item
+fruits.update(["fig", "grape"])  # Add multiple items
+
+# Remove items
+fruits.remove("apple")    # Remove (error if not found)
+fruits.discard("mango")   # Remove (no error if not found)
+popped = fruits.pop()     # Remove and return random item
+fruits.clear()            # Remove all items</code></pre>
+
+                    <p><strong>Set Operations:</strong></p>
+                    <pre><code>A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+
+# Union (all elements from both sets)
+print(A | B)           # {1, 2, 3, 4, 5, 6, 7, 8}
+print(A.union(B))      # Same result
+
+# Intersection (common elements)
+print(A & B)              # {4, 5}
+print(A.intersection(B))  # Same result
+
+# Difference (in A but not in B)
+print(A - B)           # {1, 2, 3}
+print(A.difference(B)) # Same result
+
+# Symmetric Difference (in A or B, but not both)
+print(A ^ B)                     # {1, 2, 3, 6, 7, 8}
+print(A.symmetric_difference(B)) # Same result
+
+# Subset and Superset
+print({1, 2}.issubset(A))     # True
+print(A.issuperset({1, 2}))   # True</code></pre>
+
+                    <p><strong>Set Methods:</strong></p>
+                    <div class="method-grid">
+                        <div class="method-item">add()</div>
+                        <div class="method-item">update()</div>
+                        <div class="method-item">remove()</div>
+                        <div class="method-item">discard()</div>
+                        <div class="method-item">pop()</div>
+                        <div class="method-item">clear()</div>
+                        <div class="method-item">union()</div>
+                        <div class="method-item">intersection()</div>
+                        <div class="method-item">difference()</div>
+                        <div class="method-item">issubset()</div>
+                        <div class="method-item">issuperset()</div>
+                    </div>
+                </div>
+
+                <!-- DICTIONARY -->
+                <div class="data-structure-card">
+                    <h4>📖 Dictionary <span class="badge">Key-Value Pairs</span> <span class="badge">Mutable</span> <span class="badge">No Duplicate Keys</span></h4>
+                    
+                    <p>Dictionaries store data in key-value pairs. Keys must be unique and immutable. Created using curly braces <code>{}</code> with key:value pairs.</p>
+                    
+                    <pre><code># Creating Dictionaries
+empty_dict = {}
+student = {
+    "name": "John",
+    "age": 20,
+    "grade": "A",
+    "courses": ["Math", "Science"]
+}
+
+# Dictionary with dict() constructor
+person = dict(name="Alice", age=25, city="Mumbai")
+
+print(student)
+print(len(student))  # 4 (number of key-value pairs)</code></pre>
+
+                    <p><strong>Accessing Dictionary Items:</strong></p>
+                    <pre><code>student = {"name": "John", "age": 20, "grade": "A"}
+
+# Access by key
+print(student["name"])      # John
+print(student.get("age"))   # 20
+print(student.get("gpa", "N/A"))  # N/A (default if not found)
+
+# Get all keys, values, items
+print(student.keys())    # dict_keys(['name', 'age', 'grade'])
+print(student.values())  # dict_values(['John', 20, 'A'])
+print(student.items())   # dict_items([('name', 'John'), ...])
+
+# Check if key exists
+if "name" in student:
+    print("Name exists!")
+
+# Loop through dictionary
+for key in student:
+    print(f"{key}: {student[key]}")
+
+for key, value in student.items():
+    print(f"{key}: {value}")</code></pre>
+
+                    <p><strong>Modifying Dictionaries:</strong></p>
+                    <pre><code>student = {"name": "John", "age": 20}
+
+# Add or update items
+student["grade"] = "A"         # Add new key-value
+student["age"] = 21            # Update existing
+student.update({"city": "NYC", "age": 22})  # Update multiple
+
+# Remove items
+del student["city"]            # Delete by key
+grade = student.pop("grade")   # Remove and return value
+last = student.popitem()       # Remove last inserted item
+student.clear()                # Remove all items</code></pre>
+
+                    <p><strong>Dictionary Methods:</strong></p>
+                    <div class="method-grid">
+                        <div class="method-item">get()</div>
+                        <div class="method-item">keys()</div>
+                        <div class="method-item">values()</div>
+                        <div class="method-item">items()</div>
+                        <div class="method-item">update()</div>
+                        <div class="method-item">pop()</div>
+                        <div class="method-item">popitem()</div>
+                        <div class="method-item">clear()</div>
+                        <div class="method-item">copy()</div>
+                        <div class="method-item">setdefault()</div>
+                        <div class="method-item">fromkeys()</div>
+                    </div>
+
+                    <p><strong>Nested Dictionaries:</strong></p>
+                    <pre><code>students = {
+    "student1": {"name": "John", "age": 20},
+    "student2": {"name": "Alice", "age": 22},
+    "student3": {"name": "Bob", "age": 21}
+}
+
+# Access nested items
+print(students["student1"]["name"])  # John
+
+# Dictionary comprehension
+squares = {x: x**2 for x in range(1, 6)}
+# {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="subsection">
+                    <h4>📊 Comparison of Data Structures</h4>
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>List</th>
+                                <th>Tuple</th>
+                                <th>Set</th>
+                                <th>Dictionary</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Syntax</strong></td>
+                                <td><code>[ ]</code></td>
+                                <td><code>( )</code></td>
+                                <td><code>{ }</code></td>
+                                <td><code>{k:v}</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ordered</strong></td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes*</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mutable</strong></td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duplicates</strong></td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>Keys: No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Indexing</strong></td>
+                                <td>✅ Yes</td>
+                                <td>✅ Yes</td>
+                                <td>❌ No</td>
+                                <td>By Key</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Use Case</strong></td>
+                                <td>General storage</td>
+                                <td>Fixed data</td>
+                                <td>Unique items</td>
+                                <td>Key-value pairs</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #666;">*Dictionaries maintain insertion order since Python 3.7</p>
+                </div>
+            </section>
+
+            <!-- ==================== SECTION 8: C TO PYTHON TRANSITION ==================== -->
+            <section id="c-to-python" class="topic">
+                <h2>8. Understanding the Syntax Transition: From C to Python</h2>
+                
+                <div class="note-box">
+                    📝 <strong>Why Learn This?</strong> If you're coming from C programming, Python will feel very different. Understanding these differences will help you transition smoothly and write better Python code.
+                </div>
+
+                <div class="subsection">
+                    <h4>8.1 Key Differences Overview</h4>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Feature</th>
+                                <th>C Language</th>
+                                <th>Python</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Type System</strong></td>
+                                <td>Statically typed (must declare types)</td>
+                                <td>Dynamically typed (no declaration needed)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Compilation</strong></td>
+                                <td>Compiled language</td>
+                                <td>Interpreted language</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Syntax Style</strong></td>
+                                <td>Uses braces { } and semicolons ;</td>
+                                <td>Uses indentation and colons :</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Memory</strong></td>
+                                <td>Manual memory management</td>
+                                <td>Automatic garbage collection</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Execution</strong></td>
+                                <td>Faster execution</td>
+                                <td>Slower but easier development</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.2 Variable Declaration</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>// Must declare type
+int age = 25;
+float height = 5.9;
+char name[20] = "John";
+int x, y, z;
+
+// Constants
+const int MAX = 100;</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># No type declaration needed
+age = 25
+height = 5.9
+name = "John"
+x = y = z = 0
+
+# Constants (by convention, all caps)
+MAX = 100</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.3 Input/Output</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    char name[50];
+    
+    // Output
+    printf("Hello World\n");
+    printf("Age: %d\n", 25);
+    
+    // Input
+    printf("Enter name: ");
+    scanf("%s", name);
+    printf("Enter age: ");
+    scanf("%d", &age);
+    
+    return 0;
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># No imports needed for basic I/O
+
+# Output
+print("Hello World")
+print("Age:", 25)
+print(f"Age: {25}")
+
+# Input (always returns string)
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+
+# No main function required
+# No return statement needed</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.4 Conditional Statements (if-else)</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>int age = 20;
+
+if (age >= 18) {
+    printf("Adult\n");
+} else if (age >= 13) {
+    printf("Teenager\n");
+} else {
+    printf("Child\n");
+}
+
+// Switch statement
+switch (grade) {
+    case 'A':
+        printf("Excellent");
+        break;
+    case 'B':
+        printf("Good");
+        break;
+    default:
+        printf("Invalid");
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code>age = 20
+
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teenager")
+else:
+    print("Child")
+
+# No switch, use match (Python 3.10+)
+match grade:
+    case 'A':
+        print("Excellent")
+    case 'B':
+        print("Good")
+    case _:
+        print("Invalid")
+
+# Or use if-elif-else / dictionary</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        💡 <strong>Key Differences:</strong>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Python uses <code>elif</code> instead of <code>else if</code></li>
+                            <li>No parentheses around conditions</li>
+                            <li>No braces - uses colon and indentation</li>
+                            <li>No semicolons at end of lines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.5 Loops</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language - For Loop</h4>
+                            <pre><code>// Print 0 to 4
+for (int i = 0; i < 5; i++) {
+    printf("%d\n", i);
+}
+
+// Iterate array
+int arr[] = {10, 20, 30};
+int size = sizeof(arr)/sizeof(arr[0]);
+for (int i = 0; i < size; i++) {
+    printf("%d\n", arr[i]);
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python - For Loop</h4>
+                            <pre><code># Print 0 to 4
+for i in range(5):
+    print(i)
+
+# Iterate list (directly!)
+arr = [10, 20, 30]
+for item in arr:
+    print(item)
+
+# With index
+for i, item in enumerate(arr):
+    print(i, item)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language - While Loop</h4>
+                            <pre><code>int i = 0;
+while (i < 5) {
+    printf("%d\n", i);
+    i++;
+}
+
+// Do-while loop
+do {
+    printf("%d\n", i);
+    i++;
+} while (i < 5);</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python - While Loop</h4>
+                            <pre><code>i = 0
+while i < 5:
+    print(i)
+    i += 1  # No ++ operator!
+
+# No do-while in Python
+# Use while True with break
+while True:
+    print(i)
+    i += 1
+    if i >= 5:
+        break</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Important:</strong> Python does NOT have <code>++</code> or <code>--</code> operators! Use <code>i += 1</code> or <code>i -= 1</code> instead.
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.6 Functions</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>// Function declaration
+int add(int a, int b);
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+
+// Function with no return
+void greet(char name[]) {
+    printf("Hello %s\n", name);
+}
+
+int main() {
+    int result = add(5, 3);
+    greet("John");
+    return 0;
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># Function definition (no declaration)
+def add(a, b):
+    return a + b
+
+# Function with no return
+def greet(name):
+    print(f"Hello {name}")
+
+# Default parameters
+def greet(name="World"):
+    print(f"Hello {name}")
+
+# Multiple return values!
+def get_stats(nums):
+    return min(nums), max(nums)
+
+result = add(5, 3)
+greet("John")
+low, high = get_stats([1,2,3])</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.7 Arrays vs Lists</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language - Arrays</h4>
+                            <pre><code>// Fixed size, same type
+int numbers[5] = {1, 2, 3, 4, 5};
+int matrix[3][3];
+
+// Access elements
+numbers[0] = 10;
+int val = numbers[2];
+
+// Size must be known
+int size = sizeof(numbers)/sizeof(numbers[0]);
+
+// Cannot resize once created</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python - Lists</h4>
+                            <pre><code># Dynamic size, any type
+numbers = [1, 2, 3, 4, 5]
+matrix = [[1,2], [3,4], [5,6]]
+
+# Access elements
+numbers[0] = 10
+val = numbers[2]
+
+# Get size easily
+size = len(numbers)
+
+# Can resize anytime!
+numbers.append(6)
+numbers.extend([7, 8])
+numbers.pop()</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.8 Strings</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>#include &lt;string.h&gt;
+
+char str1[20] = "Hello";
+char str2[20] = "World";
+char result[40];
+
+// String length
+int len = strlen(str1);
+
+// String copy
+strcpy(result, str1);
+
+// String concatenation
+strcat(result, str2);
+
+// String comparison
+if (strcmp(str1, str2) == 0) {
+    printf("Equal");
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># No imports needed
+
+str1 = "Hello"
+str2 = "World"
+
+# String length
+length = len(str1)
+
+# String copy (just assign)
+result = str1
+
+# String concatenation
+result = str1 + " " + str2
+
+# String comparison
+if str1 == str2:
+    print("Equal")
+
+# Many built-in methods!
+print(str1.upper())
+print(str1.lower())
+print(str1.replace("l", "L"))</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.9 Comments</h4>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>// Single line comment
+
+/* Multi-line
+   comment in C */
+
+int x = 5; // Inline comment</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># Single line comment
+
+"""
+Multi-line comment
+(using docstring)
+"""
+
+'''
+Also works with
+single quotes
+'''
+
+x = 5  # Inline comment</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.10 Complete Program Comparison</h4>
+                    
+                    <p><strong>Example: Find the largest of three numbers</strong></p>
+                    
+                    <div class="comparison-container">
+                        <div class="comparison-box">
+                            <h4>C Language</h4>
+                            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c, largest;
+    
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    if (a >= b && a >= c) {
+        largest = a;
+    } else if (b >= a && b >= c) {
+        largest = b;
+    } else {
+        largest = c;
+    }
+    
+    printf("Largest: %d\n", largest);
+    return 0;
+}</code></pre>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Python</h4>
+                            <pre><code># Much simpler!
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+# Method 1: Using if-elif-else
+if a >= b and a >= c:
+    largest = a
+elif b >= a and b >= c:
+    largest = b
+else:
+    largest = c
+
+# Method 2: Using built-in max()
+largest = max(a, b, c)
+
+print(f"Largest: {largest}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h4>8.11 Quick Reference Cheat Sheet</h4>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="c-to-python-table">
+                            <tr>
+                                <th>Concept</th>
+                                <th>C Syntax</th>
+                                <th>Python Syntax</th>
+                            </tr>
+                            <tr>
+                                <td>Print</td>
+                                <td><code>printf("Hello\n");</code></td>
+                                <td><code>print("Hello")</code></td>
+                            </tr>
+                            <tr>
+                                <td>Input</td>
+                                <td><code>scanf("%d", &x);</code></td>
+                                <td><code>x = int(input())</code></td>
+                            </tr>
+                            <tr>
+                                <td>If</td>
+                                <td><code>if (x > 0) { }</code></td>
+                                <td><code>if x > 0:</code></td>
+                            </tr>
+                            <tr>
+                                <td>Else If</td>
+                                <td><code>else if (x < 0) { }</code></td>
+                                <td><code>elif x < 0:</code></td>
+                            </tr>
+                            <tr>
+                                <td>For Loop</td>
+                                <td><code>for(i=0; i<n; i++)</code></td>
+                                <td><code>for i in range(n):</code></td>
+                            </tr>
+                            <tr>
+                                <td>While Loop</td>
+                                <td><code>while(x > 0) { }</code></td>
+                                <td><code>while x > 0:</code></td>
+                            </tr>
+                            <tr>
+                                <td>Increment</td>
+                                <td><code>i++;</code></td>
+                                <td><code>i += 1</code></td>
+                            </tr>
+                            <tr>
+                                <td>Function</td>
+                                <td><code>int func(int a) { }</code></td>
+                                <td><code>def func(a):</code></td>
+                            </tr>
+                            <tr>
+                                <td>Array/List</td>
+                                <td><code>int arr[5];</code></td>
+                                <td><code>arr = []</code></td>
+                            </tr>
+                            <tr>
+                                <td>Length</td>
+                                <td><code>sizeof(arr)/sizeof(arr[0])</code></td>
+                                <td><code>len(arr)</code></td>
+                            </tr>
+                            <tr>
+                                <td>AND</td>
+                                <td><code>&&</code></td>
+                                <td><code>and</code></td>
+                            </tr>
+                            <tr>
+                                <td>OR</td>
+                                <td><code>||</code></td>
+                                <td><code>or</code></td>
+                            </tr>
+                            <tr>
+                                <td>NOT</td>
+                                <td><code>!</code></td>
+                                <td><code>not</code></td>
+                            </tr>
+                            <tr>
+                                <td>True/False</td>
+                                <td><code>1 / 0</code></td>
+                                <td><code>True / False</code></td>
+                            </tr>
+                            <tr>
+                                <td>NULL</td>
+                                <td><code>NULL</code></td>
+                                <td><code>None</code></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    💡 <strong>Tips for C Programmers Learning Python:</strong>
+                    <ol style="margin-top: 0.5rem;">
+                        <li>Stop typing semicolons - Python doesn't need them!</li>
+                        <li>Use indentation carefully - it defines code blocks</li>
+                        <li>Forget about type declarations - Python handles it</li>
+                        <li>Embrace Python's built-in functions (len, max, min, sum, etc.)</li>
+                        <li>Lists are much more powerful than C arrays</li>
+                        <li>Use <code>and</code>, <code>or</code>, <code>not</code> instead of <code>&&</code>, <code>||</code>, <code>!</code></li>
+                    </ol>
+                </div>
             </section>
 
             <div class="unit-nav">
