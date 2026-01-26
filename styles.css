@@ -24,6 +24,23 @@ body {
     background-color: var(--light-bg);
 }
 
+/* Images - Make responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo-img {
+    max-width: 100%;
+    height: auto;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -546,6 +563,8 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Tab Navigation Styles */
@@ -1349,44 +1368,71 @@ footer {
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        border-collapse: collapse;
     }
 
     table thead {
-        display: none;
+        display: table;
+        width: 100%;
+        background-color: var(--secondary-color);
+        color: var(--white);
     }
 
     table tbody {
         display: block;
+        width: 100%;
     }
 
     table tr {
         display: block;
-        border-bottom: 2px solid var(--light-bg);
+        border-bottom: 3px solid var(--light-bg);
         margin-bottom: 1rem;
-        padding: 0.5rem;
+        padding: 1rem;
         background-color: var(--white);
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     table td {
         display: block;
-        text-align: right;
-        padding: 0.5rem;
-        position: relative;
-        padding-left: 50%;
+        text-align: left;
+        padding: 0.75rem 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     table td:before {
         content: attr(data-label);
-        position: absolute;
-        left: 0.5rem;
         font-weight: bold;
-        text-align: left;
+        color: var(--primary-color);
+        display: block;
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    table th {
+        display: none;
     }
 
     .table-wrapper {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         margin-bottom: 1rem;
+        border-radius: 4px;
+    }
+
+    .download-cell {
+        margin-top: 0.5rem;
+    }
+
+    .download-btn, .view-btn {
+        display: block;
+        width: 100%;
+        padding: 0.6rem;
+        margin: 0.5rem 0;
+        text-align: center;
+        min-height: 44px;
+        line-height: 1.2;
     }
 
     /* Tabs */
@@ -1414,12 +1460,16 @@ footer {
     /* Buttons */
     .btn {
         display: inline-block;
-        padding: 0.5rem 0.8rem;
-        font-size: 0.85rem;
+        padding: 0.65rem 1.2rem;
+        font-size: 0.9rem;
         border-radius: 4px;
         border: none;
         cursor: pointer;
         text-decoration: none;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .btn-primary {
@@ -1433,10 +1483,14 @@ footer {
     }
 
     .download-btn, .view-btn {
-        padding: 0.4rem 0.6rem;
-        font-size: 0.8rem;
-        width: 100%;
-        margin: 0.25rem 0;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+        width: 48%;
+        margin: 0.25rem auto;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* Unit Navigation */
@@ -1646,5 +1700,161 @@ footer {
 
     code {
         font-size: 0.85rem;
+    }
+
+    /* Additional Mobile Optimizations */
+    
+    /* Forms */
+    input, textarea, select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.75rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+        border: 1px solid var(--light-bg);
+        border-radius: 4px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    }
+
+    /* Improve Lists */
+    ul, ol {
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    /* Code Blocks */
+    pre {
+        border-radius: 4px;
+        border: 1px solid var(--light-bg);
+        background-color: #f5f5f5;
+        margin-bottom: 1rem;
+    }
+
+    code {
+        background-color: #f5f5f5;
+        padding: 0.2rem 0.4rem;
+        border-radius: 2px;
+        font-family: 'Courier New', monospace;
+    }
+
+    pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1rem;
+        margin: 1rem 0;
+        color: var(--text-light);
+        font-style: italic;
+    }
+
+    /* Accessibility */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    /* Touch-friendly spacing */
+    a, button, .btn {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* Prevent text selection on interactive elements */
+    .hamburger,
+    .tab-btn,
+    .download-btn,
+    .view-btn {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    /* Improve scrolling performance */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Safe area insets for notched devices */
+    @supports (padding: max(0px)) {
+        .navbar {
+            padding-left: max(0.5rem, env(safe-area-inset-left));
+            padding-right: max(0.5rem, env(safe-area-inset-right));
+        }
+        
+        footer {
+            padding-left: max(0.5rem, env(safe-area-inset-left));
+            padding-right: max(0.5rem, env(safe-area-inset-right));
+            padding-bottom: max(1rem, env(safe-area-inset-bottom));
+        }
+    }
+
+    /* Hide scroll behavior on mobile - smooth is often laggy */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Improve mobile button interactions */
+    button:active,
+    .btn:active,
+    a:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Ultra-small phones (< 360px) */
+@media (max-width: 360px) {
+    html, body {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 0 8px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    table td {
+        padding: 0.5rem 0;
+    }
+
+    .practical-module h2,
+    .viva-qa h2 {
+        font-size: 1rem;
     }
 }
