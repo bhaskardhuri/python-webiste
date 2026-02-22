@@ -5,6 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPoint Presentations - Python Study Material</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Accordion Styles */
+        .accordion {
+            margin: 1rem 0;
+        }
+        .accordion-item {
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%);
+        }
+        .accordion-header.active {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #fff;
+        }
+        .accordion-content.show {
+            max-height: 1000px;
+        }
+        .accordion-body {
+            padding: 1rem;
+        }
+        .notes-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .notes-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .notes-list li:last-child {
+            border-bottom: none;
+        }
+        .notes-list .note-title {
+            font-weight: 500;
+            color: #333;
+            flex: 1;
+            min-width: 200px;
+        }
+        .notes-list .note-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .no-notes {
+            text-align: center;
+            padding: 1.5rem;
+            color: #666;
+            font-style: italic;
+        }
+        .unit-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+        @media (max-width: 600px) {
+            .notes-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .notes-list .note-actions {
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+            .notes-list .note-actions .btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -43,160 +149,135 @@
     <main class="container">
         <section class="unit-content">
             <h1>PowerPoint Presentations</h1>
-            <p>Access comprehensive PowerPoint presentations for each unit. You can view them online or download for offline study.</p>
+            <p>Click on any unit below to view and download notes. You can view them online or download for offline study.</p>
 
-            <!-- Unit 1 PPTs -->
-            <div class="ppt-section">
-                <h2>Unit 1: Introduction to Python</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Module">Unit 1 Module 1.1</td>
-                                <td class="ppt-actions" data-label="Actions">
-                                    <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 1.1.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 1/Unit 1 Module 1.1.pdf" download>Download</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td data-label="Module">Unit 1 Module 1.2</td>
-                                <td class="ppt-actions" data-label="Actions">
-                                    <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 1.2.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 1/Unit 1 Module 1.2.pdf" download>Download</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Unit 1 Module 2.1</td>
-                                <td class="ppt-actions">
-                                    <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.1.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 1/Unit 1 Module 2.1.pdf" download>Download</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Unit 1 Module 2.2</td>
-                                <td class="ppt-actions">
-                                    <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.2.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 1/Unit 1 Module 2.2.pdf" download>Download</a>
-                                </td>
-                            </tr> 
-                             <!-- <tr>
-                                <td>Unit 1 Module 2.3</td>
-                                <td class="ppt-actions">
-                                    <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.3.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 1/Unit 1 Module 2.3.pdf" download>Download</a>
-                                </td>
-                            </tr> -->
-                        </tbody>
-                    </table>
+            <div class="accordion">
+                <!-- Unit 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 1</span> Introduction to Python</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul class="notes-list">
+                                <li>
+                                    <span class="note-title">Unit 1 Module 1.1</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 1.1.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Unit 1 Module 1.1.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Unit 1 Module 1.2</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 1.2.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Unit 1 Module 1.2.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Unit 1 Module 2.1</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.1.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Unit 1 Module 2.1.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Unit 1 Module 2.2</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.2.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Unit 1 Module 2.2.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Unit 1 Module 2.3</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Unit 1 Module 2.3.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Unit 1 Module 2.3.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Dictionary Sequence in Python</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Dictionary Sequence in Python.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Dictionary Sequence in Python.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="note-title">Understanding the Syntax Transition: From C to Python</span>
+                                    <div class="note-actions">
+                                        <a class="btn btn-success" href="notes/Unit 1/Understanding the Syntax Transition_ From C to Python.pdf" target="_blank">View</a>
+                                        <a class="btn btn-primary" href="notes/Unit 1/Understanding the Syntax Transition_ From C to Python.pdf" download>Download</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Unit 2 PPTs -->
-            <div class="ppt-section">
-                <h2>Unit 2: Control Flow and Functions</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- <tr>
-                                <td>Control Statements in Python</td>
-                                <td class="ppt-actions">
-                                    <a class="btn btn-success" href="notes/Unit 2/Control_Statements_in_Python.pdf" target="_blank" rel="noopener noreferrer">View</a>
-                                    <a class="btn btn-primary download-btn" href="notes/Unit 2/Control_Statements_in_Python.pdf" download>Download</a>
-                                </td>
-                            </tr> -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- Unit 3 PPTs (not available) -->
-            <div class="ppt-section">
-                <h2>Unit 3: File Handling, Packaging and Debugging</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="2">PPTs not available for this unit.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Unit 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 2</span> Control Flow and Functions</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="no-notes">Notes coming soon for this unit.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Unit 4 PPTs (not available) -->
-            <div class="ppt-section">
-                <h2>Unit 4: Object Oriented Programming (OOP) in Python</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="2">PPTs not available for this unit.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Unit 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 3</span> File Handling, Packaging and Debugging</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="no-notes">Notes coming soon for this unit.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Unit 5 PPTs (not available) -->
-            <div class="ppt-section">
-                <h2>Unit 5: Advanced Python Concepts</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="2">PPTs not available for this unit.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Unit 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 4</span> Object Oriented Programming (OOP) in Python</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="no-notes">Notes coming soon for this unit.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Unit 6 PPTs (not available) -->
-            <div class="ppt-section">
-                <h2>Unit 6: Python Libraries</h2>
-                <div class="table-wrapper">
-                    <table class="download-table ppt-table">
-                        <thead>
-                            <tr>
-                                <th>Module</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="2">PPTs not available for this unit.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Unit 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 5</span> Advanced Python Concepts</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="no-notes">Notes coming soon for this unit.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit 6 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span><span class="unit-badge">Unit 6</span> Python Libraries</span>
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p class="no-notes">Notes coming soon for this unit.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -215,5 +296,23 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            // Close all accordions
+            document.querySelectorAll('.accordion-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('show');
+            });
+            
+            // Open clicked one if it wasn't active
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('show');
+            }
+        }
+    </script>
 </body>
 </html>
