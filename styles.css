@@ -902,6 +902,97 @@ footer {
     margin-bottom: 0;
 }
 
+/* Intro Box Styles */
+.intro-box {
+    background: linear-gradient(135deg, #fff3e0 0%, #fff8e1 100%);
+    border-left: 4px solid #ff9800;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.intro-box p {
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+/* Summary Box Styles */
+.summary-box {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+    border-left: 4px solid #4caf50;
+    padding: 1.5rem 2rem;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+}
+
+.summary-box h4 {
+    color: #2e7d32;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.summary-box ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.summary-box ul:last-child {
+    margin-bottom: 0;
+}
+
+.summary-box li {
+    margin-bottom: 0.4rem;
+    color: var(--text-dark);
+}
+
+/* Styled Table */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.styled-table thead {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.styled-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.styled-table td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--light-bg);
+}
+
+.styled-table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.styled-table code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+}
+
 /* Units Table Styles */
 .units-table {
     width: 100%;

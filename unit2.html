@@ -42,150 +42,1306 @@
 
     <main class="container">
         <section class="unit-content">
-            <h1>Unit 2: Control Flow</h1>
+            <h1>Unit 2: Control Flow and Functions</h1>
             
             <div class="toc">
                 <h3>Topics Covered:</h3>
                 <ul>
-                    <li><a href="#if">Conditional Statements (if, elif, else)</a></li>
-                    <li><a href="#while">While Loop</a></li>
-                    <li><a href="#for">For Loop</a></li>
-                    <li><a href="#break">Break and Continue</a></li>
-                    <li><a href="#nested">Nested Loops</a></li>
-                    <li><a href="#pass">Pass Statement</a></li>
+                    <li><a href="#conditional">2.1 Conditional Statements (if, elif, else)</a></li>
+                    <li><a href="#loops">2.2 Loops: for and while loop</a></li>
+                    <li><a href="#loop-control">2.2.1 Loop Control Statements</a></li>
+                    <li><a href="#nested">2.2.2 Nested Loops</a></li>
+                    <li><a href="#functions">2.3 Functions in Python</a></li>
+                    <li><a href="#defining">2.3.1 Defining Functions</a></li>
+                    <li><a href="#parameters">2.3.2 Parameters and Return Values</a></li>
+                    <li><a href="#scope">2.3.3 Scope and Lifetime of Variables</a></li>
                 </ul>
             </div>
 
-            <section id="if" class="topic">
-                <h2>1. Conditional Statements</h2>
-                <p><strong>if Statement:</strong></p>
-                <pre><code>age = 18
-if age >= 18:
-    print("You are an adult")</code></pre>
+            <!-- ===================== SECTION 2.1: CONDITIONAL STATEMENTS ===================== -->
+            <section id="conditional" class="topic">
+                <h2>2.1 Conditional Statements</h2>
+                
+                <div class="intro-box">
+                    <p>Conditional statements allow a program to make decisions and execute different code blocks based on whether certain conditions are true or false. Python provides three main conditional statements: <strong>if</strong>, <strong>elif</strong>, and <strong>else</strong>.</p>
+                </div>
 
-                <p><strong>if-else Statement:</strong></p>
+                <h3>2.1.1 The if Statement</h3>
+                <p>The <code>if</code> statement is the most basic form of conditional statement. It executes a block of code only if the specified condition evaluates to <code>True</code>.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>if condition:
+    # Code block to execute if condition is True
+    statement(s)</code></pre>
+
+                <p><strong>Example:</strong></p>
+                <pre><code># Simple if statement
+age = 18
+if age >= 18:
+    print("You are an adult")
+    print("You can vote!")
+
+# Output: 
+# You are an adult
+# You can vote!</code></pre>
+
+                <div class="note-box">
+                    <p><strong>Important Points:</strong></p>
+                    <ul>
+                        <li>The condition must evaluate to a Boolean value (True or False)</li>
+                        <li>The colon <code>:</code> at the end of the if statement is mandatory</li>
+                        <li>Indentation (typically 4 spaces) is crucial in Python - it defines the code block</li>
+                        <li>If the condition is False, the code block is skipped entirely</li>
+                    </ul>
+                </div>
+
+                <h3>2.1.2 The if-else Statement</h3>
+                <p>The <code>if-else</code> statement provides an alternative block of code to execute when the condition is False.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>if condition:
+    # Code block if condition is True
+    statement(s)
+else:
+    # Code block if condition is False
+    statement(s)</code></pre>
+
+                <p><strong>Example:</strong></p>
+                <pre><code># Check if a number is positive or negative
+number = -5
+
+if number >= 0:
+    print("The number is positive or zero")
+else:
+    print("The number is negative")
+
+# Output: The number is negative</code></pre>
+
+                <p><strong>Another Example - Temperature Check:</strong></p>
                 <pre><code>temperature = 25
+
 if temperature > 30:
-    print("Hot weather")
+    print("It's hot outside! Stay hydrated.")
 else:
-    print("Pleasant weather")</code></pre>
+    print("The weather is pleasant.")
 
-                <p><strong>if-elif-else Statement:</strong></p>
+# Output: The weather is pleasant.</code></pre>
+
+                <h3>2.1.3 The if-elif-else Statement</h3>
+                <p>When you need to check multiple conditions, use the <code>elif</code> (else if) statement. Python checks each condition in order and executes the first block where the condition is True.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>if condition1:
+    # Code block if condition1 is True
+    statement(s)
+elif condition2:
+    # Code block if condition2 is True
+    statement(s)
+elif condition3:
+    # Code block if condition3 is True
+    statement(s)
+else:
+    # Code block if all conditions are False
+    statement(s)</code></pre>
+
+                <p><strong>Example - Grade Calculator:</strong></p>
                 <pre><code>score = 75
-if score >= 90:
-    print("Grade A")
-elif score >= 80:
-    print("Grade B")
-elif score >= 70:
-    print("Grade C")
-else:
-    print("Grade F")</code></pre>
 
-                <p><strong>Nested if:</strong></p>
-                <pre><code>age = 20
-income = 30000
+if score >= 90:
+    grade = "A"
+    print("Excellent!")
+elif score >= 80:
+    grade = "B"
+    print("Very Good!")
+elif score >= 70:
+    grade = "C"
+    print("Good!")
+elif score >= 60:
+    grade = "D"
+    print("Satisfactory")
+else:
+    grade = "F"
+    print("Need Improvement")
+
+print(f"Your grade is: {grade}")
+
+# Output:
+# Good!
+# Your grade is: C</code></pre>
+
+                <p><strong>Example - Day of Week:</strong></p>
+                <pre><code>day = 3
+
+if day == 1:
+    print("Monday")
+elif day == 2:
+    print("Tuesday")
+elif day == 3:
+    print("Wednesday")
+elif day == 4:
+    print("Thursday")
+elif day == 5:
+    print("Friday")
+elif day == 6:
+    print("Saturday")
+elif day == 7:
+    print("Sunday")
+else:
+    print("Invalid day number")
+
+# Output: Wednesday</code></pre>
+
+                <h3>2.1.4 Nested if Statements</h3>
+                <p>You can place an <code>if</code> statement inside another <code>if</code> statement. This is called nesting.</p>
+                
+                <p><strong>Example - Loan Eligibility:</strong></p>
+                <pre><code>age = 25
+income = 50000
+credit_score = 750
+
 if age >= 18:
-    if income >= 25000:
-        print("You qualify for the loan")
+    print("Age requirement met")
+    if income >= 30000:
+        print("Income requirement met")
+        if credit_score >= 700:
+            print("Congratulations! You qualify for the loan.")
+        else:
+            print("Sorry, your credit score is too low.")
     else:
-        print("Income is too low")</code></pre>
+        print("Sorry, your income is insufficient.")
+else:
+    print("Sorry, you must be at least 18 years old.")
+
+# Output:
+# Age requirement met
+# Income requirement met
+# Congratulations! You qualify for the loan.</code></pre>
+
+                <h3>2.1.5 Conditional Expressions (Ternary Operator)</h3>
+                <p>Python supports a shorthand way to write simple if-else statements in a single line.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>value_if_true if condition else value_if_false</code></pre>
+
+                <p><strong>Example:</strong></p>
+                <pre><code># Traditional if-else
+age = 20
+if age >= 18:
+    status = "Adult"
+else:
+    status = "Minor"
+
+# Using ternary operator (same result)
+status = "Adult" if age >= 18 else "Minor"
+print(status)  # Output: Adult
+
+# Finding maximum of two numbers
+a, b = 10, 20
+maximum = a if a > b else b
+print(f"Maximum: {maximum}")  # Output: Maximum: 20</code></pre>
+
+                <h3>2.1.6 Logical Operators in Conditions</h3>
+                <p>You can combine multiple conditions using logical operators: <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+                
+                <pre><code># Using 'and' - Both conditions must be True
+age = 25
+has_license = True
+
+if age >= 18 and has_license:
+    print("You can drive")
+
+# Using 'or' - At least one condition must be True
+is_weekend = True
+is_holiday = False
+
+if is_weekend or is_holiday:
+    print("You can relax today!")
+
+# Using 'not' - Inverts the condition
+is_raining = False
+
+if not is_raining:
+    print("You can go outside without an umbrella")
+
+# Combining multiple operators
+temperature = 25
+is_sunny = True
+is_weekend = True
+
+if (temperature > 20 and is_sunny) or is_weekend:
+    print("Great day for outdoor activities!")</code></pre>
+
+                <h3>2.1.7 Comparison Operators</h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>==</td><td>Equal to</td><td>5 == 5</td><td>True</td></tr>
+                        <tr><td>!=</td><td>Not equal to</td><td>5 != 3</td><td>True</td></tr>
+                        <tr><td>&gt;</td><td>Greater than</td><td>5 &gt; 3</td><td>True</td></tr>
+                        <tr><td>&lt;</td><td>Less than</td><td>5 &lt; 3</td><td>False</td></tr>
+                        <tr><td>&gt;=</td><td>Greater than or equal</td><td>5 &gt;= 5</td><td>True</td></tr>
+                        <tr><td>&lt;=</td><td>Less than or equal</td><td>5 &lt;= 3</td><td>False</td></tr>
+                    </tbody>
+                </table>
             </section>
 
-            <section id="while" class="topic">
-                <h2>2. While Loop</h2>
-                <p><strong>Basic While Loop:</strong></p>
-                <pre><code>count = 1
+            <!-- ===================== SECTION 2.2: LOOPS ===================== -->
+            <section id="loops" class="topic">
+                <h2>2.2 Loops: for and while</h2>
+                
+                <div class="intro-box">
+                    <p>Loops are used to execute a block of code repeatedly. Python provides two main types of loops: <strong>for loop</strong> (used when you know the number of iterations) and <strong>while loop</strong> (used when you want to loop until a condition becomes False).</p>
+                </div>
+
+                <h3>2.2.1 The while Loop</h3>
+                <p>The <code>while</code> loop executes a block of code as long as the specified condition is True.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>while condition:
+    # Code block to execute
+    statement(s)
+    # Update condition variable (important to avoid infinite loop)</code></pre>
+
+                <p><strong>Example - Counting:</strong></p>
+                <pre><code># Print numbers 1 to 5
+count = 1
 while count <= 5:
     print(count)
-    count += 1</code></pre>
+    count += 1  # Important: increment to avoid infinite loop
 
-                <p><strong>While with condition:</strong></p>
-                <pre><code>password = ""
-while password != "python":
+# Output:
+# 1
+# 2
+# 3
+# 4
+# 5</code></pre>
+
+                <p><strong>Example - Sum of Numbers:</strong></p>
+                <pre><code># Calculate sum of numbers from 1 to 10
+total = 0
+number = 1
+
+while number <= 10:
+    total += number
+    number += 1
+
+print(f"Sum of numbers 1 to 10 is: {total}")
+# Output: Sum of numbers 1 to 10 is: 55</code></pre>
+
+                <p><strong>Example - User Input Validation:</strong></p>
+                <pre><code># Keep asking until correct password is entered
+password = ""
+
+while password != "python123":
     password = input("Enter password: ")
-print("Access granted")</code></pre>
+    if password != "python123":
+        print("Incorrect password. Try again.")
 
-                <p><strong>Infinite Loop (be careful):</strong></p>
-                <pre><code>while True:
-    print("This runs forever")
-    break  # Use break to exit</code></pre>
-            </section>
+print("Access granted! Welcome!")
 
-            <section id="for" class="topic">
-                <h2>3. For Loop</h2>
-                <p><strong>For loop with range():</strong></p>
-                <pre><code>for i in range(5):
-    print(i)  # Prints 0 to 4
+# The loop continues until the user enters "python123"</code></pre>
 
+                <p><strong>Example - Factorial Calculation:</strong></p>
+                <pre><code># Calculate factorial of a number
+number = 5
+factorial = 1
+i = 1
+
+while i <= number:
+    factorial *= i
+    i += 1
+
+print(f"Factorial of {number} is {factorial}")
+# Output: Factorial of 5 is 120</code></pre>
+
+                <h4>while-else Statement</h4>
+                <p>Python's while loop can have an optional <code>else</code> block that executes when the condition becomes False (not when broken).</p>
+                <pre><code>count = 1
+
+while count <= 3:
+    print(f"Count: {count}")
+    count += 1
+else:
+    print("Loop completed successfully!")
+
+# Output:
+# Count: 1
+# Count: 2
+# Count: 3
+# Loop completed successfully!</code></pre>
+
+                <h3>2.2.2 The for Loop</h3>
+                <p>The <code>for</code> loop is used to iterate over a sequence (list, tuple, string, range, etc.) or any iterable object.</p>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>for variable in sequence:
+    # Code block to execute
+    statement(s)</code></pre>
+
+                <h4>Using range() Function</h4>
+                <p>The <code>range()</code> function generates a sequence of numbers.</p>
+                
+                <pre><code># range(stop) - generates 0 to stop-1
+for i in range(5):
+    print(i, end=" ")
+# Output: 0 1 2 3 4
+
+print()  # New line
+
+# range(start, stop) - generates start to stop-1
 for i in range(1, 6):
-    print(i)  # Prints 1 to 5
+    print(i, end=" ")
+# Output: 1 2 3 4 5
 
+print()
+
+# range(start, stop, step) - generates with step increment
 for i in range(0, 10, 2):
-    print(i)  # Prints 0, 2, 4, 6, 8</code></pre>
+    print(i, end=" ")
+# Output: 0 2 4 6 8
 
-                <p><strong>For loop with strings:</strong></p>
-                <pre><code>name = "Python"
-for char in name:
-    print(char)</code></pre>
+print()
 
-                <p><strong>For loop with lists:</strong></p>
-                <pre><code>fruits = ["apple", "banana", "cherry"]
+# Counting backwards
+for i in range(5, 0, -1):
+    print(i, end=" ")
+# Output: 5 4 3 2 1</code></pre>
+
+                <h4>Iterating Over Strings</h4>
+                <pre><code># Print each character in a string
+word = "Python"
+
+for char in word:
+    print(char, end=" ")
+# Output: P y t h o n
+
+# Count vowels in a string
+text = "Hello World"
+vowels = "aeiouAEIOU"
+vowel_count = 0
+
+for char in text:
+    if char in vowels:
+        vowel_count += 1
+
+print(f"\nNumber of vowels: {vowel_count}")
+# Output: Number of vowels: 3</code></pre>
+
+                <h4>Iterating Over Lists</h4>
+                <pre><code># Iterate over a list
+fruits = ["apple", "banana", "cherry", "date"]
+
 for fruit in fruits:
-    print(fruit)</code></pre>
+    print(f"I like {fruit}")
 
-                <p><strong>For loop with enumerate():</strong></p>
+# Output:
+# I like apple
+# I like banana
+# I like cherry
+# I like date
+
+# Calculate sum of list elements
+numbers = [10, 20, 30, 40, 50]
+total = 0
+
+for num in numbers:
+    total += num
+
+print(f"Sum: {total}")  # Output: Sum: 150</code></pre>
+
+                <h4>Using enumerate() Function</h4>
+                <p>The <code>enumerate()</code> function returns both the index and value of each item.</p>
                 <pre><code>fruits = ["apple", "banana", "cherry"]
+
 for index, fruit in enumerate(fruits):
-    print(index, fruit)</code></pre>
-            </section>
+    print(f"Index {index}: {fruit}")
 
-            <section id="break" class="topic">
-                <h2>4. Break and Continue</h2>
-                <p><strong>Break Statement:</strong> Exits the loop immediately</p>
-                <pre><code>for i in range(10):
-    if i == 5:
-        break
-    print(i)  # Prints 0 to 4</code></pre>
+# Output:
+# Index 0: apple
+# Index 1: banana
+# Index 2: cherry
 
-                <p><strong>Continue Statement:</strong> Skips the current iteration</p>
-                <pre><code>for i in range(5):
-    if i == 2:
-        continue
-    print(i)  # Prints 0, 1, 3, 4</code></pre>
+# Start index from 1
+for index, fruit in enumerate(fruits, start=1):
+    print(f"Fruit {index}: {fruit}")
 
-                <p><strong>Else with loops:</strong></p>
-                <pre><code>for i in range(5):
-    if i == 10:
+# Output:
+# Fruit 1: apple
+# Fruit 2: banana
+# Fruit 3: cherry</code></pre>
+
+                <h4>for-else Statement</h4>
+                <p>The <code>else</code> block in a for loop executes when the loop completes normally (without break).</p>
+                <pre><code># Search for a number
+numbers = [1, 3, 5, 7, 9]
+target = 5
+
+for num in numbers:
+    if num == target:
+        print(f"Found {target}!")
         break
 else:
-    print("Loop completed normally")</code></pre>
+    print(f"{target} not found in the list")
+
+# Output: Found 5!</code></pre>
             </section>
 
-            <section id="nested" class="topic">
-                <h2>5. Nested Loops</h2>
-                <p><strong>Multiplication Table:</strong></p>
-                <pre><code>for i in range(1, 4):
-    for j in range(1, 4):
-        print(f"{i} * {j} = {i*j}")</code></pre>
+            <!-- ===================== SECTION 2.2.1: LOOP CONTROL STATEMENTS ===================== -->
+            <section id="loop-control" class="topic">
+                <h2>2.2.1 Loop Control Statements</h2>
+                
+                <div class="intro-box">
+                    <p>Loop control statements change the execution from its normal sequence. Python provides three loop control statements: <strong>break</strong>, <strong>continue</strong>, and <strong>pass</strong>.</p>
+                </div>
 
-                <p><strong>Pattern printing:</strong></p>
-                <pre><code>for i in range(1, 4):
-    for j in range(i):
-        print("*", end="")
-    print()</code></pre>
-            </section>
+                <h3>The break Statement</h3>
+                <p>The <code>break</code> statement terminates the loop immediately and transfers control to the statement following the loop.</p>
+                
+                <pre><code># Exit loop when condition is met
+for i in range(1, 11):
+    if i == 6:
+        print("Breaking the loop!")
+        break
+    print(i)
 
-            <section id="pass" class="topic">
-                <h2>6. Pass Statement</h2>
-                <p>The <strong>pass</strong> statement is a null operation that does nothing. It is used as a placeholder.</p>
-                <pre><code>if True:
-    pass  # Do nothing
+# Output:
+# 1
+# 2
+# 3
+# 4
+# 5
+# Breaking the loop!
 
+# Search and exit
+names = ["Alice", "Bob", "Charlie", "David"]
+search_name = "Charlie"
+
+for name in names:
+    if name == search_name:
+        print(f"Found {search_name}!")
+        break
+    print(f"Checking {name}...")
+
+# Output:
+# Checking Alice...
+# Checking Bob...
+# Found Charlie!</code></pre>
+
+                <h3>The continue Statement</h3>
+                <p>The <code>continue</code> statement skips the current iteration and moves to the next iteration of the loop.</p>
+                
+                <pre><code># Skip even numbers
+for i in range(1, 11):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)
+
+# Output: 1 3 5 7 9
+
+# Skip specific items
+fruits = ["apple", "banana", "cherry", "date"]
+
+for fruit in fruits:
+    if fruit == "banana":
+        continue
+    print(f"I like {fruit}")
+
+# Output:
+# I like apple
+# I like cherry
+# I like date</code></pre>
+
+                <h3>The pass Statement</h3>
+                <p>The <code>pass</code> statement is a null operation. It does nothing and is used as a placeholder when a statement is syntactically required.</p>
+                
+                <pre><code># Placeholder for future code
 for i in range(5):
-    pass  # Complete later
+    if i == 2:
+        pass  # TODO: Add special handling for 2
+    print(i)
 
-def my_function():
-    pass  # Not implemented yet</code></pre>
+# Output: 0 1 2 3 4
+
+# Empty function placeholder
+def future_function():
+    pass  # Will implement later
+
+# Empty class placeholder
+class MyClass:
+    pass  # Will add methods later
+
+# Empty if block
+x = 10
+if x > 5:
+    pass  # Handle this case later
+else:
+    print("x is 5 or less")</code></pre>
+
+                <h3>Comparison Table</h3>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Statement</th>
+                            <th>Description</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>break</code></td>
+                            <td>Terminates the loop</td>
+                            <td>Exits the loop entirely</td>
+                        </tr>
+                        <tr>
+                            <td><code>continue</code></td>
+                            <td>Skips current iteration</td>
+                            <td>Continues with next iteration</td>
+                        </tr>
+                        <tr>
+                            <td><code>pass</code></td>
+                            <td>Does nothing</td>
+                            <td>Placeholder, execution continues</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ===================== SECTION 2.2.2: NESTED LOOPS ===================== -->
+            <section id="nested" class="topic">
+                <h2>2.2.2 Nested Loops</h2>
+                
+                <div class="intro-box">
+                    <p>A nested loop is a loop inside another loop. The inner loop executes completely for each iteration of the outer loop.</p>
+                </div>
+
+                <p><strong>Example - Multiplication Table:</strong></p>
+                <pre><code># Print multiplication table for 1 to 5
+for i in range(1, 6):
+    print(f"Table of {i}:")
+    for j in range(1, 11):
+        print(f"  {i} x {j} = {i * j}")
+    print()  # Empty line between tables
+
+# Sample Output:
+# Table of 1:
+#   1 x 1 = 1
+#   1 x 2 = 2
+#   ... and so on</code></pre>
+
+                <p><strong>Example - Pattern Printing (Right Triangle):</strong></p>
+                <pre><code># Print right triangle pattern
+rows = 5
+
+for i in range(1, rows + 1):
+    for j in range(i):
+        print("*", end=" ")
+    print()  # Move to next line
+
+# Output:
+# *
+# * *
+# * * *
+# * * * *
+# * * * * *</code></pre>
+
+                <p><strong>Example - Inverted Triangle:</strong></p>
+                <pre><code># Print inverted triangle pattern
+rows = 5
+
+for i in range(rows, 0, -1):
+    for j in range(i):
+        print("*", end=" ")
+    print()
+
+# Output:
+# * * * * *
+# * * * *
+# * * *
+# * *
+# *</code></pre>
+
+                <p><strong>Example - Number Pyramid:</strong></p>
+                <pre><code># Print number pattern
+rows = 5
+
+for i in range(1, rows + 1):
+    for j in range(1, i + 1):
+        print(j, end=" ")
+    print()
+
+# Output:
+# 1
+# 1 2
+# 1 2 3
+# 1 2 3 4
+# 1 2 3 4 5</code></pre>
+
+                <p><strong>Example - Working with 2D Lists:</strong></p>
+                <pre><code># Iterate through a 2D list (matrix)
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print("Matrix elements:")
+for row in matrix:
+    for element in row:
+        print(element, end=" ")
+    print()
+
+# Output:
+# 1 2 3
+# 4 5 6
+# 7 8 9
+
+# Calculate sum of all elements
+total = 0
+for row in matrix:
+    for element in row:
+        total += element
+print(f"Sum of all elements: {total}")  # Output: 45</code></pre>
+
+                <p><strong>Example - Finding Prime Numbers:</strong></p>
+                <pre><code># Print prime numbers from 2 to 20
+print("Prime numbers from 2 to 20:")
+
+for num in range(2, 21):
+    is_prime = True
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num, end=" ")
+
+# Output: 2 3 5 7 11 13 17 19</code></pre>
+            </section>
+
+            <!-- ===================== SECTION 2.3: FUNCTIONS ===================== -->
+            <section id="functions" class="topic">
+                <h2>2.3 Functions in Python</h2>
+                
+                <div class="intro-box">
+                    <p>A <strong>function</strong> is a block of organized, reusable code that performs a specific task. Functions help in breaking down large programs into smaller, manageable pieces, promoting code reusability and modularity.</p>
+                </div>
+
+                <h3>Why Use Functions?</h3>
+                <ul>
+                    <li><strong>Code Reusability:</strong> Write once, use multiple times</li>
+                    <li><strong>Modularity:</strong> Break complex problems into smaller tasks</li>
+                    <li><strong>Readability:</strong> Makes code easier to understand</li>
+                    <li><strong>Maintainability:</strong> Easier to update and debug</li>
+                    <li><strong>Abstraction:</strong> Hide complex implementation details</li>
+                </ul>
+
+                <h3>Types of Functions in Python</h3>
+                <ol>
+                    <li><strong>Built-in Functions:</strong> Pre-defined in Python (e.g., <code>print()</code>, <code>len()</code>, <code>input()</code>)</li>
+                    <li><strong>User-defined Functions:</strong> Created by the programmer</li>
+                    <li><strong>Lambda Functions:</strong> Anonymous, small functions</li>
+                </ol>
+            </section>
+
+            <!-- ===================== SECTION 2.3.1: DEFINING FUNCTIONS ===================== -->
+            <section id="defining" class="topic">
+                <h2>2.3.1 Defining Functions</h2>
+                
+                <p><strong>Syntax:</strong></p>
+                <pre><code>def function_name(parameters):
+    """Docstring: describes what the function does"""
+    # Function body
+    statement(s)
+    return value  # Optional</code></pre>
+
+                <div class="note-box">
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><code>def</code> keyword is used to define a function</li>
+                        <li>Function name should follow naming conventions (lowercase, underscores)</li>
+                        <li>Parameters are optional</li>
+                        <li>Colon <code>:</code> marks the end of the function header</li>
+                        <li>Docstring (optional but recommended) describes the function</li>
+                        <li><code>return</code> statement is optional; functions return <code>None</code> by default</li>
+                    </ul>
+                </div>
+
+                <p><strong>Example - Simple Function:</strong></p>
+                <pre><code># Define a simple function
+def greet():
+    """Prints a greeting message"""
+    print("Hello, Welcome to Python!")
+
+# Call the function
+greet()
+
+# Output: Hello, Welcome to Python!</code></pre>
+
+                <p><strong>Example - Function with Parameters:</strong></p>
+                <pre><code># Function that accepts a parameter
+def greet_user(name):
+    """Greets a user by name"""
+    print(f"Hello, {name}! Welcome to Python!")
+
+# Call with different arguments
+greet_user("Alice")
+greet_user("Bob")
+
+# Output:
+# Hello, Alice! Welcome to Python!
+# Hello, Bob! Welcome to Python!</code></pre>
+
+                <p><strong>Example - Function with Multiple Parameters:</strong></p>
+                <pre><code># Function to add two numbers
+def add_numbers(a, b):
+    """Returns the sum of two numbers"""
+    result = a + b
+    return result
+
+# Call the function
+sum_result = add_numbers(5, 3)
+print(f"Sum: {sum_result}")
+
+# Output: Sum: 8
+
+# Function to calculate area of rectangle
+def calculate_area(length, width):
+    """Calculates and returns the area of a rectangle"""
+    area = length * width
+    return area
+
+# Using the function
+rect_area = calculate_area(10, 5)
+print(f"Area of rectangle: {rect_area} square units")
+
+# Output: Area of rectangle: 50 square units</code></pre>
+
+                <p><strong>Example - Function to Check Even/Odd:</strong></p>
+                <pre><code>def is_even(number):
+    """Returns True if number is even, False otherwise"""
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+
+# Or more concisely:
+def is_even(number):
+    """Returns True if number is even, False otherwise"""
+    return number % 2 == 0
+
+# Using the function
+print(is_even(4))   # Output: True
+print(is_even(7))   # Output: False</code></pre>
+
+                <p><strong>Example - Function to Find Maximum:</strong></p>
+                <pre><code>def find_maximum(a, b, c):
+    """Returns the maximum of three numbers"""
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+
+# Using the function
+max_num = find_maximum(10, 25, 15)
+print(f"Maximum number: {max_num}")
+
+# Output: Maximum number: 25</code></pre>
+            </section>
+
+            <!-- ===================== SECTION 2.3.2: PARAMETERS AND RETURN VALUES ===================== -->
+            <section id="parameters" class="topic">
+                <h2>2.3.2 Parameters and Return Values</h2>
+                
+                <h3>Types of Parameters</h3>
+
+                <h4>1. Positional Parameters</h4>
+                <p>Arguments are passed in the order they are defined.</p>
+                <pre><code>def describe_person(name, age, city):
+    """Describes a person"""
+    print(f"{name} is {age} years old and lives in {city}")
+
+# Call with positional arguments
+describe_person("Alice", 25, "Mumbai")
+
+# Output: Alice is 25 years old and lives in Mumbai</code></pre>
+
+                <h4>2. Keyword Parameters</h4>
+                <p>Arguments are passed with parameter names, allowing any order.</p>
+                <pre><code>def describe_person(name, age, city):
+    """Describes a person"""
+    print(f"{name} is {age} years old and lives in {city}")
+
+# Call with keyword arguments (order doesn't matter)
+describe_person(city="Delhi", name="Bob", age=30)
+
+# Output: Bob is 30 years old and lives in Delhi
+
+# Mix positional and keyword (positional must come first)
+describe_person("Charlie", city="Pune", age=35)
+
+# Output: Charlie is 35 years old and lives in Pune</code></pre>
+
+                <h4>3. Default Parameters</h4>
+                <p>Parameters can have default values that are used when no argument is provided.</p>
+                <pre><code>def greet(name, message="Hello"):
+    """Greets with a custom or default message"""
+    print(f"{message}, {name}!")
+
+# Call with and without default parameter
+greet("Alice")              # Uses default message
+greet("Bob", "Good Morning")  # Uses custom message
+
+# Output:
+# Hello, Alice!
+# Good Morning, Bob!
+
+# Another example with multiple defaults
+def create_profile(name, age=18, city="Unknown"):
+    """Creates a user profile"""
+    return {
+        "name": name,
+        "age": age,
+        "city": city
+    }
+
+print(create_profile("Alice"))
+print(create_profile("Bob", 25))
+print(create_profile("Charlie", 30, "Mumbai"))
+
+# Output:
+# {'name': 'Alice', 'age': 18, 'city': 'Unknown'}
+# {'name': 'Bob', 'age': 25, 'city': 'Unknown'}
+# {'name': 'Charlie', 'age': 30, 'city': 'Mumbai'}</code></pre>
+
+                <h4>4. Variable-length Arguments (*args)</h4>
+                <p>Used when you don't know how many arguments will be passed.</p>
+                <pre><code>def calculate_sum(*numbers):
+    """Returns sum of all numbers passed"""
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+# Call with different number of arguments
+print(calculate_sum(1, 2, 3))           # Output: 6
+print(calculate_sum(10, 20, 30, 40))    # Output: 100
+print(calculate_sum(5))                 # Output: 5
+
+# Another example
+def print_names(*names):
+    """Prints all names passed"""
+    for name in names:
+        print(f"Hello, {name}!")
+
+print_names("Alice", "Bob", "Charlie")
+
+# Output:
+# Hello, Alice!
+# Hello, Bob!
+# Hello, Charlie!</code></pre>
+
+                <h4>5. Keyword Variable-length Arguments (**kwargs)</h4>
+                <p>Used to pass a variable number of keyword arguments.</p>
+                <pre><code>def print_info(**info):
+    """Prints key-value pairs of information"""
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25, city="Mumbai")
+
+# Output:
+# name: Alice
+# age: 25
+# city: Mumbai
+
+# Combining *args and **kwargs
+def display_data(*args, **kwargs):
+    """Displays positional and keyword arguments"""
+    print("Positional arguments:")
+    for arg in args:
+        print(f"  {arg}")
+    
+    print("\nKeyword arguments:")
+    for key, value in kwargs.items():
+        print(f"  {key} = {value}")
+
+display_data(1, 2, 3, name="Test", status="Active")
+
+# Output:
+# Positional arguments:
+#   1
+#   2
+#   3
+#
+# Keyword arguments:
+#   name = Test
+#   status = Active</code></pre>
+
+                <h3>Return Values</h3>
+                
+                <h4>Returning a Single Value</h4>
+                <pre><code>def square(number):
+    """Returns the square of a number"""
+    return number ** 2
+
+result = square(5)
+print(f"Square of 5: {result}")  # Output: Square of 5: 25</code></pre>
+
+                <h4>Returning Multiple Values</h4>
+                <p>Python functions can return multiple values as a tuple.</p>
+                <pre><code>def calculate_operations(a, b):
+    """Returns sum, difference, product, and quotient"""
+    add = a + b
+    sub = a - b
+    mul = a * b
+    div = a / b if b != 0 else None
+    return add, sub, mul, div
+
+# Unpack return values
+sum_val, diff, prod, quot = calculate_operations(10, 5)
+print(f"Sum: {sum_val}")       # Output: Sum: 15
+print(f"Difference: {diff}")   # Output: Difference: 5
+print(f"Product: {prod}")      # Output: Product: 50
+print(f"Quotient: {quot}")     # Output: Quotient: 2.0
+
+# Another example
+def get_min_max(numbers):
+    """Returns minimum and maximum from a list"""
+    return min(numbers), max(numbers)
+
+minimum, maximum = get_min_max([5, 2, 8, 1, 9, 3])
+print(f"Min: {minimum}, Max: {maximum}")
+# Output: Min: 1, Max: 9</code></pre>
+
+                <h4>Returning a List or Dictionary</h4>
+                <pre><code># Return a list
+def get_even_numbers(limit):
+    """Returns a list of even numbers up to limit"""
+    evens = []
+    for i in range(2, limit + 1, 2):
+        evens.append(i)
+    return evens
+
+print(get_even_numbers(10))  # Output: [2, 4, 6, 8, 10]
+
+# Return a dictionary
+def create_student(name, age, grade):
+    """Creates and returns a student dictionary"""
+    student = {
+        "name": name,
+        "age": age,
+        "grade": grade
+    }
+    return student
+
+student1 = create_student("Alice", 20, "A")
+print(student1)
+# Output: {'name': 'Alice', 'age': 20, 'grade': 'A'}</code></pre>
+
+                <h4>Functions Without Return Statement</h4>
+                <p>Functions without a <code>return</code> statement return <code>None</code> by default.</p>
+                <pre><code>def print_message(message):
+    """Prints a message (no return value)"""
+    print(message)
+
+result = print_message("Hello!")
+print(f"Return value: {result}")
+
+# Output:
+# Hello!
+# Return value: None</code></pre>
+            </section>
+
+            <!-- ===================== SECTION 2.3.3: SCOPE AND LIFETIME ===================== -->
+            <section id="scope" class="topic">
+                <h2>2.3.3 Scope and Lifetime of Variables</h2>
+                
+                <div class="intro-box">
+                    <p><strong>Scope</strong> refers to the region of the program where a variable can be accessed. <strong>Lifetime</strong> refers to how long a variable exists in memory during program execution.</p>
+                </div>
+
+                <h3>Types of Variable Scope</h3>
+
+                <h4>1. Local Scope</h4>
+                <p>Variables defined inside a function are <strong>local variables</strong>. They can only be accessed within that function.</p>
+                
+                <pre><code>def my_function():
+    # Local variable
+    x = 10
+    print(f"Inside function: x = {x}")
+
+my_function()
+# print(x)  # Error! x is not defined outside function
+
+# Output: Inside function: x = 10</code></pre>
+
+                <h4>2. Global Scope</h4>
+                <p>Variables defined outside all functions are <strong>global variables</strong>. They can be accessed throughout the program.</p>
+                
+                <pre><code># Global variable
+message = "Hello, World!"
+
+def greet():
+    # Accessing global variable
+    print(message)
+
+def farewell():
+    print(f"Goodbye! {message}")
+
+greet()
+farewell()
+
+# Output:
+# Hello, World!
+# Goodbye! Hello, World!</code></pre>
+
+                <h4>3. Global vs Local Variables with Same Name</h4>
+                <p>If a local variable has the same name as a global variable, the local variable takes precedence inside the function.</p>
+                
+                <pre><code>x = "global x"
+
+def test_scope():
+    x = "local x"  # This creates a new local variable
+    print(f"Inside function: {x}")
+
+test_scope()
+print(f"Outside function: {x}")
+
+# Output:
+# Inside function: local x
+# Outside function: global x</code></pre>
+
+                <h4>4. The global Keyword</h4>
+                <p>Use the <code>global</code> keyword to modify a global variable inside a function.</p>
+                
+                <pre><code>counter = 0  # Global variable
+
+def increment():
+    global counter  # Declare we want to use the global variable
+    counter += 1
+    print(f"Counter inside function: {counter}")
+
+print(f"Initial counter: {counter}")
+increment()
+increment()
+increment()
+print(f"Final counter: {counter}")
+
+# Output:
+# Initial counter: 0
+# Counter inside function: 1
+# Counter inside function: 2
+# Counter inside function: 3
+# Final counter: 3</code></pre>
+
+                <div class="note-box">
+                    <p><strong>Note:</strong> While the <code>global</code> keyword works, it's generally better to pass values as parameters and return modified values. This makes code more readable and maintainable.</p>
+                </div>
+
+                <h4>5. Enclosing Scope (Nested Functions)</h4>
+                <p>When functions are nested, the inner function can access variables from the enclosing (outer) function.</p>
+                
+                <pre><code>def outer_function():
+    outer_var = "I'm from outer function"
+    
+    def inner_function():
+        print(outer_var)  # Can access outer_var
+    
+    inner_function()
+
+outer_function()
+
+# Output: I'm from outer function</code></pre>
+
+                <h4>6. The nonlocal Keyword</h4>
+                <p>Use <code>nonlocal</code> to modify a variable from the enclosing scope in a nested function.</p>
+                
+                <pre><code>def outer_function():
+    count = 0
+    
+    def inner_function():
+        nonlocal count  # Modify the enclosing variable
+        count += 1
+        print(f"Count: {count}")
+    
+    inner_function()
+    inner_function()
+    inner_function()
+    print(f"Final count: {count}")
+
+outer_function()
+
+# Output:
+# Count: 1
+# Count: 2
+# Count: 3
+# Final count: 3</code></pre>
+
+                <h3>Variable Lifetime</h3>
+                
+                <h4>Lifetime of Local Variables</h4>
+                <p>Local variables exist only during the function execution. They are created when the function is called and destroyed when the function returns.</p>
+                
+                <pre><code>def demo_lifetime():
+    # 'temp' is created when function is called
+    temp = "I exist only during function execution"
+    print(temp)
+    # 'temp' is destroyed when function ends
+
+demo_lifetime()  # Creates and destroys 'temp'
+demo_lifetime()  # Creates a NEW 'temp' and destroys it
+
+# Each call creates a fresh local variable</code></pre>
+
+                <h4>Lifetime of Global Variables</h4>
+                <p>Global variables exist throughout the program's execution, from when they're created until the program terminates.</p>
+                
+                <pre><code>app_name = "Python Study Hub"  # Created at program start
+
+def display_app():
+    print(f"Application: {app_name}")
+
+display_app()
+# app_name continues to exist after function call
+print(f"App still exists: {app_name}")
+
+# Output:
+# Application: Python Study Hub
+# App still exists: Python Study Hub</code></pre>
+
+                <h3>LEGB Rule</h3>
+                <p>Python searches for variables in this order (LEGB):</p>
+                
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Scope</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>L</strong>ocal</td>
+                            <td>Variables inside the current function</td>
+                            <td>Variables defined in the function body</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E</strong>nclosing</td>
+                            <td>Variables in enclosing function (for nested functions)</td>
+                            <td>Outer function's local variables</td>
+                        </tr>
+                        <tr>
+                            <td><strong>G</strong>lobal</td>
+                            <td>Variables at the module level</td>
+                            <td>Variables defined at top of file</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B</strong>uilt-in</td>
+                            <td>Python's built-in names</td>
+                            <td><code>print</code>, <code>len</code>, <code>range</code>, etc.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <pre><code># LEGB Example
+x = "global"  # Global scope
+
+def outer():
+    x = "enclosing"  # Enclosing scope
+    
+    def inner():
+        x = "local"  # Local scope
+        print(f"Inner: {x}")
+    
+    inner()
+    print(f"Outer: {x}")
+
+outer()
+print(f"Global: {x}")
+
+# Output:
+# Inner: local
+# Outer: enclosing
+# Global: global</code></pre>
+
+                <h3>Best Practices for Variable Scope</h3>
+                <div class="note-box">
+                    <ul>
+                        <li><strong>Minimize global variables:</strong> Use parameters and return values instead</li>
+                        <li><strong>Use descriptive names:</strong> Helps avoid confusion between scopes</li>
+                        <li><strong>Keep functions focused:</strong> Each function should have a single responsibility</li>
+                        <li><strong>Pass data explicitly:</strong> Rather than relying on global state</li>
+                        <li><strong>Document scope usage:</strong> Comment when using global or nonlocal keywords</li>
+                    </ul>
+                </div>
+
+                <p><strong>Example - Good Practice:</strong></p>
+                <pre><code># Good practice: Using parameters and return values
+def calculate_total(prices, tax_rate):
+    """Calculate total with tax"""
+    subtotal = sum(prices)
+    tax = subtotal * tax_rate
+    total = subtotal + tax
+    return total
+
+prices = [100, 200, 150]
+tax_rate = 0.18
+
+result = calculate_total(prices, tax_rate)
+print(f"Total amount: ₹{result}")
+
+# Output: Total amount: ₹531.0</code></pre>
+            </section>
+
+            <!-- ===================== SUMMARY SECTION ===================== -->
+            <section class="topic">
+                <h2>Summary</h2>
+                
+                <div class="summary-box">
+                    <h4>Conditional Statements</h4>
+                    <ul>
+                        <li><code>if</code> - Execute code when condition is True</li>
+                        <li><code>elif</code> - Check additional conditions</li>
+                        <li><code>else</code> - Execute when all conditions are False</li>
+                        <li>Ternary operator: <code>value_if_true if condition else value_if_false</code></li>
+                    </ul>
+                    
+                    <h4>Loops</h4>
+                    <ul>
+                        <li><code>while</code> - Loop while condition is True</li>
+                        <li><code>for</code> - Iterate over sequences</li>
+                        <li><code>break</code> - Exit loop immediately</li>
+                        <li><code>continue</code> - Skip to next iteration</li>
+                        <li><code>pass</code> - Placeholder, does nothing</li>
+                    </ul>
+                    
+                    <h4>Functions</h4>
+                    <ul>
+                        <li>Define with <code>def function_name(parameters):</code></li>
+                        <li>Parameters: positional, keyword, default, *args, **kwargs</li>
+                        <li>Return values with <code>return</code> statement</li>
+                        <li>Can return multiple values as tuple</li>
+                    </ul>
+                    
+                    <h4>Variable Scope</h4>
+                    <ul>
+                        <li><strong>Local:</strong> Inside function, accessible only there</li>
+                        <li><strong>Global:</strong> Outside functions, accessible everywhere</li>
+                        <li><strong>LEGB Rule:</strong> Local → Enclosing → Global → Built-in</li>
+                        <li><code>global</code> keyword to modify global variables</li>
+                        <li><code>nonlocal</code> keyword for enclosing scope variables</li>
+                    </ul>
+                </div>
             </section>
 
             <div class="unit-nav">
