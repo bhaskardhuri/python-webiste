@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5: Object-Oriented Programming - Study Material</title>
+    <title>Unit 5: Advanced Python Concepts - Study Material</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,279 +42,1165 @@
 
     <main class="container">
         <section class="unit-content">
-            <h1>Unit 5: Object-Oriented Programming (OOP)</h1>
+            <h1>Unit 5: Advanced Python Concepts</h1>
             
             <div class="toc">
                 <h3>Topics Covered:</h3>
                 <ul>
-                    <li><a href="#intro">OOP Concepts</a></li>
-                    <li><a href="#classes">Classes and Objects</a></li>
-                    <li><a href="#methods">Methods and Attributes</a></li>
-                    <li><a href="#inheritance">Inheritance</a></li>
-                    <li><a href="#polymorphism">Polymorphism</a></li>
-                    <li><a href="#encapsulation">Encapsulation</a></li>
+                    <li><a href="#regex">5.1 Regular Expressions, Pattern Matching, Regex Functions in Python</a></li>
+                    <li><a href="#gui">5.2 GUI Development using Python GUI Framework (Tkinter)</a></li>
                 </ul>
             </div>
 
-            <section id="intro" class="topic">
-                <h2>1. OOP Concepts</h2>
-                <p><strong>Four Pillars of OOP:</strong></p>
+            <section id="regex" class="topic">
+                <h2>5.1 Regular Expressions, Pattern Matching, Regex Functions in Python</h2>
+                
+                <h3>What are Regular Expressions?</h3>
+                <p>Regular Expressions (regex or regexp) are sequences of characters that define a search pattern. They are used for string searching, matching, and manipulation. Python provides the <code>re</code> module for working with regular expressions.</p>
+                
+                <pre><code>import re
+
+# Basic example: Check if a string contains "python"
+text = "I love Python programming"
+result = re.search("python", text, re.IGNORECASE)
+if result:
+    print("Pattern found!")
+else:
+    print("Pattern not found!")</code></pre>
+
+                <h3>Why Use Regular Expressions?</h3>
                 <ul>
-                    <li><strong>Encapsulation:</strong> Bundling data and methods together, hiding internal details</li>
-                    <li><strong>Inheritance:</strong> Creating new classes from existing ones</li>
-                    <li><strong>Polymorphism:</strong> Objects of different classes responding to the same method call</li>
-                    <li><strong>Abstraction:</strong> Hiding complex implementation details</li>
+                    <li><strong>Validation:</strong> Email addresses, phone numbers, passwords</li>
+                    <li><strong>Text Search:</strong> Find specific patterns in large texts</li>
+                    <li><strong>Data Extraction:</strong> Extract information from structured text</li>
+                    <li><strong>String Manipulation:</strong> Replace, split, or modify strings</li>
+                    <li><strong>Log Analysis:</strong> Parse and analyze log files</li>
                 </ul>
 
-                <p><strong>Benefits of OOP:</strong></p>
-                <ul>
-                    <li>Code reusability</li>
-                    <li>Better organization and maintainability</li>
-                    <li>Easier to debug and test</li>
-                    <li>Models real-world entities effectively</li>
-                </ul>
+                <h3>Regex Metacharacters</h3>
+                <p>Metacharacters are special characters that have specific meanings in regex patterns:</p>
+                
+                <table>
+                    <tr>
+                        <th>Character</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Matches</th>
+                    </tr>
+                    <tr>
+                        <td>.</td>
+                        <td>Any character except newline</td>
+                        <td>h.t</td>
+                        <td>hat, hot, hit</td>
+                    </tr>
+                    <tr>
+                        <td>^</td>
+                        <td>Start of string</td>
+                        <td>^Hello</td>
+                        <td>"Hello World" (at start)</td>
+                    </tr>
+                    <tr>
+                        <td>$</td>
+                        <td>End of string</td>
+                        <td>World$</td>
+                        <td>"Hello World" (at end)</td>
+                    </tr>
+                    <tr>
+                        <td>*</td>
+                        <td>Zero or more occurrences</td>
+                        <td>ab*</td>
+                        <td>a, ab, abb, abbb</td>
+                    </tr>
+                    <tr>
+                        <td>+</td>
+                        <td>One or more occurrences</td>
+                        <td>ab+</td>
+                        <td>ab, abb, abbb (not a)</td>
+                    </tr>
+                    <tr>
+                        <td>?</td>
+                        <td>Zero or one occurrence</td>
+                        <td>colou?r</td>
+                        <td>color, colour</td>
+                    </tr>
+                    <tr>
+                        <td>{n}</td>
+                        <td>Exactly n occurrences</td>
+                        <td>a{3}</td>
+                        <td>aaa</td>
+                    </tr>
+                    <tr>
+                        <td>{n,m}</td>
+                        <td>Between n and m occurrences</td>
+                        <td>a{2,4}</td>
+                        <td>aa, aaa, aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>[]</td>
+                        <td>Character class (any one)</td>
+                        <td>[aeiou]</td>
+                        <td>Any vowel</td>
+                    </tr>
+                    <tr>
+                        <td>|</td>
+                        <td>Alternation (OR)</td>
+                        <td>cat|dog</td>
+                        <td>cat or dog</td>
+                    </tr>
+                    <tr>
+                        <td>()</td>
+                        <td>Grouping</td>
+                        <td>(ab)+</td>
+                        <td>ab, abab, ababab</td>
+                    </tr>
+                    <tr>
+                        <td>\</td>
+                        <td>Escape special character</td>
+                        <td>\.</td>
+                        <td>Literal dot (.)</td>
+                    </tr>
+                </table>
+
+                <h3>Character Classes</h3>
+                <p>Character classes match specific types of characters:</p>
+                
+                <table>
+                    <tr>
+                        <th>Class</th>
+                        <th>Description</th>
+                        <th>Equivalent</th>
+                    </tr>
+                    <tr>
+                        <td>\d</td>
+                        <td>Any digit</td>
+                        <td>[0-9]</td>
+                    </tr>
+                    <tr>
+                        <td>\D</td>
+                        <td>Any non-digit</td>
+                        <td>[^0-9]</td>
+                    </tr>
+                    <tr>
+                        <td>\w</td>
+                        <td>Any word character</td>
+                        <td>[a-zA-Z0-9_]</td>
+                    </tr>
+                    <tr>
+                        <td>\W</td>
+                        <td>Any non-word character</td>
+                        <td>[^a-zA-Z0-9_]</td>
+                    </tr>
+                    <tr>
+                        <td>\s</td>
+                        <td>Any whitespace</td>
+                        <td>[ \t\n\r\f\v]</td>
+                    </tr>
+                    <tr>
+                        <td>\S</td>
+                        <td>Any non-whitespace</td>
+                        <td>[^ \t\n\r\f\v]</td>
+                    </tr>
+                    <tr>
+                        <td>\b</td>
+                        <td>Word boundary</td>
+                        <td>Between \w and \W</td>
+                    </tr>
+                    <tr>
+                        <td>\B</td>
+                        <td>Non-word boundary</td>
+                        <td>Not between \w and \W</td>
+                    </tr>
+                </table>
+
+                <pre><code>import re
+
+text = "My phone number is 9876543210 and email is test@email.com"
+
+# Find all digits
+digits = re.findall(r'\d+', text)
+print(digits)  # ['9876543210']
+
+# Find all words
+words = re.findall(r'\w+', text)
+print(words)  # ['My', 'phone', 'number', 'is', '9876543210', 'and', 'email', 'is', 'test', 'email', 'com']</code></pre>
+
+                <h3>Regex Functions in Python</h3>
+                <p>The <code>re</code> module provides several functions for pattern matching:</p>
+
+                <h4>1. re.search()</h4>
+                <p>Searches for the first occurrence of a pattern in a string. Returns a match object or None.</p>
+                <pre><code>import re
+
+text = "The rain in Spain falls mainly on the plain"
+result = re.search(r"Spain", text)
+
+if result:
+    print(f"Found: {result.group()}")       # Found: Spain
+    print(f"Position: {result.start()}-{result.end()}")  # Position: 12-17
+    print(f"Span: {result.span()}")         # Span: (12, 17)</code></pre>
+
+                <h4>2. re.match()</h4>
+                <p>Matches a pattern only at the beginning of the string.</p>
+                <pre><code>import re
+
+# match() checks at the beginning only
+text1 = "Python is awesome"
+text2 = "I love Python"
+
+result1 = re.match(r"Python", text1)
+result2 = re.match(r"Python", text2)
+
+print(result1.group() if result1 else "No match")  # Python
+print(result2.group() if result2 else "No match")  # No match</code></pre>
+
+                <h4>3. re.findall()</h4>
+                <p>Returns all non-overlapping matches as a list of strings.</p>
+                <pre><code>import re
+
+text = "The cat sat on the mat, the cat was fat"
+
+# Find all words starting with 't' or 'T'
+results = re.findall(r'\b[tT]\w+', text)
+print(results)  # ['The', 'the', 'the']
+
+# Find all occurrences of 'cat'
+cats = re.findall(r'cat', text)
+print(cats)  # ['cat', 'cat']
+
+# Find all 3-letter words
+three_letters = re.findall(r'\b\w{3}\b', text)
+print(three_letters)  # ['The', 'cat', 'sat', 'the', 'mat', 'the', 'cat', 'was', 'fat']</code></pre>
+
+                <h4>4. re.finditer()</h4>
+                <p>Returns an iterator of match objects for all matches.</p>
+                <pre><code>import re
+
+text = "Python 3.8, Python 3.9, Python 3.10"
+
+for match in re.finditer(r'Python \d+\.\d+', text):
+    print(f"Found: {match.group()} at position {match.span()}")
+# Output:
+# Found: Python 3.8 at position (0, 10)
+# Found: Python 3.9 at position (12, 22)
+# Found: Python 3.10 at position (24, 35)</code></pre>
+
+                <h4>5. re.sub()</h4>
+                <p>Substitutes (replaces) all occurrences of a pattern with a replacement string.</p>
+                <pre><code>import re
+
+text = "Hello World! Hello Python!"
+
+# Replace 'Hello' with 'Hi'
+new_text = re.sub(r'Hello', 'Hi', text)
+print(new_text)  # Hi World! Hi Python!
+
+# Replace with count limit
+new_text = re.sub(r'Hello', 'Hi', text, count=1)
+print(new_text)  # Hi World! Hello Python!
+
+# Using function for replacement
+def uppercase(match):
+    return match.group().upper()
+
+text = "the quick brown fox"
+result = re.sub(r'\b\w', uppercase, text)
+print(result)  # The Quick Brown Fox</code></pre>
+
+                <h4>6. re.split()</h4>
+                <p>Splits a string by occurrences of a pattern.</p>
+                <pre><code>import re
+
+text = "apple, banana; cherry: date"
+
+# Split by comma, semicolon, or colon
+fruits = re.split(r'[,;:]\s*', text)
+print(fruits)  # ['apple', 'banana', 'cherry', 'date']
+
+# Split by one or more spaces
+text2 = "Hello   World    Python"
+words = re.split(r'\s+', text2)
+print(words)  # ['Hello', 'World', 'Python']
+
+# Split with maxsplit
+words = re.split(r'\s+', text2, maxsplit=1)
+print(words)  # ['Hello', 'World    Python']</code></pre>
+
+                <h4>7. re.compile()</h4>
+                <p>Compiles a pattern into a regex object for reuse and better performance.</p>
+                <pre><code>import re
+
+# Compile the pattern
+email_pattern = re.compile(r'[\w.-]+@[\w.-]+\.\w+')
+
+# Use the compiled pattern
+text1 = "Contact: john@example.com"
+text2 = "Email: jane.doe@company.org"
+
+print(email_pattern.search(text1).group())  # john@example.com
+print(email_pattern.search(text2).group())  # jane.doe@company.org
+
+# Can also use findall, sub, etc.
+emails = email_pattern.findall("Emails: a@b.com, c@d.org")
+print(emails)  # ['a@b.com', 'c@d.org']</code></pre>
+
+                <h3>Regex Flags</h3>
+                <p>Flags modify how patterns are matched:</p>
+                
+                <table>
+                    <tr>
+                        <th>Flag</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>re.IGNORECASE (re.I)</td>
+                        <td>Case-insensitive matching</td>
+                    </tr>
+                    <tr>
+                        <td>re.MULTILINE (re.M)</td>
+                        <td>^ and $ match at each line</td>
+                    </tr>
+                    <tr>
+                        <td>re.DOTALL (re.S)</td>
+                        <td>Dot matches newline too</td>
+                    </tr>
+                    <tr>
+                        <td>re.VERBOSE (re.X)</td>
+                        <td>Allow comments in pattern</td>
+                    </tr>
+                </table>
+
+                <pre><code>import re
+
+# Case-insensitive matching
+text = "Python PYTHON python"
+result = re.findall(r'python', text, re.IGNORECASE)
+print(result)  # ['Python', 'PYTHON', 'python']
+
+# Multiline matching
+text = """First line
+Second line
+Third line"""
+result = re.findall(r'^.*line$', text, re.MULTILINE)
+print(result)  # ['First line', 'Second line', 'Third line']
+
+# Verbose pattern (with comments)
+phone_pattern = re.compile(r'''
+    \d{3}     # Area code
+    [-.\s]?   # Optional separator
+    \d{3}     # First 3 digits
+    [-.\s]?   # Optional separator
+    \d{4}     # Last 4 digits
+''', re.VERBOSE)
+
+print(phone_pattern.search("Call 123-456-7890").group())  # 123-456-7890</code></pre>
+
+                <h3>Groups in Regular Expressions</h3>
+                <p>Groups allow you to extract parts of a match:</p>
+                <pre><code>import re
+
+# Basic grouping
+text = "John Doe, age 30"
+match = re.search(r'(\w+) (\w+), age (\d+)', text)
+
+if match:
+    print(f"Full match: {match.group()}")    # John Doe, age 30
+    print(f"First name: {match.group(1)}")   # John
+    print(f"Last name: {match.group(2)}")    # Doe
+    print(f"Age: {match.group(3)}")          # 30
+    print(f"All groups: {match.groups()}")   # ('John', 'Doe', '30')
+
+# Named groups
+pattern = r'(?P&lt;first&gt;\w+) (?P&lt;last&gt;\w+), age (?P&lt;age&gt;\d+)'
+match = re.search(pattern, text)
+
+if match:
+    print(f"First: {match.group('first')}")  # John
+    print(f"Last: {match.group('last')}")    # Doe
+    print(f"Age: {match.group('age')}")      # 30</code></pre>
+
+                <h3>Common Regex Patterns</h3>
+                <pre><code>import re
+
+# Email validation
+email_pattern = r'^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$'
+
+# Phone number (Indian format)
+phone_pattern = r'^[6-9]\d{9}$'
+
+# Password (min 8 chars, uppercase, lowercase, digit, special char)
+password_pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+
+# URL
+url_pattern = r'^https?://[\w.-]+(?:/[\w.-]*)*/?$'
+
+# Date (DD/MM/YYYY)
+date_pattern = r'^(0[1-9]|[12]\d|3[01])/(0[1-9]|1[0-2])/\d{4}$'
+
+# IP Address
+ip_pattern = r'^(\d{1,3}\.){3}\d{1,3}$'
+
+# Examples
+def validate_email(email):
+    return bool(re.match(email_pattern, email))
+
+def validate_phone(phone):
+    return bool(re.match(phone_pattern, phone))
+
+print(validate_email("test@example.com"))  # True
+print(validate_email("invalid-email"))     # False
+print(validate_phone("9876543210"))        # True
+print(validate_phone("1234567890"))        # False (doesn't start with 6-9)</code></pre>
+
+                <h3>Practical Examples</h3>
+                <pre><code>import re
+
+# 1. Extract all email addresses from text
+def extract_emails(text):
+    pattern = r'[\w.-]+@[\w.-]+\.\w+'
+    return re.findall(pattern, text)
+
+text = "Contact us at support@company.com or sales@company.org"
+print(extract_emails(text))  # ['support@company.com', 'sales@company.org']
+
+# 2. Remove HTML tags from string
+def remove_html_tags(html):
+    return re.sub(r'&lt;[^&gt;]+&gt;', '', html)
+
+html = "&lt;p&gt;Hello &lt;b&gt;World&lt;/b&gt;&lt;/p&gt;"
+print(remove_html_tags(html))  # Hello World
+
+# 3. Format phone numbers
+def format_phone(phone):
+    # Remove all non-digits
+    digits = re.sub(r'\D', '', phone)
+    # Format as XXX-XXX-XXXX
+    return re.sub(r'(\d{3})(\d{3})(\d{4})', r'\1-\2-\3', digits)
+
+print(format_phone("(123) 456 7890"))  # 123-456-7890
+
+# 4. Find duplicate words
+def find_duplicates(text):
+    pattern = r'\b(\w+)\s+\1\b'
+    return re.findall(pattern, text, re.IGNORECASE)
+
+text = "The the quick brown fox fox"
+print(find_duplicates(text))  # ['The', 'fox']
+
+# 5. Mask sensitive data
+def mask_credit_card(text):
+    return re.sub(r'\d{12}(\d{4})', r'****-****-****-\1', text)
+
+text = "Card: 1234567890123456"
+print(mask_credit_card(text))  # Card: ****-****-****-3456</code></pre>
             </section>
 
-            <section id="classes" class="topic">
-                <h2>2. Classes and Objects</h2>
-                <p><strong>Basic class definition:</strong></p>
-                <pre><code>class Dog:
-    pass
+            <section id="gui" class="topic">
+                <h2>5.2 GUI Development using Python GUI Framework (Tkinter)</h2>
+                
+                <h3>Introduction to GUI Development</h3>
+                <p>GUI (Graphical User Interface) allows users to interact with applications through visual elements like buttons, text fields, menus, and windows instead of command-line interfaces.</p>
+                
+                <p><strong>Popular Python GUI Frameworks:</strong></p>
+                <table>
+                    <tr>
+                        <th>Framework</th>
+                        <th>Description</th>
+                        <th>Best For</th>
+                    </tr>
+                    <tr>
+                        <td>Tkinter</td>
+                        <td>Built-in Python GUI library</td>
+                        <td>Simple applications, learning</td>
+                    </tr>
+                    <tr>
+                        <td>PyQt5/PyQt6</td>
+                        <td>Python bindings for Qt</td>
+                        <td>Professional, cross-platform apps</td>
+                    </tr>
+                    <tr>
+                        <td>Kivy</td>
+                        <td>Multi-touch applications</td>
+                        <td>Mobile apps, touch interfaces</td>
+                    </tr>
+                    <tr>
+                        <td>wxPython</td>
+                        <td>Python wrapper for wxWidgets</td>
+                        <td>Native-looking applications</td>
+                    </tr>
+                    <tr>
+                        <td>PySimpleGUI</td>
+                        <td>Simplified GUI wrapper</td>
+                        <td>Quick development, beginners</td>
+                    </tr>
+                </table>
 
-# Creating an object
-dog = Dog()</code></pre>
+                <h3>Getting Started with Tkinter</h3>
+                <p>Tkinter comes pre-installed with Python and is the standard GUI library. It's easy to learn and suitable for creating simple to moderately complex applications.</p>
 
-                <p><strong>Class with attributes:</strong></p>
-                <pre><code>class Dog:
-    breed = "Unknown"  # Class attribute
+                <h4>Creating a Basic Window</h4>
+                <pre><code>import tkinter as tk
+
+# Create the main window
+root = tk.Tk()
+
+# Set window title
+root.title("My First GUI App")
+
+# Set window size (width x height)
+root.geometry("400x300")
+
+# Start the event loop (keeps window open)
+root.mainloop()</code></pre>
+
+                <h4>Window Customization</h4>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+
+# Window title
+root.title("Customized Window")
+
+# Window size and position (widthxheight+x+y)
+root.geometry("500x400+100+50")
+
+# Minimum and maximum size
+root.minsize(300, 200)
+root.maxsize(800, 600)
+
+# Make window non-resizable
+# root.resizable(False, False)
+
+# Window icon (requires .ico file)
+# root.iconbitmap("icon.ico")
+
+# Background color
+root.configure(bg="lightblue")
+
+root.mainloop()</code></pre>
+
+                <h3>Tkinter Widgets</h3>
+                <p>Widgets are the building blocks of a GUI application. Tkinter provides many built-in widgets:</p>
+
+                <h4>1. Label Widget</h4>
+                <p>Displays text or images:</p>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("Label Demo")
+root.geometry("300x200")
+
+# Simple label
+label1 = tk.Label(root, text="Hello, World!")
+label1.pack()
+
+# Styled label
+label2 = tk.Label(
+    root,
+    text="Styled Label",
+    font=("Arial", 18, "bold"),
+    fg="white",           # Text color
+    bg="darkblue",        # Background color
+    width=20,
+    height=2,
+    relief="raised",      # Border style
+    padx=10,
+    pady=5
+)
+label2.pack(pady=20)
+
+root.mainloop()</code></pre>
+
+                <h4>2. Button Widget</h4>
+                <p>Creates clickable buttons:</p>
+                <pre><code>import tkinter as tk
+
+def on_click():
+    print("Button clicked!")
+    label.config(text="Button was clicked!")
+
+def change_color():
+    button2.config(bg="green", fg="white")
+
+root = tk.Tk()
+root.title("Button Demo")
+root.geometry("300x200")
+
+# Simple button with command
+button1 = tk.Button(root, text="Click Me!", command=on_click)
+button1.pack(pady=10)
+
+# Styled button
+button2 = tk.Button(
+    root,
+    text="Change My Color",
+    font=("Arial", 12),
+    bg="lightblue",
+    fg="darkblue",
+    width=15,
+    height=2,
+    command=change_color
+)
+button2.pack(pady=10)
+
+# Label to show result
+label = tk.Label(root, text="")
+label.pack(pady=10)
+
+root.mainloop()</code></pre>
+
+                <h4>3. Entry Widget (Single-line Text Input)</h4>
+                <pre><code>import tkinter as tk
+
+def get_input():
+    text = entry.get()
+    result_label.config(text=f"You entered: {text}")
+
+def clear_input():
+    entry.delete(0, tk.END)
+
+root = tk.Tk()
+root.title("Entry Demo")
+root.geometry("350x200")
+
+# Label for entry
+tk.Label(root, text="Enter your name:").pack(pady=5)
+
+# Entry widget
+entry = tk.Entry(root, width=30, font=("Arial", 12))
+entry.pack(pady=5)
+
+# Password entry (masked)
+tk.Label(root, text="Enter password:").pack(pady=5)
+password_entry = tk.Entry(root, width=30, show="*")  # show="*" masks input
+password_entry.pack(pady=5)
+
+# Buttons
+tk.Button(root, text="Submit", command=get_input).pack(pady=5)
+tk.Button(root, text="Clear", command=clear_input).pack(pady=5)
+
+# Result label
+result_label = tk.Label(root, text="")
+result_label.pack(pady=10)
+
+root.mainloop()</code></pre>
+
+                <h4>4. Text Widget (Multi-line Text Input)</h4>
+                <pre><code>import tkinter as tk
+
+def get_text():
+    content = text_widget.get("1.0", tk.END)  # Get all text
+    print(content)
+
+def clear_text():
+    text_widget.delete("1.0", tk.END)
+
+root = tk.Tk()
+root.title("Text Widget Demo")
+root.geometry("400x300")
+
+# Text widget
+text_widget = tk.Text(root, width=40, height=10, font=("Arial", 11))
+text_widget.pack(pady=10)
+
+# Insert some default text
+text_widget.insert("1.0", "Type your message here...")
+
+# Buttons
+button_frame = tk.Frame(root)
+button_frame.pack()
+
+tk.Button(button_frame, text="Get Text", command=get_text).pack(side=tk.LEFT, padx=5)
+tk.Button(button_frame, text="Clear", command=clear_text).pack(side=tk.LEFT, padx=5)
+
+root.mainloop()</code></pre>
+
+                <h4>5. Checkbutton Widget</h4>
+                <pre><code>import tkinter as tk
+
+def show_selected():
+    selections = []
+    if var1.get(): selections.append("Python")
+    if var2.get(): selections.append("Java")
+    if var3.get(): selections.append("C++")
+    result.config(text=f"Selected: {', '.join(selections) or 'None'}")
+
+root = tk.Tk()
+root.title("Checkbutton Demo")
+root.geometry("300x200")
+
+tk.Label(root, text="Select Programming Languages:").pack(pady=10)
+
+# Variables to store checkbox states
+var1 = tk.BooleanVar()
+var2 = tk.BooleanVar()
+var3 = tk.BooleanVar()
+
+# Checkbuttons
+tk.Checkbutton(root, text="Python", variable=var1, command=show_selected).pack()
+tk.Checkbutton(root, text="Java", variable=var2, command=show_selected).pack()
+tk.Checkbutton(root, text="C++", variable=var3, command=show_selected).pack()
+
+# Result label
+result = tk.Label(root, text="Selected: None")
+result.pack(pady=20)
+
+root.mainloop()</code></pre>
+
+                <h4>6. Radiobutton Widget</h4>
+                <pre><code>import tkinter as tk
+
+def show_choice():
+    result.config(text=f"Selected: {selected.get()}")
+
+root = tk.Tk()
+root.title("Radiobutton Demo")
+root.geometry("300x200")
+
+tk.Label(root, text="Select your favorite color:").pack(pady=10)
+
+# Variable to store selected option
+selected = tk.StringVar(value="Red")
+
+# Radiobuttons
+colors = ["Red", "Green", "Blue", "Yellow"]
+for color in colors:
+    tk.Radiobutton(
+        root,
+        text=color,
+        variable=selected,
+        value=color,
+        command=show_choice
+    ).pack()
+
+# Result label
+result = tk.Label(root, text="Selected: Red")
+result.pack(pady=20)
+
+root.mainloop()</code></pre>
+
+                <h4>7. Listbox Widget</h4>
+                <pre><code>import tkinter as tk
+
+def on_select(event):
+    selection = listbox.curselection()
+    if selection:
+        selected_item = listbox.get(selection[0])
+        result.config(text=f"Selected: {selected_item}")
+
+root = tk.Tk()
+root.title("Listbox Demo")
+root.geometry("300x250")
+
+tk.Label(root, text="Select a fruit:").pack(pady=5)
+
+# Listbox
+listbox = tk.Listbox(root, width=30, height=6, selectmode=tk.SINGLE)
+listbox.pack(pady=5)
+
+# Add items
+fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape"]
+for fruit in fruits:
+    listbox.insert(tk.END, fruit)
+
+# Bind selection event
+listbox.bind("&lt;&lt;ListboxSelect&gt;&gt;", on_select)
+
+# Result label
+result = tk.Label(root, text="Selected: None")
+result.pack(pady=10)
+
+root.mainloop()</code></pre>
+
+                <h4>8. Combobox Widget (Dropdown)</h4>
+                <pre><code>import tkinter as tk
+from tkinter import ttk
+
+def on_select(event):
+    result.config(text=f"Selected: {combo.get()}")
+
+root = tk.Tk()
+root.title("Combobox Demo")
+root.geometry("300x150")
+
+tk.Label(root, text="Select a country:").pack(pady=10)
+
+# Combobox (dropdown)
+countries = ["India", "USA", "UK", "Canada", "Australia", "Germany", "France"]
+combo = ttk.Combobox(root, values=countries, width=25)
+combo.set("Select a country")  # Default text
+combo.pack(pady=5)
+
+# Bind selection event
+combo.bind("&lt;&lt;ComboboxSelected&gt;&gt;", on_select)
+
+# Result label
+result = tk.Label(root, text="")
+result.pack(pady=20)
+
+root.mainloop()</code></pre>
+
+                <h3>Layout Managers</h3>
+                <p>Tkinter provides three layout managers to organize widgets:</p>
+
+                <h4>1. pack() - Simple Stacking</h4>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("Pack Demo")
+root.geometry("300x200")
+
+# Pack widgets vertically (default)
+tk.Label(root, text="Top", bg="red", width=20).pack()
+tk.Label(root, text="Middle", bg="green", width=20).pack()
+tk.Label(root, text="Bottom", bg="blue", width=20).pack()
+
+# Pack with options
+tk.Button(root, text="Fill X").pack(fill=tk.X, pady=5)
+tk.Button(root, text="Left").pack(side=tk.LEFT, padx=5)
+tk.Button(root, text="Right").pack(side=tk.RIGHT, padx=5)
+
+root.mainloop()</code></pre>
+
+                <h4>2. grid() - Table-like Layout</h4>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("Grid Demo - Login Form")
+root.geometry("300x150")
+
+# Row 0
+tk.Label(root, text="Username:").grid(row=0, column=0, padx=10, pady=10, sticky="e")
+tk.Entry(root, width=20).grid(row=0, column=1, padx=10, pady=10)
+
+# Row 1
+tk.Label(root, text="Password:").grid(row=1, column=0, padx=10, pady=10, sticky="e")
+tk.Entry(root, width=20, show="*").grid(row=1, column=1, padx=10, pady=10)
+
+# Row 2 - span both columns
+tk.Button(root, text="Login", width=25).grid(row=2, column=0, columnspan=2, pady=10)
+
+root.mainloop()</code></pre>
+
+                <h4>3. place() - Absolute Positioning</h4>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("Place Demo")
+root.geometry("300x200")
+
+# Absolute positioning (x, y coordinates)
+tk.Button(root, text="Button 1").place(x=50, y=50)
+tk.Button(root, text="Button 2").place(x=150, y=100)
+
+# Relative positioning (0.0 to 1.0)
+tk.Label(root, text="Center", bg="yellow").place(relx=0.5, rely=0.5, anchor="center")
+
+root.mainloop()</code></pre>
+
+                <h3>Frames - Container Widget</h3>
+                <pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.title("Frames Demo")
+root.geometry("400x300")
+
+# Header frame
+header = tk.Frame(root, bg="navy", height=50)
+header.pack(fill=tk.X)
+tk.Label(header, text="Header", bg="navy", fg="white", font=("Arial", 16)).pack(pady=10)
+
+# Content frame
+content = tk.Frame(root, bg="lightgray")
+content.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+tk.Label(content, text="Main Content Area", bg="lightgray").pack(pady=50)
+
+# Footer frame
+footer = tk.Frame(root, bg="gray", height=30)
+footer.pack(fill=tk.X, side=tk.BOTTOM)
+tk.Label(footer, text="Footer", bg="gray", fg="white").pack(pady=5)
+
+root.mainloop()</code></pre>
+
+                <h3>Message Boxes</h3>
+                <pre><code>import tkinter as tk
+from tkinter import messagebox
+
+def show_info():
+    messagebox.showinfo("Information", "This is an info message!")
+
+def show_warning():
+    messagebox.showwarning("Warning", "This is a warning!")
+
+def show_error():
+    messagebox.showerror("Error", "This is an error!")
+
+def ask_question():
+    result = messagebox.askyesno("Question", "Do you want to continue?")
+    if result:
+        print("User clicked Yes")
+    else:
+        print("User clicked No")
+
+def ask_okcancel():
+    result = messagebox.askokcancel("Confirm", "Are you sure?")
+    print(f"Result: {result}")
+
+root = tk.Tk()
+root.title("Message Box Demo")
+root.geometry("300x250")
+
+tk.Button(root, text="Show Info", command=show_info, width=20).pack(pady=5)
+tk.Button(root, text="Show Warning", command=show_warning, width=20).pack(pady=5)
+tk.Button(root, text="Show Error", command=show_error, width=20).pack(pady=5)
+tk.Button(root, text="Ask Yes/No", command=ask_question, width=20).pack(pady=5)
+tk.Button(root, text="Ask OK/Cancel", command=ask_okcancel, width=20).pack(pady=5)
+
+root.mainloop()</code></pre>
+
+                <h3>File Dialogs</h3>
+                <pre><code>import tkinter as tk
+from tkinter import filedialog
+
+def open_file():
+    file_path = filedialog.askopenfilename(
+        title="Open a file",
+        filetypes=[("Text files", "*.txt"), ("All files", "*.*")]
+    )
+    if file_path:
+        result.config(text=f"Opened: {file_path}")
+
+def save_file():
+    file_path = filedialog.asksaveasfilename(
+        title="Save file",
+        defaultextension=".txt",
+        filetypes=[("Text files", "*.txt"), ("All files", "*.*")]
+    )
+    if file_path:
+        result.config(text=f"Saved to: {file_path}")
+
+def select_folder():
+    folder_path = filedialog.askdirectory(title="Select Folder")
+    if folder_path:
+        result.config(text=f"Selected: {folder_path}")
+
+root = tk.Tk()
+root.title("File Dialog Demo")
+root.geometry("400x200")
+
+tk.Button(root, text="Open File", command=open_file, width=20).pack(pady=10)
+tk.Button(root, text="Save File", command=save_file, width=20).pack(pady=10)
+tk.Button(root, text="Select Folder", command=select_folder, width=20).pack(pady=10)
+
+result = tk.Label(root, text="", wraplength=350)
+result.pack(pady=10)
+
+root.mainloop()</code></pre>
+
+                <h3>Complete Example: Simple Calculator</h3>
+                <pre><code>import tkinter as tk
+
+class Calculator:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Simple Calculator")
+        self.root.geometry("300x400")
+        self.root.resizable(False, False)
+        
+        # Display
+        self.display = tk.Entry(root, font=("Arial", 24), justify="right", bd=5)
+        self.display.grid(row=0, column=0, columnspan=4, sticky="nsew", padx=5, pady=5)
+        
+        # Button layout
+        buttons = [
+            '7', '8', '9', '/',
+            '4', '5', '6', '*',
+            '1', '2', '3', '-',
+            'C', '0', '=', '+'
+        ]
+        
+        # Create buttons
+        row = 1
+        col = 0
+        for button in buttons:
+            cmd = lambda x=button: self.click(x)
+            tk.Button(
+                root, text=button, font=("Arial", 18),
+                width=5, height=2, command=cmd
+            ).grid(row=row, column=col, padx=2, pady=2)
+            col += 1
+            if col > 3:
+                col = 0
+                row += 1
     
-    def __init__(self, name, age):
-        self.name = name    # Instance attribute
-        self.age = age
+    def click(self, key):
+        if key == 'C':
+            self.display.delete(0, tk.END)
+        elif key == '=':
+            try:
+                result = eval(self.display.get())
+                self.display.delete(0, tk.END)
+                self.display.insert(0, str(result))
+            except:
+                self.display.delete(0, tk.END)
+                self.display.insert(0, "Error")
+        else:
+            self.display.insert(tk.END, key)
 
-# Creating objects
-dog1 = Dog("Buddy", 3)
-dog2 = Dog("Max", 5)
+# Run the calculator
+root = tk.Tk()
+calc = Calculator(root)
+root.mainloop()</code></pre>
 
-print(dog1.name)  # Buddy
-print(dog2.age)   # 5</code></pre>
+                <h3>Complete Example: Student Registration Form</h3>
+                <pre><code>import tkinter as tk
+from tkinter import ttk, messagebox
 
-                <p><strong>Understanding self:</strong></p>
-                <ul>
-                    <li><strong>self</strong> refers to the instance of the class</li>
-                    <li>It's always the first parameter in instance methods</li>
-                    <li>It allows access to instance variables and methods</li>
-                </ul>
-            </section>
-
-            <section id="methods" class="topic">
-                <h2>3. Methods and Attributes</h2>
-                <p><strong>Instance methods:</strong></p>
-                <pre><code>class Dog:
-    def __init__(self, name):
-        self.name = name
+class StudentForm:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Student Registration Form")
+        self.root.geometry("450x400")
+        
+        # Main frame
+        main_frame = tk.Frame(root, padx=20, pady=20)
+        main_frame.pack(fill=tk.BOTH, expand=True)
+        
+        # Title
+        tk.Label(main_frame, text="Student Registration", 
+                 font=("Arial", 18, "bold")).grid(row=0, column=0, columnspan=2, pady=10)
+        
+        # Name
+        tk.Label(main_frame, text="Name:").grid(row=1, column=0, sticky="e", pady=5)
+        self.name_entry = tk.Entry(main_frame, width=30)
+        self.name_entry.grid(row=1, column=1, pady=5)
+        
+        # Email
+        tk.Label(main_frame, text="Email:").grid(row=2, column=0, sticky="e", pady=5)
+        self.email_entry = tk.Entry(main_frame, width=30)
+        self.email_entry.grid(row=2, column=1, pady=5)
+        
+        # Phone
+        tk.Label(main_frame, text="Phone:").grid(row=3, column=0, sticky="e", pady=5)
+        self.phone_entry = tk.Entry(main_frame, width=30)
+        self.phone_entry.grid(row=3, column=1, pady=5)
+        
+        # Gender
+        tk.Label(main_frame, text="Gender:").grid(row=4, column=0, sticky="e", pady=5)
+        self.gender_var = tk.StringVar(value="Male")
+        gender_frame = tk.Frame(main_frame)
+        gender_frame.grid(row=4, column=1, sticky="w")
+        tk.Radiobutton(gender_frame, text="Male", variable=self.gender_var, value="Male").pack(side=tk.LEFT)
+        tk.Radiobutton(gender_frame, text="Female", variable=self.gender_var, value="Female").pack(side=tk.LEFT)
+        
+        # Course
+        tk.Label(main_frame, text="Course:").grid(row=5, column=0, sticky="e", pady=5)
+        self.course_combo = ttk.Combobox(main_frame, values=["B.Tech", "M.Tech", "BCA", "MCA", "B.Sc"], width=27)
+        self.course_combo.grid(row=5, column=1, pady=5)
+        self.course_combo.set("Select Course")
+        
+        # Terms checkbox
+        self.terms_var = tk.BooleanVar()
+        tk.Checkbutton(main_frame, text="I agree to terms and conditions", 
+                       variable=self.terms_var).grid(row=6, column=0, columnspan=2, pady=10)
+        
+        # Buttons
+        button_frame = tk.Frame(main_frame)
+        button_frame.grid(row=7, column=0, columnspan=2, pady=20)
+        
+        tk.Button(button_frame, text="Submit", command=self.submit, 
+                  width=10, bg="green", fg="white").pack(side=tk.LEFT, padx=10)
+        tk.Button(button_frame, text="Clear", command=self.clear, 
+                  width=10, bg="orange").pack(side=tk.LEFT, padx=10)
+        tk.Button(button_frame, text="Exit", command=root.quit, 
+                  width=10, bg="red", fg="white").pack(side=tk.LEFT, padx=10)
     
-    def bark(self):
-        return f"{self.name} says Woof!"
+    def submit(self):
+        # Validate inputs
+        if not self.name_entry.get():
+            messagebox.showerror("Error", "Please enter name!")
+            return
+        if not self.email_entry.get():
+            messagebox.showerror("Error", "Please enter email!")
+            return
+        if not self.terms_var.get():
+            messagebox.showerror("Error", "Please accept terms and conditions!")
+            return
+        
+        # Show success message
+        messagebox.showinfo("Success", f"Student {self.name_entry.get()} registered successfully!")
+        self.clear()
     
-    def greet(self, person):
-        return f"{self.name} greets {person}"
+    def clear(self):
+        self.name_entry.delete(0, tk.END)
+        self.email_entry.delete(0, tk.END)
+        self.phone_entry.delete(0, tk.END)
+        self.gender_var.set("Male")
+        self.course_combo.set("Select Course")
+        self.terms_var.set(False)
 
-dog = Dog("Buddy")
-print(dog.bark())           # Buddy says Woof!
-print(dog.greet("Alice"))   # Buddy greets Alice</code></pre>
+# Run the application
+root = tk.Tk()
+app = StudentForm(root)
+root.mainloop()</code></pre>
 
-                <p><strong>Class methods:</strong></p>
-                <pre><code>class Dog:
-    count = 0
-    
-    def __init__(self, name):
-        self.name = name
-        Dog.count += 1
-    
-    @classmethod
-    def total_dogs(cls):
-        return f"Total dogs: {cls.count}"
-
-dog1 = Dog("Buddy")
-dog2 = Dog("Max")
-print(Dog.total_dogs())  # Total dogs: 2</code></pre>
-
-                <p><strong>Static methods:</strong></p>
-                <pre><code>class Dog:
-    @staticmethod
-    def description():
-        return "Dogs are friendly animals"
-
-print(Dog.description())  # Dogs are friendly animals</code></pre>
-
-                <p><strong>Special methods (Magic methods):</strong></p>
-                <pre><code>class Dog:
-    def __init__(self, name):
-        self.name = name
-    
-    def __str__(self):
-        return f"Dog: {self.name}"
-    
-    def __repr__(self):
-        return f"Dog('{self.name}')"
-    
-    def __len__(self):
-        return len(self.name)
-
-dog = Dog("Buddy")
-print(str(dog))    # Dog: Buddy
-print(repr(dog))   # Dog('Buddy')
-print(len(dog))    # 5</code></pre>
-            </section>
-
-            <section id="inheritance" class="topic">
-                <h2>4. Inheritance</h2>
-                <p>Inheritance allows a class to inherit properties and methods from another class.</p>
-                <pre><code>class Animal:
-    def __init__(self, name):
-        self.name = name
-    
-    def speak(self):
-        return f"{self.name} makes a sound"
-
-class Dog(Animal):
-    def speak(self):
-        return f"{self.name} barks"
-
-class Cat(Animal):
-    def speak(self):
-        return f"{self.name} meows"
-
-dog = Dog("Buddy")
-cat = Cat("Whiskers")
-print(dog.speak())  # Buddy barks
-print(cat.speak())  # Whiskers meows</code></pre>
-
-                <p><strong>Calling parent class methods:</strong></p>
-                <pre><code>class Dog(Animal):
-    def __init__(self, name, breed):
-        super().__init__(name)  # Call parent __init__
-        self.breed = breed
-    
-    def speak(self):
-        parent_speak = super().speak()
-        return f"{parent_speak} (woof!)"</code></pre>
-
-                <p><strong>Multiple inheritance:</strong></p>
-                <pre><code>class FlyingAbility:
-    def fly(self):
-        return "Flying..."
-
-class SwimmingAbility:
-    def swim(self):
-        return "Swimming..."
-
-class Duck(FlyingAbility, SwimmingAbility):
-    pass
-
-duck = Duck()
-print(duck.fly())    # Flying...
-print(duck.swim())   # Swimming...</code></pre>
-            </section>
-
-            <section id="polymorphism" class="topic">
-                <h2>5. Polymorphism</h2>
-                <p>Polymorphism allows objects of different classes to be used interchangeably.</p>
-                <pre><code>class Dog:
-    def speak(self):
-        return "Woof!"
-
-class Cat:
-    def speak(self):
-        return "Meow!"
-
-class Bird:
-    def speak(self):
-        return "Tweet!"
-
-animals = [Dog(), Cat(), Bird()]
-for animal in animals:
-    print(animal.speak())  # Different output for each</code></pre>
-
-                <p><strong>Duck typing:</strong></p>
-                <p>"If it walks like a duck and quacks like a duck, it's a duck"</p>
-                <pre><code>def make_sound(creature):
-    print(creature.speak())  # Works with any object that has speak()
-
-make_sound(Dog())
-make_sound(Cat())</code></pre>
-
-                <p><strong>Method overriding:</strong></p>
-                <p>A subclass can override methods from the parent class</p>
-                <pre><code>class Vehicle:
-    def start(self):
-        return "Engine started"
-
-class Car(Vehicle):
-    def start(self):
-        return "Car engine started with key"
-
-car = Car()
-print(car.start())  # Car engine started with key</code></pre>
-            </section>
-
-            <section id="encapsulation" class="topic">
-                <h2>6. Encapsulation</h2>
-                <p>Encapsulation hides internal details and controls access to data.</p>
-                <p><strong>Private attributes (single underscore convention):</strong></p>
-                <pre><code>class BankAccount:
-    def __init__(self, balance):
-        self._balance = balance  # Protected
-    
-    def deposit(self, amount):
-        if amount > 0:
-            self._balance += amount
-    
-    def get_balance(self):
-        return self._balance
-
-account = BankAccount(1000)
-account.deposit(500)
-print(account.get_balance())  # 1500</code></pre>
-
-                <p><strong>Private attributes (double underscore):</strong></p>
-                <pre><code>class BankAccount:
-    def __init__(self, balance):
-        self.__balance = balance  # Private
-    
-    def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-    
-    def get_balance(self):
-        return self.__balance
-
-account = BankAccount(1000)
-# account.__balance  # Error: cannot access directly</code></pre>
-
-                <p><strong>Properties and setters:</strong></p>
-                <pre><code>class Circle:
-    def __init__(self, radius):
-        self._radius = radius
-    
-    @property
-    def radius(self):
-        return self._radius
-    
-    @radius.setter
-    def radius(self, value):
-        if value > 0:
-            self._radius = value
-    
-    @property
-    def area(self):
-        return 3.14 * self._radius ** 2
-
-circle = Circle(5)
-print(circle.area)      # 78.5
-circle.radius = 10
-print(circle.area)      # 314.0</code></pre>
+                <h3>Summary: Tkinter Widgets Reference</h3>
+                <table>
+                    <tr>
+                        <th>Widget</th>
+                        <th>Description</th>
+                        <th>Common Options</th>
+                    </tr>
+                    <tr>
+                        <td>Label</td>
+                        <td>Display text/image</td>
+                        <td>text, font, fg, bg</td>
+                    </tr>
+                    <tr>
+                        <td>Button</td>
+                        <td>Clickable button</td>
+                        <td>text, command, width</td>
+                    </tr>
+                    <tr>
+                        <td>Entry</td>
+                        <td>Single-line input</td>
+                        <td>width, show, state</td>
+                    </tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>Multi-line input</td>
+                        <td>width, height</td>
+                    </tr>
+                    <tr>
+                        <td>Checkbutton</td>
+                        <td>Checkbox</td>
+                        <td>text, variable</td>
+                    </tr>
+                    <tr>
+                        <td>Radiobutton</td>
+                        <td>Radio selection</td>
+                        <td>text, variable, value</td>
+                    </tr>
+                    <tr>
+                        <td>Listbox</td>
+                        <td>List of items</td>
+                        <td>selectmode, height</td>
+                    </tr>
+                    <tr>
+                        <td>Combobox</td>
+                        <td>Dropdown list</td>
+                        <td>values, state</td>
+                    </tr>
+                    <tr>
+                        <td>Frame</td>
+                        <td>Container</td>
+                        <td>bg, relief, padding</td>
+                    </tr>
+                    <tr>
+                        <td>Canvas</td>
+                        <td>Drawing area</td>
+                        <td>width, height, bg</td>
+                    </tr>
+                </table>
             </section>
 
             <div class="unit-nav">

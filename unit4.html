@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 4: Data Structures - Study Material</title>
+    <title>Unit 4: Object-Oriented Programming (OOP) in Python - Study Material</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,236 +42,896 @@
 
     <main class="container">
         <section class="unit-content">
-            <h1>Unit 4: Data Structures</h1>
+            <h1>Unit 4: Object-Oriented Programming (OOP) in Python</h1>
             
             <div class="toc">
                 <h3>Topics Covered:</h3>
                 <ul>
-                    <li><a href="#lists">Lists</a></li>
-                    <li><a href="#tuples">Tuples</a></li>
-                    <li><a href="#dicts">Dictionaries</a></li>
-                    <li><a href="#sets">Sets</a></li>
-                    <li><a href="#strings">Strings</a></li>
-                    <li><a href="#files">File Handling</a></li>
+                    <li><a href="#intro-oop">4.1 Introduction to OOP: Classes and Objects, Encapsulation, Inheritance, and Polymorphism</a></li>
+                    <li><a href="#classes-objects">4.2 Creating Classes and Objects: Class Attributes and Methods, Constructor and Destructor</a></li>
+                    <li><a href="#inheritance-types">4.3 Types of Inheritance: Single, Multiple, and Multilevel Inheritance</a></li>
                 </ul>
             </div>
 
-            <section id="lists" class="topic">
-                <h2>1. Lists</h2>
-                <p>Lists are ordered, mutable collections of items.</p>
-                <pre><code>fruits = ["apple", "banana", "cherry"]
-numbers = [1, 2, 3, 4, 5]
-mixed = [1, "hello", 3.14, True]
-
-# Accessing elements
-print(fruits[0])      # apple
-print(fruits[-1])     # cherry
-
-# Slicing
-print(fruits[0:2])    # ['apple', 'banana']</code></pre>
-
-                <p><strong>List methods:</strong></p>
-                <pre><code>list = [3, 1, 4, 1, 5]
-
-list.append(9)        # Add element
-list.extend([2, 6])   # Add multiple elements
-list.insert(0, 7)     # Insert at position
-list.remove(1)        # Remove first occurrence
-list.pop()            # Remove last element
-list.sort()           # Sort in place
-list.reverse()        # Reverse order
-list.clear()          # Remove all elements
-
-print(list.index(4))  # Find index
-print(list.count(1))  # Count occurrences</code></pre>
-
-                <p><strong>List comprehension:</strong></p>
-                <pre><code>squares = [x**2 for x in range(5)]      # [0, 1, 4, 9, 16]
-evens = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]</code></pre>
-            </section>
-
-            <section id="tuples" class="topic">
-                <h2>2. Tuples</h2>
-                <p>Tuples are ordered, immutable collections.</p>
-                <pre><code>colors = ("red", "green", "blue")
-single = (1,)         # Note the comma for single element
-mixed = (1, "hello", 3.14)
-
-# Accessing elements
-print(colors[0])      # red
-print(colors[1:])     # ('green', 'blue')
-
-# Unpacking
-r, g, b = colors
-print(r, g, b)</code></pre>
-
-                <p><strong>Tuple operations:</strong></p>
-                <pre><code>t = (1, 2, 3, 2)
-print(len(t))         # 3
-print(t.count(2))     # 2
-print(t.index(3))     # 2
-
-# Concatenation
-t1 = (1, 2)
-t2 = (3, 4)
-t3 = t1 + t2          # (1, 2, 3, 4)
-
-# Repetition
-t = (1, 2) * 3        # (1, 2, 1, 2, 1, 2)</code></pre>
-
-                <p><strong>Why use tuples?</strong></p>
+            <section id="intro-oop" class="topic">
+                <h2>4.1 Introduction to OOP</h2>
+                
+                <h3>What is Object-Oriented Programming?</h3>
+                <p>Object-Oriented Programming (OOP) is a programming paradigm that organizes code around <strong>objects</strong> rather than functions and logic. Objects are instances of <strong>classes</strong>, which serve as blueprints defining the structure and behavior of objects.</p>
+                
+                <p><strong>Key Benefits of OOP:</strong></p>
                 <ul>
-                    <li>Immutability ensures data integrity</li>
-                    <li>Can be used as dictionary keys</li>
-                    <li>Slightly faster than lists</li>
-                    <li>Prevent accidental modifications</li>
-                </ul>
-            </section>
-
-            <section id="dicts" class="topic">
-                <h2>3. Dictionaries</h2>
-                <p>Dictionaries are unordered, mutable collections of key-value pairs.</p>
-                <pre><code>student = {
-    "name": "John",
-    "age": 20,
-    "city": "NYC"
-}
-
-# Accessing values
-print(student["name"])       # John
-print(student.get("age"))    # 20
-
-# Adding/Modifying
-student["age"] = 21
-student["email"] = "john@example.com"
-
-# Removing
-del student["email"]
-student.pop("city")</code></pre>
-
-                <p><strong>Dictionary methods:</strong></p>
-                <pre><code>d = {"a": 1, "b": 2, "c": 3}
-
-d.keys()              # Get all keys
-d.values()            # Get all values
-d.items()             # Get key-value pairs
-d.clear()             # Remove all items
-d.copy()              # Create a copy
-d.update({"d": 4})    # Update with new items
-
-print("a" in d)       # Check if key exists
-print(d.get("a", 0))  # Get with default value</code></pre>
-
-                <p><strong>Dictionary comprehension:</strong></p>
-                <pre><code>squares = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
-words = ["apple", "banana", "cherry"]
-word_lengths = {w: len(w) for w in words}</code></pre>
-            </section>
-
-            <section id="sets" class="topic">
-                <h2>4. Sets</h2>
-                <p>Sets are unordered collections of unique items.</p>
-                <pre><code>colors = {"red", "green", "blue"}
-numbers = {1, 2, 3, 2, 1}  # {1, 2, 3} - duplicates removed
-
-# Adding elements
-colors.add("yellow")
-
-# Removing elements
-colors.remove("red")      # Raises error if not found
-colors.discard("green")   # No error if not found
-
-# Set operations
-a = {1, 2, 3}
-b = {3, 4, 5}
-
-union = a | b             # {1, 2, 3, 4, 5}
-intersection = a & b      # {3}
-difference = a - b        # {1, 2}
-symmetric = a ^ b         # {1, 2, 4, 5}</code></pre>
-
-                <p><strong>Set methods:</strong></p>
-                <pre><code>s = {1, 2, 3}
-s.clear()                 # Remove all
-s.copy()                  # Create copy
-s.union({4, 5})           # {1, 2, 3, 4, 5}
-s.intersection({2, 3, 4}) # {2, 3}
-s.difference({2})         # {1, 3}</code></pre>
-            </section>
-
-            <section id="strings" class="topic">
-                <h2>5. Strings</h2>
-                <p>Strings are sequences of characters (immutable).</p>
-                <pre><code>text = "Hello, World!"
-
-# Accessing characters
-print(text[0])            # H
-print(text[-1])           # !
-print(text[0:5])          # Hello
-
-# String methods
-print(text.lower())       # hello, world!
-print(text.upper())       # HELLO, WORLD!
-print(text.replace("World", "Python"))
-print(text.split(", "))   # ['Hello', 'World!']
-print("  hello  ".strip())  # hello
-
-# String formatting
-name = "Alice"
-age = 25
-print(f"{name} is {age} years old")
-print("{} is {} years old".format(name, age))</code></pre>
-
-                <p><strong>String methods:</strong></p>
-                <pre><code>s = "hello world"
-s.find("world")           # 6
-s.count("l")              # 3
-s.startswith("hello")     # True
-s.endswith("world")       # True
-s.isdigit()               # False
-s.isalpha()               # False
-s.replace("world", "python")
-s.capitalize()            # "Hello world"
-s.title()                 # "Hello World"</code></pre>
-            </section>
-
-            <section id="files" class="topic">
-                <h2>6. File Handling</h2>
-                <p><strong>Reading files:</strong></p>
-                <pre><code>with open("file.txt", "r") as f:
-    content = f.read()    # Read entire file
-    
-with open("file.txt", "r") as f:
-    lines = f.readlines() # Read as list of lines
-    
-with open("file.txt", "r") as f:
-    for line in f:
-        print(line.strip())</code></pre>
-
-                <p><strong>Writing files:</strong></p>
-                <pre><code>with open("file.txt", "w") as f:
-    f.write("Hello, World!")
-
-with open("file.txt", "a") as f:
-    f.write("\nNew line")  # Append</code></pre>
-
-                <p><strong>File modes:</strong></p>
-                <ul>
-                    <li><strong>r:</strong> Read (default)</li>
-                    <li><strong>w:</strong> Write (overwrites)</li>
-                    <li><strong>a:</strong> Append</li>
-                    <li><strong>x:</strong> Create new file</li>
-                    <li><strong>b:</strong> Binary mode</li>
+                    <li><strong>Modularity:</strong> Code is organized into self-contained objects</li>
+                    <li><strong>Reusability:</strong> Classes can be reused across different programs</li>
+                    <li><strong>Maintainability:</strong> Easier to modify and update code</li>
+                    <li><strong>Data Security:</strong> Data hiding through encapsulation</li>
+                    <li><strong>Scalability:</strong> Easy to add new features</li>
                 </ul>
 
-                <p><strong>Handling exceptions:</strong></p>
-                <pre><code>try:
-    with open("file.txt", "r") as f:
-        content = f.read()
-except FileNotFoundError:
-    print("File not found")
-except IOError:
-    print("Error reading file")</code></pre>
+                <h3>Classes and Objects</h3>
+                
+                <h4>Class</h4>
+                <p>A class is a blueprint or template for creating objects. It defines the attributes (data) and methods (functions) that objects of that class will have.</p>
+                <pre><code># Defining a class
+class Car:
+    # Class attribute (shared by all instances)
+    wheels = 4
+    
+    # Method
+    def start(self):
+        print("Car is starting...")
+    
+    def stop(self):
+        print("Car has stopped.")</code></pre>
+
+                <h4>Object</h4>
+                <p>An object is an instance of a class. It is a concrete entity created from the class blueprint with its own set of attribute values.</p>
+                <pre><code># Creating objects (instances) of the Car class
+car1 = Car()
+car2 = Car()
+
+# Calling methods on objects
+car1.start()    # Output: Car is starting...
+car2.stop()     # Output: Car has stopped.
+
+# Accessing class attribute
+print(car1.wheels)  # Output: 4</code></pre>
+
+                <h4>Real-World Analogy</h4>
+                <table>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Real-World Example</th>
+                    </tr>
+                    <tr>
+                        <td>Class</td>
+                        <td>Blueprint of a house</td>
+                    </tr>
+                    <tr>
+                        <td>Object</td>
+                        <td>Actual house built from the blueprint</td>
+                    </tr>
+                    <tr>
+                        <td>Attributes</td>
+                        <td>Number of rooms, color, size</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>Open door, turn on lights</td>
+                    </tr>
+                </table>
+
+                <h3>Four Pillars of OOP</h3>
+
+                <h4>1. Encapsulation</h4>
+                <p>Encapsulation is the bundling of data (attributes) and methods that operate on the data into a single unit (class). It also involves restricting direct access to some of the object's components, known as <strong>data hiding</strong>.</p>
+                
+                <p><strong>Access Modifiers in Python:</strong></p>
+                <table>
+                    <tr>
+                        <th>Modifier</th>
+                        <th>Syntax</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Public</td>
+                        <td>name</td>
+                        <td>Accessible from anywhere</td>
+                    </tr>
+                    <tr>
+                        <td>Protected</td>
+                        <td>_name</td>
+                        <td>Accessible within class and subclasses (convention)</td>
+                    </tr>
+                    <tr>
+                        <td>Private</td>
+                        <td>__name</td>
+                        <td>Accessible only within the class (name mangling)</td>
+                    </tr>
+                </table>
+
+                <pre><code>class BankAccount:
+    def __init__(self, account_holder, balance):
+        self.account_holder = account_holder  # Public
+        self._account_type = "Savings"        # Protected
+        self.__balance = balance              # Private
+    
+    # Getter method for private attribute
+    def get_balance(self):
+        return self.__balance
+    
+    # Setter method for private attribute
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited: {amount}")
+    
+    def withdraw(self, amount):
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrawn: {amount}")
+        else:
+            print("Insufficient balance!")
+
+# Using the class
+account = BankAccount("John", 1000)
+print(account.account_holder)    # John (public - accessible)
+print(account._account_type)     # Savings (protected - accessible but discouraged)
+# print(account.__balance)       # Error! Private attribute
+print(account.get_balance())     # 1000 (accessed via getter)
+
+account.deposit(500)
+print(account.get_balance())     # 1500</code></pre>
+
+                <h4>2. Inheritance</h4>
+                <p>Inheritance allows a class (child/derived class) to inherit attributes and methods from another class (parent/base class). This promotes code reuse and establishes a natural hierarchy.</p>
+                <pre><code># Base class (Parent)
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def speak(self):
+        print("Animal makes a sound")
+    
+    def eat(self):
+        print(f"{self.name} is eating")
+
+# Derived class (Child)
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)  # Call parent constructor
+        self.breed = breed
+    
+    def speak(self):  # Method overriding
+        print(f"{self.name} says Woof!")
+    
+    def fetch(self):  # New method specific to Dog
+        print(f"{self.name} is fetching the ball")
+
+# Using inheritance
+dog = Dog("Buddy", "Golden Retriever")
+dog.speak()   # Buddy says Woof! (overridden method)
+dog.eat()     # Buddy is eating (inherited method)
+dog.fetch()   # Buddy is fetching the ball</code></pre>
+
+                <h4>3. Polymorphism</h4>
+                <p>Polymorphism means "many forms". It allows objects of different classes to be treated uniformly through a common interface. The same method name can behave differently based on the object calling it.</p>
+                
+                <p><strong>Types of Polymorphism:</strong></p>
+                <ul>
+                    <li><strong>Compile-time (Method Overloading):</strong> Same method name with different parameters (Python uses default arguments)</li>
+                    <li><strong>Runtime (Method Overriding):</strong> Child class redefines a method from parent class</li>
+                </ul>
+
+                <pre><code># Polymorphism through method overriding
+class Shape:
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14159 * self.radius ** 2
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+    
+    def area(self):
+        return 0.5 * self.base * self.height
+
+# Polymorphism in action
+shapes = [Rectangle(4, 5), Circle(3), Triangle(6, 4)]
+
+for shape in shapes:
+    print(f"Area: {shape.area()}")
+# Output:
+# Area: 20
+# Area: 28.27431
+# Area: 12.0</code></pre>
+
+                <p><strong>Duck Typing in Python:</strong></p>
+                <p>"If it walks like a duck and quacks like a duck, then it must be a duck."</p>
+                <pre><code>class Duck:
+    def sound(self):
+        print("Quack!")
+
+class Cat:
+    def sound(self):
+        print("Meow!")
+
+class Dog:
+    def sound(self):
+        print("Woof!")
+
+# Polymorphism - same function works with different types
+def make_sound(animal):
+    animal.sound()
+
+make_sound(Duck())  # Quack!
+make_sound(Cat())   # Meow!
+make_sound(Dog())   # Woof!</code></pre>
+
+                <h4>4. Abstraction</h4>
+                <p>Abstraction hides complex implementation details and shows only the essential features. In Python, abstraction is achieved using abstract classes and methods.</p>
+                <pre><code>from abc import ABC, abstractmethod
+
+# Abstract class
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+    
+    @abstractmethod
+    def stop(self):
+        pass
+    
+    def fuel_type(self):  # Concrete method
+        return "Petrol"
+
+# Concrete class implementing abstract class
+class Car(Vehicle):
+    def start(self):
+        print("Car engine started")
+    
+    def stop(self):
+        print("Car engine stopped")
+
+class Bike(Vehicle):
+    def start(self):
+        print("Bike engine started")
+    
+    def stop(self):
+        print("Bike engine stopped")
+
+# Cannot create instance of abstract class
+# vehicle = Vehicle()  # Error!
+
+# Can create instances of concrete classes
+car = Car()
+car.start()           # Car engine started
+print(car.fuel_type()) # Petrol</code></pre>
+            </section>
+
+            <section id="classes-objects" class="topic">
+                <h2>4.2 Creating Classes and Objects</h2>
+                
+                <h3>Class Syntax</h3>
+                <pre><code>class ClassName:
+    # Class attributes (shared by all instances)
+    class_attribute = value
+    
+    # Constructor
+    def __init__(self, parameters):
+        # Instance attributes
+        self.instance_attribute = value
+    
+    # Instance methods
+    def method_name(self, parameters):
+        # Method body
+        pass</code></pre>
+
+                <h3>Class Attributes vs Instance Attributes</h3>
+                
+                <h4>Class Attributes</h4>
+                <p>Class attributes are shared by all instances of the class. They are defined directly in the class body.</p>
+                <pre><code>class Student:
+    # Class attribute
+    school_name = "Python High School"
+    total_students = 0
+    
+    def __init__(self, name):
+        self.name = name  # Instance attribute
+        Student.total_students += 1
+
+# Creating students
+s1 = Student("Alice")
+s2 = Student("Bob")
+
+# Class attribute is shared
+print(s1.school_name)  # Python High School
+print(s2.school_name)  # Python High School
+print(Student.total_students)  # 2
+
+# Modifying class attribute
+Student.school_name = "Advanced Python School"
+print(s1.school_name)  # Advanced Python School
+print(s2.school_name)  # Advanced Python School</code></pre>
+
+                <h4>Instance Attributes</h4>
+                <p>Instance attributes are unique to each object. They are typically defined in the <code>__init__</code> method using <code>self</code>.</p>
+                <pre><code>class Employee:
+    def __init__(self, name, salary):
+        self.name = name      # Instance attribute
+        self.salary = salary  # Instance attribute
+
+e1 = Employee("John", 50000)
+e2 = Employee("Jane", 60000)
+
+print(e1.name, e1.salary)  # John 50000
+print(e2.name, e2.salary)  # Jane 60000
+
+# Each instance has its own values
+e1.salary = 55000
+print(e1.salary)  # 55000
+print(e2.salary)  # 60000 (unchanged)</code></pre>
+
+                <h3>Types of Methods</h3>
+
+                <h4>1. Instance Methods</h4>
+                <p>Instance methods operate on instance data and require <code>self</code> as the first parameter.</p>
+                <pre><code>class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    
+    # Instance method
+    def area(self):
+        return 3.14159 * self.radius ** 2
+    
+    # Instance method
+    def circumference(self):
+        return 2 * 3.14159 * self.radius
+
+c = Circle(5)
+print(c.area())          # 78.53975
+print(c.circumference()) # 31.4159</code></pre>
+
+                <h4>2. Class Methods</h4>
+                <p>Class methods operate on class-level data and use <code>@classmethod</code> decorator. They receive the class as the first parameter (<code>cls</code>).</p>
+                <pre><code>class Employee:
+    employee_count = 0
+    
+    def __init__(self, name):
+        self.name = name
+        Employee.employee_count += 1
+    
+    @classmethod
+    def get_employee_count(cls):
+        return cls.employee_count
+    
+    @classmethod
+    def from_string(cls, emp_string):
+        # Alternative constructor
+        name, salary = emp_string.split("-")
+        return cls(name)
+
+# Using class method
+e1 = Employee("John")
+e2 = Employee("Jane")
+print(Employee.get_employee_count())  # 2
+
+# Alternative constructor
+e3 = Employee.from_string("Alice-50000")
+print(e3.name)  # Alice</code></pre>
+
+                <h4>3. Static Methods</h4>
+                <p>Static methods don't operate on instance or class data. They use <code>@staticmethod</code> decorator and don't receive <code>self</code> or <code>cls</code>.</p>
+                <pre><code>class MathUtils:
+    @staticmethod
+    def add(a, b):
+        return a + b
+    
+    @staticmethod
+    def multiply(a, b):
+        return a * b
+    
+    @staticmethod
+    def is_even(number):
+        return number % 2 == 0
+
+# Using static methods
+print(MathUtils.add(5, 3))       # 8
+print(MathUtils.multiply(4, 7))  # 28
+print(MathUtils.is_even(10))     # True</code></pre>
+
+                <h3>Constructor (__init__)</h3>
+                <p>The constructor is a special method that is automatically called when an object is created. It initializes the object's attributes.</p>
+                <pre><code>class Person:
+    def __init__(self, name, age, city="Unknown"):
+        # Initialize instance attributes
+        self.name = name
+        self.age = age
+        self.city = city
+        print(f"Person {self.name} created!")
+    
+    def introduce(self):
+        print(f"Hi, I'm {self.name}, {self.age} years old from {self.city}")
+
+# Creating objects - constructor is called automatically
+p1 = Person("Alice", 25, "New York")  # Person Alice created!
+p2 = Person("Bob", 30)                # Person Bob created!
+
+p1.introduce()  # Hi, I'm Alice, 25 years old from New York
+p2.introduce()  # Hi, I'm Bob, 30 years old from Unknown</code></pre>
+
+                <h3>Destructor (__del__)</h3>
+                <p>The destructor is called when an object is about to be destroyed (garbage collected). It's used for cleanup operations.</p>
+                <pre><code>class FileHandler:
+    def __init__(self, filename):
+        self.filename = filename
+        self.file = open(filename, 'w')
+        print(f"File {filename} opened")
+    
+    def write(self, data):
+        self.file.write(data)
+    
+    def __del__(self):
+        # Cleanup: Close the file
+        self.file.close()
+        print(f"File {self.filename} closed")
+
+# Example usage
+handler = FileHandler("test.txt")
+handler.write("Hello, World!")
+del handler  # Explicitly delete - destructor called
+# Output: File test.txt closed</code></pre>
+
+                <p><strong>Important Notes about Destructor:</strong></p>
+                <ul>
+                    <li>Called automatically when object is garbage collected</li>
+                    <li>Called explicitly using <code>del object</code></li>
+                    <li>Not guaranteed to be called immediately</li>
+                    <li>Avoid heavy operations in destructor</li>
+                    <li>Use context managers (<code>with</code> statement) for resource management instead</li>
+                </ul>
+
+                <h3>Special (Magic/Dunder) Methods</h3>
+                <p>Python has special methods with double underscores that provide special functionality:</p>
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Usage</th>
+                    </tr>
+                    <tr>
+                        <td>__init__(self)</td>
+                        <td>Constructor</td>
+                        <td>Called when object is created</td>
+                    </tr>
+                    <tr>
+                        <td>__del__(self)</td>
+                        <td>Destructor</td>
+                        <td>Called when object is destroyed</td>
+                    </tr>
+                    <tr>
+                        <td>__str__(self)</td>
+                        <td>String representation</td>
+                        <td>print(obj), str(obj)</td>
+                    </tr>
+                    <tr>
+                        <td>__repr__(self)</td>
+                        <td>Official representation</td>
+                        <td>repr(obj)</td>
+                    </tr>
+                    <tr>
+                        <td>__len__(self)</td>
+                        <td>Length</td>
+                        <td>len(obj)</td>
+                    </tr>
+                    <tr>
+                        <td>__add__(self, other)</td>
+                        <td>Addition</td>
+                        <td>obj1 + obj2</td>
+                    </tr>
+                    <tr>
+                        <td>__eq__(self, other)</td>
+                        <td>Equality</td>
+                        <td>obj1 == obj2</td>
+                    </tr>
+                </table>
+
+                <pre><code>class Book:
+    def __init__(self, title, pages):
+        self.title = title
+        self.pages = pages
+    
+    def __str__(self):
+        return f"'{self.title}' ({self.pages} pages)"
+    
+    def __repr__(self):
+        return f"Book('{self.title}', {self.pages})"
+    
+    def __len__(self):
+        return self.pages
+    
+    def __add__(self, other):
+        # Combine two books
+        return Book(f"{self.title} & {other.title}", self.pages + other.pages)
+    
+    def __eq__(self, other):
+        return self.title == other.title and self.pages == other.pages
+
+book1 = Book("Python Basics", 200)
+book2 = Book("Advanced Python", 300)
+
+print(book1)           # 'Python Basics' (200 pages)
+print(repr(book1))     # Book('Python Basics', 200)
+print(len(book1))      # 200
+
+book3 = book1 + book2
+print(book3)           # 'Python Basics & Advanced Python' (500 pages)</code></pre>
+            </section>
+
+            <section id="inheritance-types" class="topic">
+                <h2>4.3 Types of Inheritance</h2>
+                
+                <p>Inheritance allows a class to acquire properties and methods from another class. Python supports multiple types of inheritance.</p>
+
+                <h3>1. Single Inheritance</h3>
+                <p>A child class inherits from only one parent class. This is the simplest form of inheritance.</p>
+                <pre><code># Single Inheritance
+# Parent Class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def eat(self):
+        print(f"{self.name} is eating")
+    
+    def sleep(self):
+        print(f"{self.name} is sleeping")
+
+# Child Class
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)  # Call parent constructor
+        self.breed = breed
+    
+    def bark(self):
+        print(f"{self.name} is barking: Woof!")
+    
+    def display_info(self):
+        print(f"Name: {self.name}, Breed: {self.breed}")
+
+# Using single inheritance
+dog = Dog("Buddy", "Golden Retriever")
+dog.eat()          # Buddy is eating (inherited)
+dog.sleep()        # Buddy is sleeping (inherited)
+dog.bark()         # Buddy is barking: Woof!
+dog.display_info() # Name: Buddy, Breed: Golden Retriever</code></pre>
+
+                <p><strong>Diagram:</strong></p>
+                <pre><code>    Animal (Parent)
+        ↓
+    Dog (Child)</code></pre>
+
+                <h3>2. Multiple Inheritance</h3>
+                <p>A child class inherits from more than one parent class. The child class can access attributes and methods from all parent classes.</p>
+                <pre><code># Multiple Inheritance
+class Father:
+    def __init__(self):
+        self.father_name = "John"
+    
+    def gardening(self):
+        print("Father loves gardening")
+    
+    def skills(self):
+        print("Father's skill: Programming")
+
+class Mother:
+    def __init__(self):
+        self.mother_name = "Jane"
+    
+    def cooking(self):
+        print("Mother loves cooking")
+    
+    def skills(self):
+        print("Mother's skill: Painting")
+
+# Child inheriting from both Father and Mother
+class Child(Father, Mother):
+    def __init__(self):
+        Father.__init__(self)
+        Mother.__init__(self)
+        self.child_name = "Alice"
+    
+    def play(self):
+        print(f"{self.child_name} loves to play")
+    
+    def show_family(self):
+        print(f"Father: {self.father_name}")
+        print(f"Mother: {self.mother_name}")
+        print(f"Child: {self.child_name}")
+
+# Using multiple inheritance
+child = Child()
+child.gardening()    # Father loves gardening
+child.cooking()      # Mother loves cooking
+child.play()         # Alice loves to play
+child.show_family()
+child.skills()       # Father's skill: Programming (MRO - Father comes first)</code></pre>
+
+                <p><strong>Diagram:</strong></p>
+                <pre><code>Father      Mother
+    ↘      ↙
+     Child</code></pre>
+
+                <h4>Method Resolution Order (MRO)</h4>
+                <p>When multiple parent classes have the same method, Python uses MRO to determine which method to call. It follows the order in which parent classes are listed.</p>
+                <pre><code># Check Method Resolution Order
+print(Child.__mro__)
+# Output: (&lt;class 'Child'&gt;, &lt;class 'Father'&gt;, &lt;class 'Mother'&gt;, &lt;class 'object'&gt;)
+
+# Or use mro() method
+print(Child.mro())</code></pre>
+
+                <h4>The Diamond Problem</h4>
+                <p>Occurs when a class inherits from two classes that have a common ancestor:</p>
+                <pre><code>class Grandparent:
+    def greet(self):
+        print("Hello from Grandparent")
+
+class Father(Grandparent):
+    def greet(self):
+        print("Hello from Father")
+
+class Mother(Grandparent):
+    def greet(self):
+        print("Hello from Mother")
+
+class Child(Father, Mother):
+    pass
+
+child = Child()
+child.greet()  # Hello from Father (MRO: Child -> Father -> Mother -> Grandparent)
+print(Child.__mro__)
+# (&lt;class 'Child'&gt;, &lt;class 'Father'&gt;, &lt;class 'Mother'&gt;, &lt;class 'Grandparent'&gt;, &lt;class 'object'&gt;)</code></pre>
+
+                <h3>3. Multilevel Inheritance</h3>
+                <p>A chain of inheritance where a child class becomes the parent for another class. It forms a hierarchy of classes.</p>
+                <pre><code># Multilevel Inheritance
+class Grandparent:
+    def __init__(self):
+        self.grandparent_name = "George"
+    
+    def grandparent_info(self):
+        print(f"Grandparent: {self.grandparent_name}")
+    
+    def family_tradition(self):
+        print("Family tradition: Sunday dinner")
+
+class Parent(Grandparent):
+    def __init__(self):
+        super().__init__()  # Call Grandparent constructor
+        self.parent_name = "John"
+    
+    def parent_info(self):
+        print(f"Parent: {self.parent_name}")
+    
+    def work(self):
+        print("Parent is working")
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()  # Call Parent constructor (which calls Grandparent)
+        self.child_name = "Alice"
+    
+    def child_info(self):
+        print(f"Child: {self.child_name}")
+    
+    def study(self):
+        print("Child is studying")
+    
+    def show_family_tree(self):
+        self.grandparent_info()
+        self.parent_info()
+        self.child_info()
+
+# Using multilevel inheritance
+child = Child()
+child.show_family_tree()
+# Output:
+# Grandparent: George
+# Parent: John
+# Child: Alice
+
+child.family_tradition()  # Family tradition: Sunday dinner (from Grandparent)
+child.work()              # Parent is working (from Parent)
+child.study()             # Child is studying (own method)</code></pre>
+
+                <p><strong>Diagram:</strong></p>
+                <pre><code>Grandparent
+     ↓
+   Parent
+     ↓
+   Child</code></pre>
+
+                <h3>4. Hierarchical Inheritance</h3>
+                <p>Multiple child classes inherit from a single parent class.</p>
+                <pre><code># Hierarchical Inheritance
+class Vehicle:
+    def __init__(self, brand):
+        self.brand = brand
+    
+    def start(self):
+        print(f"{self.brand} vehicle is starting")
+    
+    def stop(self):
+        print(f"{self.brand} vehicle is stopping")
+
+class Car(Vehicle):
+    def __init__(self, brand, model):
+        super().__init__(brand)
+        self.model = model
+    
+    def drive(self):
+        print(f"Driving {self.brand} {self.model}")
+
+class Bike(Vehicle):
+    def __init__(self, brand, type):
+        super().__init__(brand)
+        self.type = type
+    
+    def ride(self):
+        print(f"Riding {self.brand} {self.type}")
+
+class Truck(Vehicle):
+    def __init__(self, brand, capacity):
+        super().__init__(brand)
+        self.capacity = capacity
+    
+    def load(self):
+        print(f"Loading {self.capacity} tons into {self.brand} truck")
+
+# Using hierarchical inheritance
+car = Car("Toyota", "Camry")
+bike = Bike("Honda", "Sports")
+truck = Truck("Ford", 10)
+
+car.start()   # Toyota vehicle is starting
+car.drive()   # Driving Toyota Camry
+
+bike.start()  # Honda vehicle is starting
+bike.ride()   # Riding Honda Sports
+
+truck.start() # Ford vehicle is starting
+truck.load()  # Loading 10 tons into Ford truck</code></pre>
+
+                <p><strong>Diagram:</strong></p>
+                <pre><code>       Vehicle
+      /   |   \
+   Car  Bike  Truck</code></pre>
+
+                <h3>5. Hybrid Inheritance</h3>
+                <p>A combination of two or more types of inheritance. It can include any mix of single, multiple, multilevel, and hierarchical inheritance.</p>
+                <pre><code># Hybrid Inheritance (combination of Multiple and Multilevel)
+class School:
+    def __init__(self):
+        self.school_name = "Python Academy"
+    
+    def school_info(self):
+        print(f"School: {self.school_name}")
+
+class Student(School):
+    def __init__(self):
+        super().__init__()
+        self.student_id = "S001"
+    
+    def student_info(self):
+        print(f"Student ID: {self.student_id}")
+
+class Sports:
+    def __init__(self):
+        self.sport = "Basketball"
+    
+    def sports_info(self):
+        print(f"Sport: {self.sport}")
+
+class Athlete(Student, Sports):
+    def __init__(self):
+        Student.__init__(self)
+        Sports.__init__(self)
+        self.name = "Alice"
+    
+    def display_all(self):
+        print(f"Name: {self.name}")
+        self.school_info()
+        self.student_info()
+        self.sports_info()
+
+# Using hybrid inheritance
+athlete = Athlete()
+athlete.display_all()
+# Output:
+# Name: Alice
+# School: Python Academy
+# Student ID: S001
+# Sport: Basketball</code></pre>
+
+                <h3>The super() Function</h3>
+                <p>The <code>super()</code> function is used to call methods from a parent class. It's especially useful in inheritance to avoid hardcoding parent class names.</p>
+                <pre><code>class Parent:
+    def __init__(self, name):
+        self.name = name
+        print("Parent constructor called")
+    
+    def greet(self):
+        print(f"Hello, I'm {self.name}")
+
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)  # Call parent constructor
+        self.age = age
+        print("Child constructor called")
+    
+    def greet(self):
+        super().greet()  # Call parent method
+        print(f"I'm {self.age} years old")
+
+child = Child("Alice", 10)
+# Output:
+# Parent constructor called
+# Child constructor called
+
+child.greet()
+# Output:
+# Hello, I'm Alice
+# I'm 10 years old</code></pre>
+
+                <h3>Summary: Types of Inheritance</h3>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td>Single</td>
+                        <td>One child inherits from one parent</td>
+                        <td>Dog → Animal</td>
+                    </tr>
+                    <tr>
+                        <td>Multiple</td>
+                        <td>One child inherits from multiple parents</td>
+                        <td>Child → (Father, Mother)</td>
+                    </tr>
+                    <tr>
+                        <td>Multilevel</td>
+                        <td>Chain of inheritance</td>
+                        <td>Child → Parent → Grandparent</td>
+                    </tr>
+                    <tr>
+                        <td>Hierarchical</td>
+                        <td>Multiple children from one parent</td>
+                        <td>(Cat, Dog, Bird) → Animal</td>
+                    </tr>
+                    <tr>
+                        <td>Hybrid</td>
+                        <td>Combination of multiple types</td>
+                        <td>Mix of above types</td>
+                    </tr>
+                </table>
             </section>
 
             <div class="unit-nav">

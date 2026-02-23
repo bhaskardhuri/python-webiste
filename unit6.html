@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 6: Advanced Topics - Study Material</title>
+    <title>Unit 6: Python Libraries - Study Material</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,267 +42,1344 @@
 
     <main class="container">
         <section class="unit-content">
-            <h1>Unit 6: Advanced Topics</h1>
+            <h1>Unit 6: Python Libraries</h1>
             
             <div class="toc">
                 <h3>Topics Covered:</h3>
                 <ul>
-                    <li><a href="#exceptions">Exception Handling</a></li>
-                    <li><a href="#modules">Modules and Packages</a></li>
-                    <li><a href="#decorators">Decorators</a></li>
-                    <li><a href="#regex">Regular Expressions</a></li>
-                    <li><a href="#lambda">Lambda Functions</a></li>
-                    <li><a href="#generators">Generators</a></li>
+                    <li><a href="#intro-libraries">6.1 Introduction to Popular Libraries</a></li>
+                    <li><a href="#numpy">6.2 NumPy for Numerical Computing</a></li>
+                    <li><a href="#pandas">6.3 Pandas for Data Manipulation</a></li>
+                    <li><a href="#matplotlib">6.4 Matplotlib for Data Visualization</a></li>
                 </ul>
             </div>
 
-            <section id="exceptions" class="topic">
-                <h2>1. Exception Handling</h2>
-                <p>Exception handling allows graceful error management.</p>
-                <p><strong>Basic try-except:</strong></p>
-                <pre><code>try:
-    num = int("abc")
-except ValueError:
-    print("Invalid input")</code></pre>
+            <section id="intro-libraries" class="topic">
+                <h2>6.1 Introduction to Popular Libraries</h2>
+                
+                <h3>What are Python Libraries?</h3>
+                <p>Python libraries are collections of pre-written code that provide ready-to-use functions, classes, and modules. They help developers avoid writing code from scratch and speed up development.</p>
+                
+                <h3>Installing Libraries</h3>
+                <p>Libraries can be installed using <code>pip</code> (Python Package Installer):</p>
+                <pre><code># Install a single library
+pip install numpy
 
-                <p><strong>Multiple except blocks:</strong></p>
-                <pre><code>try:
-    num = int(input("Enter a number: "))
-    result = 10 / num
-except ValueError:
-    print("Please enter a valid number")
-except ZeroDivisionError:
-    print("Cannot divide by zero")
-except Exception as e:
-    print(f"An error occurred: {e}")</code></pre>
+# Install multiple libraries
+pip install numpy pandas matplotlib
 
-                <p><strong>Try-except-else-finally:</strong></p>
-                <pre><code>try:
-    file = open("file.txt", "r")
-    content = file.read()
-except FileNotFoundError:
-    print("File not found")
-else:
-    print("File read successfully")
-finally:
-    file.close()  # Always executed</code></pre>
+# Install specific version
+pip install numpy==1.21.0
 
-                <p><strong>Raising exceptions:</strong></p>
-                <pre><code>def validate_age(age):
-    if age < 0:
-        raise ValueError("Age cannot be negative")
-    return age
+# Upgrade a library
+pip install --upgrade numpy
 
-try:
-    validate_age(-5)
-except ValueError as e:
-    print(f"Error: {e}")</code></pre>
+# List installed libraries
+pip list
 
-                <p><strong>Common exceptions:</strong></p>
-                <ul>
-                    <li><strong>ValueError:</strong> Invalid value</li>
-                    <li><strong>TypeError:</strong> Wrong data type</li>
-                    <li><strong>ZeroDivisionError:</strong> Division by zero</li>
-                    <li><strong>IndexError:</strong> Index out of range</li>
-                    <li><strong>KeyError:</strong> Key not found in dictionary</li>
-                    <li><strong>FileNotFoundError:</strong> File doesn't exist</li>
-                    <li><strong>AttributeError:</strong> Attribute doesn't exist</li>
-                </ul>
+# Show library information
+pip show numpy</code></pre>
+
+                <h3>Popular Python Libraries by Category</h3>
+                
+                <h4>Data Science & Machine Learning</h4>
+                <table>
+                    <tr>
+                        <th>Library</th>
+                        <th>Description</th>
+                        <th>Use Case</th>
+                    </tr>
+                    <tr>
+                        <td>NumPy</td>
+                        <td>Numerical computing with arrays</td>
+                        <td>Mathematical operations, array manipulation</td>
+                    </tr>
+                    <tr>
+                        <td>Pandas</td>
+                        <td>Data manipulation and analysis</td>
+                        <td>DataFrames, CSV/Excel handling</td>
+                    </tr>
+                    <tr>
+                        <td>Matplotlib</td>
+                        <td>Data visualization</td>
+                        <td>Charts, graphs, plots</td>
+                    </tr>
+                    <tr>
+                        <td>Seaborn</td>
+                        <td>Statistical data visualization</td>
+                        <td>Advanced statistical plots</td>
+                    </tr>
+                    <tr>
+                        <td>Scikit-learn</td>
+                        <td>Machine learning</td>
+                        <td>Classification, regression, clustering</td>
+                    </tr>
+                    <tr>
+                        <td>TensorFlow</td>
+                        <td>Deep learning</td>
+                        <td>Neural networks, AI models</td>
+                    </tr>
+                    <tr>
+                        <td>PyTorch</td>
+                        <td>Deep learning</td>
+                        <td>Research, neural networks</td>
+                    </tr>
+                </table>
+
+                <h4>Web Development</h4>
+                <table>
+                    <tr>
+                        <th>Library</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Django</td>
+                        <td>Full-stack web framework</td>
+                    </tr>
+                    <tr>
+                        <td>Flask</td>
+                        <td>Lightweight web framework</td>
+                    </tr>
+                    <tr>
+                        <td>FastAPI</td>
+                        <td>Modern API framework</td>
+                    </tr>
+                    <tr>
+                        <td>Requests</td>
+                        <td>HTTP requests library</td>
+                    </tr>
+                    <tr>
+                        <td>BeautifulSoup</td>
+                        <td>Web scraping</td>
+                    </tr>
+                </table>
+
+                <h4>Other Useful Libraries</h4>
+                <table>
+                    <tr>
+                        <th>Library</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>Pillow</td>
+                        <td>Image processing</td>
+                    </tr>
+                    <tr>
+                        <td>OpenCV</td>
+                        <td>Computer vision</td>
+                    </tr>
+                    <tr>
+                        <td>SQLAlchemy</td>
+                        <td>Database operations</td>
+                    </tr>
+                    <tr>
+                        <td>Pygame</td>
+                        <td>Game development</td>
+                    </tr>
+                    <tr>
+                        <td>NLTK</td>
+                        <td>Natural language processing</td>
+                    </tr>
+                </table>
+
+                <h3>Importing Libraries</h3>
+                <pre><code># Standard import
+import numpy
+
+# Import with alias (common practice)
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Import specific functions/classes
+from numpy import array, zeros, ones
+from pandas import DataFrame, Series
+
+# Import everything (not recommended)
+from numpy import *</code></pre>
             </section>
 
-            <section id="modules" class="topic">
-                <h2>2. Modules and Packages</h2>
-                <p><strong>Importing modules:</strong></p>
-                <pre><code>import math
-print(math.sqrt(16))   # 4.0
-
-from math import sqrt, pi
-print(sqrt(25))        # 5.0
-print(pi)              # 3.14159...
-
-from math import *     # Import all (not recommended)</code></pre>
-
-                <p><strong>Creating a module:</strong></p>
-                <pre><code># mymodule.py
-def greet(name):
-    return f"Hello, {name}!"
-
-PI = 3.14159
-
-# Using the module
-import mymodule
-print(mymodule.greet("Alice"))  # Hello, Alice!</code></pre>
-
-                <p><strong>Popular built-in modules:</strong></p>
+            <section id="numpy" class="topic">
+                <h2>6.2 NumPy for Numerical Computing</h2>
+                
+                <h3>What is NumPy?</h3>
+                <p>NumPy (Numerical Python) is the fundamental package for scientific computing in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.</p>
+                
+                <h3>Why NumPy?</h3>
                 <ul>
-                    <li><strong>math:</strong> Mathematical functions</li>
-                    <li><strong>random:</strong> Random number generation</li>
-                    <li><strong>datetime:</strong> Date and time operations</li>
-                    <li><strong>os:</strong> Operating system operations</li>
-                    <li><strong>sys:</strong> System parameters</li>
-                    <li><strong>json:</strong> JSON operations</li>
-                </ul>
-
-                <p><strong>Packages:</strong> Directories with __init__.py file</p>
-                <pre><code>mypackage/
-  __init__.py
-  module1.py
-  module2.py
-  subpackage/
-    __init__.py
-    module3.py
-
-# Importing from package
-from mypackage.module1 import function
-from mypackage.subpackage.module3 import another_function</code></pre>
-            </section>
-
-            <section id="decorators" class="topic">
-                <h2>3. Decorators</h2>
-                <p>Decorators modify or enhance functions without changing their code.</p>
-                <p><strong>Basic decorator:</strong></p>
-                <pre><code>def my_decorator(func):
-    def wrapper():
-        print("Something before")
-        func()
-        print("Something after")
-    return wrapper
-
-@my_decorator
-def say_hello():
-    print("Hello!")
-
-say_hello()
-# Output:
-# Something before
-# Hello!
-# Something after</code></pre>
-
-                <p><strong>Decorator with arguments:</strong></p>
-                <pre><code>def my_decorator(func):
-    def wrapper(*args, **kwargs):
-        print(f"Calling {func.__name__}")
-        return func(*args, **kwargs)
-    return wrapper
-
-@my_decorator
-def add(a, b):
-    return a + b
-
-print(add(5, 3))  # Calling add, returns 8</code></pre>
-
-                <p><strong>Common decorators:</strong></p>
-                <pre><code>@property          # Make method a property
-@staticmethod      # Static method
-@classmethod       # Class method
-@functools.wraps   # Preserve function metadata</code></pre>
-            </section>
-
-            <section id="regex" class="topic">
-                <h2>4. Regular Expressions</h2>
-                <p>Regular expressions provide pattern matching capabilities.</p>
-                <pre><code>import re
-
-# Basic matching
-text = "The price is 100 dollars"
-if re.search(r"\d+", text):
-    print("Found a number")
-
-# Finding patterns
-numbers = re.findall(r"\d+", text)
-print(numbers)  # ['100']
-
-# Replacing patterns
-new_text = re.sub(r"\d+", "XXX", text)
-print(new_text)  # "The price is XXX dollars"</code></pre>
-
-                <p><strong>Common patterns:</strong></p>
-                <ul>
-                    <li><strong>\d:</strong> Digit (0-9)</li>
-                    <li><strong>\w:</strong> Word character (a-z, A-Z, 0-9, _)</li>
-                    <li><strong>\s:</strong> Whitespace</li>
-                    <li><strong>.</strong> Any character</li>
-                    <li><strong>+:</strong> One or more</li>
-                    <li><strong>*:</strong> Zero or more</li>
-                    <li><strong>?:</strong> Zero or one</li>
-                    <li><strong>^:</strong> Start of string</li>
-                    <li><strong>$:</strong> End of string</li>
+                    <li><strong>Speed:</strong> NumPy arrays are up to 50x faster than Python lists</li>
+                    <li><strong>Memory Efficient:</strong> Uses less memory than Python lists</li>
+                    <li><strong>Convenient:</strong> Built-in mathematical functions</li>
+                    <li><strong>Foundation:</strong> Base for Pandas, Scikit-learn, TensorFlow</li>
                 </ul>
 
-                <p><strong>Email validation:</strong></p>
-                <pre><code>import re
+                <h3>Installing NumPy</h3>
+                <pre><code>pip install numpy</code></pre>
 
-def validate_email(email):
-    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-    return re.match(pattern, email) is not None
+                <h3>Creating NumPy Arrays</h3>
+                <pre><code>import numpy as np
 
-print(validate_email("john@example.com"))  # True
-print(validate_email("invalid.email"))     # False</code></pre>
+# From Python list
+arr1 = np.array([1, 2, 3, 4, 5])
+print(arr1)           # [1 2 3 4 5]
+print(type(arr1))     # &lt;class 'numpy.ndarray'&gt;
+
+# 2D array (matrix)
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2d)
+# [[1 2 3]
+#  [4 5 6]
+#  [7 8 9]]
+
+# 3D array
+arr3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+print(arr3d.ndim)     # 3 (number of dimensions)</code></pre>
+
+                <h3>Array Creation Functions</h3>
+                <pre><code>import numpy as np
+
+# Array of zeros
+zeros = np.zeros((3, 4))
+print(zeros)
+# [[0. 0. 0. 0.]
+#  [0. 0. 0. 0.]
+#  [0. 0. 0. 0.]]
+
+# Array of ones
+ones = np.ones((2, 3))
+print(ones)
+# [[1. 1. 1.]
+#  [1. 1. 1.]]
+
+# Array with a specific value
+full = np.full((2, 2), 7)
+print(full)
+# [[7 7]
+#  [7 7]]
+
+# Identity matrix
+identity = np.eye(3)
+print(identity)
+# [[1. 0. 0.]
+#  [0. 1. 0.]
+#  [0. 0. 1.]]
+
+# Range of values
+range_arr = np.arange(0, 10, 2)  # start, stop, step
+print(range_arr)    # [0 2 4 6 8]
+
+# Evenly spaced values
+linspace = np.linspace(0, 1, 5)  # start, stop, num
+print(linspace)     # [0.   0.25 0.5  0.75 1.  ]
+
+# Random arrays
+random_arr = np.random.rand(3, 3)     # Random floats (0-1)
+random_int = np.random.randint(1, 10, (3, 3))  # Random integers
+print(random_int)</code></pre>
+
+                <h3>Array Attributes</h3>
+                <pre><code>import numpy as np
+
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+print(arr.shape)      # (2, 3) - rows, columns
+print(arr.ndim)       # 2 - number of dimensions
+print(arr.size)       # 6 - total elements
+print(arr.dtype)      # int64 - data type
+print(arr.itemsize)   # 8 - bytes per element
+print(arr.nbytes)     # 48 - total bytes</code></pre>
+
+                <h3>Array Indexing and Slicing</h3>
+                <pre><code>import numpy as np
+
+# 1D array indexing
+arr = np.array([10, 20, 30, 40, 50])
+print(arr[0])         # 10 (first element)
+print(arr[-1])        # 50 (last element)
+print(arr[1:4])       # [20 30 40] (slicing)
+print(arr[::2])       # [10 30 50] (step slicing)
+
+# 2D array indexing
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2d[0, 0])    # 1 (first element)
+print(arr2d[1, 2])    # 6 (row 1, column 2)
+print(arr2d[0])       # [1 2 3] (first row)
+print(arr2d[:, 1])    # [2 5 8] (second column)
+print(arr2d[0:2, 1:3])  # Submatrix
+# [[2 3]
+#  [5 6]]
+
+# Boolean indexing
+arr = np.array([1, 2, 3, 4, 5, 6])
+print(arr[arr > 3])   # [4 5 6]
+print(arr[arr % 2 == 0])  # [2 4 6]</code></pre>
+
+                <h3>Array Reshaping</h3>
+                <pre><code>import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+
+# Reshape to 3x4
+reshaped = arr.reshape(3, 4)
+print(reshaped)
+# [[ 1  2  3  4]
+#  [ 5  6  7  8]
+#  [ 9 10 11 12]]
+
+# Reshape to 2x2x3
+reshaped_3d = arr.reshape(2, 2, 3)
+print(reshaped_3d)
+
+# Flatten array
+flat = reshaped.flatten()
+print(flat)    # [ 1  2  3  4  5  6  7  8  9 10 11 12]
+
+# Transpose
+transposed = reshaped.T
+print(transposed)
+# [[ 1  5  9]
+#  [ 2  6 10]
+#  [ 3  7 11]
+#  [ 4  8 12]]</code></pre>
+
+                <h3>Array Operations</h3>
+                <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4])
+b = np.array([5, 6, 7, 8])
+
+# Arithmetic operations (element-wise)
+print(a + b)          # [ 6  8 10 12]
+print(a - b)          # [-4 -4 -4 -4]
+print(a * b)          # [ 5 12 21 32]
+print(a / b)          # [0.2  0.33 0.43 0.5]
+print(a ** 2)         # [ 1  4  9 16]
+
+# Scalar operations
+print(a + 10)         # [11 12 13 14]
+print(a * 2)          # [2 4 6 8]
+
+# Comparison operations
+print(a > 2)          # [False False  True  True]
+print(a == b)         # [False False False False]</code></pre>
+
+                <h3>Mathematical Functions</h3>
+                <pre><code>import numpy as np
+
+arr = np.array([1, 4, 9, 16, 25])
+
+# Basic math functions
+print(np.sqrt(arr))       # [1. 2. 3. 4. 5.]
+print(np.exp(arr))        # Exponential
+print(np.log(arr))        # Natural logarithm
+print(np.log10(arr))      # Base-10 logarithm
+print(np.abs([-1, -2, 3])) # [1 2 3]
+
+# Trigonometric functions
+angles = np.array([0, np.pi/2, np.pi])
+print(np.sin(angles))     # [0. 1. 0.]
+print(np.cos(angles))     # [ 1.  0. -1.]
+
+# Rounding functions
+arr = np.array([1.4, 2.5, 3.6, 4.9])
+print(np.floor(arr))      # [1. 2. 3. 4.]
+print(np.ceil(arr))       # [2. 3. 4. 5.]
+print(np.round(arr))      # [1. 2. 4. 5.]</code></pre>
+
+                <h3>Statistical Functions</h3>
+                <pre><code>import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+# Basic statistics
+print(np.sum(arr))        # 55
+print(np.mean(arr))       # 5.5
+print(np.median(arr))     # 5.5
+print(np.std(arr))        # 2.87 (standard deviation)
+print(np.var(arr))        # 8.25 (variance)
+print(np.min(arr))        # 1
+print(np.max(arr))        # 10
+print(np.argmin(arr))     # 0 (index of min)
+print(np.argmax(arr))     # 9 (index of max)
+
+# 2D array statistics
+arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+print(np.sum(arr2d, axis=0))  # [5 7 9] (column sum)
+print(np.sum(arr2d, axis=1))  # [6 15] (row sum)
+print(np.mean(arr2d, axis=0)) # [2.5 3.5 4.5] (column mean)</code></pre>
+
+                <h3>Array Manipulation</h3>
+                <pre><code>import numpy as np
+
+# Concatenation
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+print(np.concatenate([a, b]))  # [1 2 3 4 5 6]
+
+# Stacking
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+print(np.vstack([a, b]))  # Vertical stack
+# [[1 2]
+#  [3 4]
+#  [5 6]
+#  [7 8]]
+
+print(np.hstack([a, b]))  # Horizontal stack
+# [[1 2 5 6]
+#  [3 4 7 8]]
+
+# Splitting
+arr = np.array([1, 2, 3, 4, 5, 6])
+print(np.split(arr, 3))   # [array([1, 2]), array([3, 4]), array([5, 6])]
+
+# Sorting
+arr = np.array([3, 1, 4, 1, 5, 9, 2, 6])
+print(np.sort(arr))       # [1 1 2 3 4 5 6 9]
+
+# Unique values
+arr = np.array([1, 2, 2, 3, 3, 3, 4])
+print(np.unique(arr))     # [1 2 3 4]</code></pre>
+
+                <h3>Matrix Operations</h3>
+                <pre><code>import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+# Matrix multiplication
+print(np.dot(A, B))       # Matrix multiplication
+# [[19 22]
+#  [43 50]]
+
+print(A @ B)              # Alternative syntax
+
+# Element-wise multiplication
+print(A * B)
+# [[ 5 12]
+#  [21 32]]
+
+# Matrix operations
+print(np.transpose(A))    # Transpose
+print(np.linalg.det(A))   # Determinant: -2.0
+print(np.linalg.inv(A))   # Inverse matrix
+print(np.trace(A))        # Trace (sum of diagonal): 5</code></pre>
+
+                <h3>NumPy vs Python Lists</h3>
+                <pre><code>import numpy as np
+import time
+
+# Speed comparison
+size = 1000000
+
+# Python list
+python_list = list(range(size))
+start = time.time()
+python_result = [x * 2 for x in python_list]
+print(f"Python List: {time.time() - start:.4f} seconds")
+
+# NumPy array
+np_array = np.arange(size)
+start = time.time()
+np_result = np_array * 2
+print(f"NumPy Array: {time.time() - start:.4f} seconds")
+
+# NumPy is typically 10-50x faster!</code></pre>
             </section>
 
-            <section id="lambda" class="topic">
-                <h2>5. Lambda Functions</h2>
-                <p>Lambda functions are small anonymous functions.</p>
-                <p><strong>Basic lambda:</strong></p>
-                <pre><code>square = lambda x: x ** 2
-print(square(5))  # 25
-
-add = lambda x, y: x + y
-print(add(3, 4))  # 7</code></pre>
-
-                <p><strong>Lambda with map():</strong></p>
-                <pre><code>numbers = [1, 2, 3, 4, 5]
-squared = list(map(lambda x: x ** 2, numbers))
-print(squared)  # [1, 4, 9, 16, 25]</code></pre>
-
-                <p><strong>Lambda with filter():</strong></p>
-                <pre><code>numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-evens = list(filter(lambda x: x % 2 == 0, numbers))
-print(evens)  # [2, 4, 6, 8, 10]</code></pre>
-
-                <p><strong>Lambda with sorted():</strong></p>
-                <pre><code>students = [("Alice", 85), ("Bob", 75), ("Charlie", 90)]
-sorted_students = sorted(students, key=lambda x: x[1], reverse=True)
-print(sorted_students)
-# [('Charlie', 90), ('Alice', 85), ('Bob', 75)]</code></pre>
-            </section>
-
-            <section id="generators" class="topic">
-                <h2>6. Generators</h2>
-                <p>Generators are functions that yield values one at a time.</p>
-                <p><strong>Basic generator:</strong></p>
-                <pre><code>def count_up(n):
-    i = 1
-    while i <= n:
-        yield i
-        i += 1
-
-for num in count_up(5):
-    print(num)  # Prints 1 to 5</code></pre>
-
-                <p><strong>Generator with values:</strong></p>
-                <pre><code>def fibonacci(n):
-    a, b = 0, 1
-    for _ in range(n):
-        yield a
-        a, b = b, a + b
-
-fib = fibonacci(8)
-print(list(fib))  # [0, 1, 1, 2, 3, 5, 8, 13]</code></pre>
-
-                <p><strong>Generator expressions:</strong></p>
-                <pre><code>gen = (x ** 2 for x in range(5))
-print(list(gen))  # [0, 1, 4, 9, 16]
-
-# More efficient than list comprehension for large data</code></pre>
-
-                <p><strong>Why generators?</strong></p>
+            <section id="pandas" class="topic">
+                <h2>6.3 Pandas for Data Manipulation</h2>
+                
+                <h3>What is Pandas?</h3>
+                <p>Pandas is a powerful data manipulation and analysis library. It provides data structures like Series (1D) and DataFrame (2D) for working with structured data efficiently.</p>
+                
+                <h3>Why Pandas?</h3>
                 <ul>
-                    <li>Memory efficient (yields values one at a time)</li>
-                    <li>Lazy evaluation</li>
-                    <li>Useful for large datasets</li>
-                    <li>Can represent infinite sequences</li>
+                    <li><strong>Easy data handling:</strong> Read/write CSV, Excel, SQL, JSON</li>
+                    <li><strong>Data cleaning:</strong> Handle missing data, duplicates</li>
+                    <li><strong>Data transformation:</strong> Filter, sort, group, merge</li>
+                    <li><strong>Data analysis:</strong> Statistical operations</li>
+                    <li><strong>Integration:</strong> Works seamlessly with NumPy and Matplotlib</li>
                 </ul>
+
+                <h3>Installing Pandas</h3>
+                <pre><code>pip install pandas</code></pre>
+
+                <h3>Pandas Series</h3>
+                <p>A Series is a one-dimensional labeled array capable of holding any data type.</p>
+                <pre><code>import pandas as pd
+
+# Create Series from list
+s = pd.Series([10, 20, 30, 40, 50])
+print(s)
+# 0    10
+# 1    20
+# 2    30
+# 3    40
+# 4    50
+# dtype: int64
+
+# Create Series with custom index
+s = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
+print(s)
+# a    10
+# b    20
+# c    30
+
+# Create Series from dictionary
+data = {'Alice': 85, 'Bob': 90, 'Charlie': 78}
+s = pd.Series(data)
+print(s)
+# Alice      85
+# Bob        90
+# Charlie    78
+
+# Series operations
+print(s['Alice'])         # 85
+print(s[s > 80])          # Filter values > 80
+print(s.mean())           # 84.33
+print(s.max())            # 90</code></pre>
+
+                <h3>Pandas DataFrame</h3>
+                <p>A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types.</p>
+                <pre><code>import pandas as pd
+
+# Create DataFrame from dictionary
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 28],
+    'City': ['New York', 'London', 'Paris', 'Tokyo'],
+    'Salary': [50000, 60000, 70000, 55000]
+}
+
+df = pd.DataFrame(data)
+print(df)
+#       Name  Age      City  Salary
+# 0    Alice   25  New York   50000
+# 1      Bob   30    London   60000
+# 2  Charlie   35     Paris   70000
+# 3    David   28     Tokyo   55000
+
+# Create DataFrame from list of lists
+data = [
+    ['Alice', 25, 50000],
+    ['Bob', 30, 60000],
+    ['Charlie', 35, 70000]
+]
+df = pd.DataFrame(data, columns=['Name', 'Age', 'Salary'])
+
+# Create DataFrame from NumPy array
+import numpy as np
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+df = pd.DataFrame(arr, columns=['A', 'B', 'C'])</code></pre>
+
+                <h3>Reading and Writing Data</h3>
+                <pre><code>import pandas as pd
+
+# Reading CSV file
+df = pd.read_csv('data.csv')
+
+# Reading Excel file
+df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
+
+# Reading JSON file
+df = pd.read_json('data.json')
+
+# Reading from SQL database
+# import sqlite3
+# conn = sqlite3.connect('database.db')
+# df = pd.read_sql('SELECT * FROM table_name', conn)
+
+# Writing to CSV
+df.to_csv('output.csv', index=False)
+
+# Writing to Excel
+df.to_excel('output.xlsx', index=False, sheet_name='Data')
+
+# Writing to JSON
+df.to_json('output.json', orient='records')</code></pre>
+
+                <h3>Viewing Data</h3>
+                <pre><code>import pandas as pd
+
+# Sample DataFrame
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Age': [25, 30, 35, 28, 22],
+    'Salary': [50000, 60000, 70000, 55000, 45000]
+}
+df = pd.DataFrame(data)
+
+# View first/last rows
+print(df.head())          # First 5 rows
+print(df.head(3))         # First 3 rows
+print(df.tail())          # Last 5 rows
+print(df.tail(2))         # Last 2 rows
+
+# Basic information
+print(df.shape)           # (5, 3) - rows, columns
+print(df.columns)         # Column names
+print(df.dtypes)          # Data types
+print(df.info())          # Summary info
+print(df.describe())      # Statistical summary
+
+# Output of describe():
+#              Age        Salary
+# count   5.000000      5.000000
+# mean   28.000000  56000.000000
+# std     4.898979   9354.143466
+# min    22.000000  45000.000000
+# 25%    25.000000  50000.000000
+# 50%    28.000000  55000.000000
+# 75%    30.000000  60000.000000
+# max    35.000000  70000.000000</code></pre>
+
+                <h3>Selecting Data</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, 30, 35, 28],
+    'City': ['New York', 'London', 'Paris', 'Tokyo'],
+    'Salary': [50000, 60000, 70000, 55000]
+}
+df = pd.DataFrame(data)
+
+# Select column
+print(df['Name'])              # Returns Series
+print(df[['Name', 'Age']])     # Returns DataFrame
+
+# Select using loc (label-based)
+print(df.loc[0])               # First row
+print(df.loc[0:2])             # Rows 0-2
+print(df.loc[0, 'Name'])       # Specific cell
+print(df.loc[:, 'Name'])       # All rows, one column
+print(df.loc[0:2, ['Name', 'Age']])  # Subset
+
+# Select using iloc (index-based)
+print(df.iloc[0])              # First row
+print(df.iloc[0:2])            # First 2 rows
+print(df.iloc[0, 0])           # First cell
+print(df.iloc[:, 0:2])         # All rows, first 2 columns
+
+# Conditional selection
+print(df[df['Age'] > 28])      # Rows where Age > 28
+print(df[df['City'] == 'London'])  # Rows where City is London
+print(df[(df['Age'] > 25) & (df['Salary'] > 50000)])  # Multiple conditions</code></pre>
+
+                <h3>Adding and Modifying Data</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'Salary': [50000, 60000, 70000]
+}
+df = pd.DataFrame(data)
+
+# Add new column
+df['Department'] = ['HR', 'IT', 'Finance']
+df['Bonus'] = df['Salary'] * 0.1
+
+# Modify existing column
+df['Salary'] = df['Salary'] + 5000
+
+# Add new row
+new_row = {'Name': 'David', 'Age': 28, 'Salary': 65000, 
+           'Department': 'Marketing', 'Bonus': 6500}
+df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+
+# Modify specific cell
+df.loc[0, 'Age'] = 26
+df.at[0, 'Salary'] = 55000  # Faster for single value
+
+# Rename columns
+df = df.rename(columns={'Name': 'Employee_Name', 'Age': 'Employee_Age'})
+
+# Drop columns
+df = df.drop('Bonus', axis=1)
+
+# Drop rows
+df = df.drop(0)  # Drop row at index 0</code></pre>
+
+                <h3>Handling Missing Data</h3>
+                <pre><code>import pandas as pd
+import numpy as np
+
+# Create DataFrame with missing values
+data = {
+    'Name': ['Alice', 'Bob', None, 'David'],
+    'Age': [25, np.nan, 35, 28],
+    'Salary': [50000, 60000, np.nan, 55000]
+}
+df = pd.DataFrame(data)
+
+# Check for missing values
+print(df.isnull())            # Boolean mask
+print(df.isnull().sum())      # Count missing per column
+print(df.isna().any())        # Any missing in column?
+
+# Drop missing values
+df_dropped = df.dropna()              # Drop rows with any NaN
+df_dropped = df.dropna(subset=['Age']) # Drop if Age is NaN
+
+# Fill missing values
+df_filled = df.fillna(0)              # Fill with 0
+df_filled = df.fillna({'Age': df['Age'].mean(), 'Name': 'Unknown'})
+df_filled = df.fillna(method='ffill')  # Forward fill
+df_filled = df.fillna(method='bfill')  # Backward fill
+
+# Interpolate missing values
+df['Age'] = df['Age'].interpolate()</code></pre>
+
+                <h3>Sorting and Filtering</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+    'Age': [25, 30, 35, 28, 22],
+    'Salary': [50000, 60000, 70000, 55000, 45000],
+    'Department': ['HR', 'IT', 'Finance', 'IT', 'HR']
+}
+df = pd.DataFrame(data)
+
+# Sorting
+df_sorted = df.sort_values('Age')              # Ascending
+df_sorted = df.sort_values('Age', ascending=False)  # Descending
+df_sorted = df.sort_values(['Department', 'Age'])   # Multiple columns
+df_sorted = df.sort_index()                    # Sort by index
+
+# Filtering
+young = df[df['Age'] < 30]
+it_dept = df[df['Department'] == 'IT']
+high_salary = df[df['Salary'] >= 55000]
+
+# Multiple conditions
+filtered = df[(df['Age'] > 25) & (df['Salary'] > 50000)]
+filtered = df[(df['Department'] == 'HR') | (df['Department'] == 'IT')]
+
+# Using isin()
+filtered = df[df['Department'].isin(['HR', 'IT'])]
+
+# Using query() method
+filtered = df.query('Age > 25 and Salary > 50000')</code></pre>
+
+                <h3>Grouping and Aggregation</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve', 'Frank'],
+    'Department': ['HR', 'IT', 'HR', 'IT', 'Finance', 'Finance'],
+    'Age': [25, 30, 35, 28, 22, 40],
+    'Salary': [50000, 60000, 55000, 65000, 45000, 70000]
+}
+df = pd.DataFrame(data)
+
+# Group by single column
+grouped = df.groupby('Department')
+print(grouped.mean())              # Mean of numeric columns
+print(grouped.sum())               # Sum
+print(grouped.count())             # Count
+
+# Specific aggregations
+print(df.groupby('Department')['Salary'].mean())
+print(df.groupby('Department')['Salary'].agg(['mean', 'min', 'max', 'sum']))
+
+# Multiple aggregations
+agg_result = df.groupby('Department').agg({
+    'Salary': ['mean', 'sum'],
+    'Age': ['min', 'max']
+})
+print(agg_result)
+
+# Group by multiple columns
+grouped = df.groupby(['Department']).agg({
+    'Salary': 'mean',
+    'Name': 'count'
+}).rename(columns={'Name': 'Employee_Count', 'Salary': 'Avg_Salary'})</code></pre>
+
+                <h3>Merging and Joining DataFrames</h3>
+                <pre><code>import pandas as pd
+
+# Create sample DataFrames
+df1 = pd.DataFrame({
+    'ID': [1, 2, 3, 4],
+    'Name': ['Alice', 'Bob', 'Charlie', 'David']
+})
+
+df2 = pd.DataFrame({
+    'ID': [1, 2, 3, 5],
+    'Salary': [50000, 60000, 70000, 80000]
+})
+
+# Merge (like SQL JOIN)
+merged = pd.merge(df1, df2, on='ID')           # Inner join (default)
+merged = pd.merge(df1, df2, on='ID', how='left')   # Left join
+merged = pd.merge(df1, df2, on='ID', how='right')  # Right join
+merged = pd.merge(df1, df2, on='ID', how='outer')  # Outer join
+
+# Concatenation
+df_concat = pd.concat([df1, df1], ignore_index=True)  # Vertical
+df_concat = pd.concat([df1, df2], axis=1)             # Horizontal
+
+# Join on index
+df1 = df1.set_index('ID')
+df2 = df2.set_index('ID')
+joined = df1.join(df2, how='inner')</code></pre>
+
+                <h3>Pivot Tables and Cross-tabulation</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Date': ['2024-01', '2024-01', '2024-02', '2024-02', '2024-01', '2024-02'],
+    'Product': ['A', 'B', 'A', 'B', 'A', 'B'],
+    'Region': ['East', 'East', 'East', 'West', 'West', 'West'],
+    'Sales': [100, 150, 200, 250, 120, 180]
+}
+df = pd.DataFrame(data)
+
+# Pivot table
+pivot = pd.pivot_table(df, values='Sales', index='Product', 
+                       columns='Region', aggfunc='sum')
+print(pivot)
+#          East  West
+# Product            
+# A         300   120
+# B         150   430
+
+# Pivot table with multiple aggregations
+pivot = pd.pivot_table(df, values='Sales', index='Product',
+                       aggfunc=['sum', 'mean', 'count'])
+
+# Cross-tabulation
+cross = pd.crosstab(df['Product'], df['Region'])
+print(cross)</code></pre>
+
+                <h3>Applying Functions</h3>
+                <pre><code>import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'Salary': [50000, 60000, 70000]
+}
+df = pd.DataFrame(data)
+
+# Apply function to column
+df['Age_Category'] = df['Age'].apply(lambda x: 'Young' if x < 30 else 'Adult')
+
+# Apply function to DataFrame
+def calculate_tax(salary):
+    if salary > 60000:
+        return salary * 0.3
+    else:
+        return salary * 0.2
+
+df['Tax'] = df['Salary'].apply(calculate_tax)
+
+# Apply to multiple columns
+df['Net_Salary'] = df.apply(lambda row: row['Salary'] - row['Tax'], axis=1)
+
+# Using map for Series
+grade_map = {25: 'Junior', 30: 'Mid', 35: 'Senior'}
+df['Grade'] = df['Age'].map(grade_map)
+
+print(df)</code></pre>
+
+                <h3>String Operations</h3>
+                <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    'Name': ['Alice Smith', 'Bob Jones', 'Charlie Brown'],
+    'Email': ['alice@GMAIL.com', 'bob@yahoo.COM', 'charlie@outlook.com']
+})
+
+# String methods (accessed via .str)
+df['Name_Lower'] = df['Name'].str.lower()
+df['Name_Upper'] = df['Name'].str.upper()
+df['First_Name'] = df['Name'].str.split().str[0]
+df['Name_Length'] = df['Name'].str.len()
+df['Email_Clean'] = df['Email'].str.lower()
+
+# String contains
+df_filtered = df[df['Name'].str.contains('Smith')]
+
+# String replace
+df['Email'] = df['Email'].str.replace('@', '[at]')
+
+print(df)</code></pre>
+            </section>
+
+            <section id="matplotlib" class="topic">
+                <h2>6.4 Matplotlib for Data Visualization</h2>
+                
+                <h3>What is Matplotlib?</h3>
+                <p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. It provides a MATLAB-like interface and is the foundation for many other visualization libraries.</p>
+                
+                <h3>Installing Matplotlib</h3>
+                <pre><code>pip install matplotlib</code></pre>
+
+                <h3>Basic Plotting</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Simple line plot
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Simple Line Plot')
+plt.show()</code></pre>
+
+                <h3>Line Plot with Customization</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Plot with customization
+plt.figure(figsize=(10, 6))
+plt.plot(x, y1, 'b-', label='sin(x)', linewidth=2)
+plt.plot(x, y2, 'r--', label='cos(x)', linewidth=2)
+
+plt.xlabel('X-axis', fontsize=12)
+plt.ylabel('Y-axis', fontsize=12)
+plt.title('Sine and Cosine Functions', fontsize=14)
+plt.legend(loc='upper right')
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.xlim(0, 10)
+plt.ylim(-1.5, 1.5)
+
+plt.show()</code></pre>
+
+                <h3>Line Styles and Markers</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 6, 8, 10])
+
+# Different line styles
+plt.figure(figsize=(12, 8))
+
+plt.subplot(2, 2, 1)
+plt.plot(x, y, 'r-')       # Red solid line
+plt.title('Solid Line')
+
+plt.subplot(2, 2, 2)
+plt.plot(x, y, 'g--')      # Green dashed line
+plt.title('Dashed Line')
+
+plt.subplot(2, 2, 3)
+plt.plot(x, y, 'b:')       # Blue dotted line
+plt.title('Dotted Line')
+
+plt.subplot(2, 2, 4)
+plt.plot(x, y, 'm-.o')     # Magenta dash-dot with circle markers
+plt.title('With Markers')
+
+plt.tight_layout()
+plt.show()
+
+# Common markers: 'o' (circle), 's' (square), '^' (triangle), 
+#                 '*' (star), '+' (plus), 'x' (x), 'd' (diamond)</code></pre>
+
+                <h3>Bar Chart</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Simple bar chart
+categories = ['Python', 'Java', 'C++', 'JavaScript', 'Ruby']
+values = [35, 25, 20, 15, 5]
+
+plt.figure(figsize=(10, 6))
+plt.bar(categories, values, color=['blue', 'green', 'red', 'orange', 'purple'])
+plt.xlabel('Programming Languages')
+plt.ylabel('Popularity (%)')
+plt.title('Programming Language Popularity')
+
+# Add value labels on bars
+for i, v in enumerate(values):
+    plt.text(i, v + 0.5, str(v) + '%', ha='center')
+
+plt.show()
+
+# Horizontal bar chart
+plt.figure(figsize=(10, 6))
+plt.barh(categories, values, color='steelblue')
+plt.xlabel('Popularity (%)')
+plt.ylabel('Programming Languages')
+plt.title('Programming Language Popularity')
+plt.show()</code></pre>
+
+                <h3>Grouped and Stacked Bar Charts</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+categories = ['Q1', 'Q2', 'Q3', 'Q4']
+product_a = [20, 35, 30, 35]
+product_b = [25, 32, 34, 20]
+
+x = np.arange(len(categories))
+width = 0.35
+
+# Grouped bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(x - width/2, product_a, width, label='Product A', color='steelblue')
+plt.bar(x + width/2, product_b, width, label='Product B', color='coral')
+
+plt.xlabel('Quarter')
+plt.ylabel('Sales')
+plt.title('Quarterly Sales Comparison')
+plt.xticks(x, categories)
+plt.legend()
+plt.show()
+
+# Stacked bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(categories, product_a, label='Product A', color='steelblue')
+plt.bar(categories, product_b, bottom=product_a, label='Product B', color='coral')
+
+plt.xlabel('Quarter')
+plt.ylabel('Sales')
+plt.title('Stacked Quarterly Sales')
+plt.legend()
+plt.show()</code></pre>
+
+                <h3>Pie Chart</h3>
+                <pre><code>import matplotlib.pyplot as plt
+
+# Simple pie chart
+labels = ['Python', 'Java', 'C++', 'JavaScript', 'Others']
+sizes = [35, 25, 20, 15, 5]
+colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#ff99cc']
+explode = (0.1, 0, 0, 0, 0)  # Explode first slice
+
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+        autopct='%1.1f%%', shadow=True, startangle=90)
+plt.title('Programming Language Market Share')
+plt.axis('equal')  # Equal aspect ratio ensures circular pie
+plt.show()
+
+# Donut chart
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%',
+        pctdistance=0.85, startangle=90)
+
+# Draw circle in center to make it a donut
+centre_circle = plt.Circle((0, 0), 0.70, fc='white')
+plt.gca().add_artist(centre_circle)
+
+plt.title('Programming Language Market Share')
+plt.show()</code></pre>
+
+                <h3>Scatter Plot</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+np.random.seed(42)
+x = np.random.rand(50) * 100
+y = np.random.rand(50) * 100
+colors = np.random.rand(50)
+sizes = np.random.rand(50) * 500
+
+# Simple scatter plot
+plt.figure(figsize=(10, 6))
+plt.scatter(x, y, c=colors, s=sizes, alpha=0.6, cmap='viridis')
+plt.colorbar(label='Color Scale')
+plt.xlabel('X Values')
+plt.ylabel('Y Values')
+plt.title('Scatter Plot with Color and Size')
+plt.show()
+
+# Scatter plot with categories
+categories = np.random.choice(['A', 'B', 'C'], 50)
+colors_cat = {'A': 'red', 'B': 'blue', 'C': 'green'}
+
+plt.figure(figsize=(10, 6))
+for cat in ['A', 'B', 'C']:
+    mask = categories == cat
+    plt.scatter(x[mask], y[mask], c=colors_cat[cat], label=f'Category {cat}', alpha=0.7)
+
+plt.xlabel('X Values')
+plt.ylabel('Y Values')
+plt.title('Scatter Plot by Category')
+plt.legend()
+plt.show()</code></pre>
+
+                <h3>Histogram</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+np.random.seed(42)
+data = np.random.randn(1000)
+
+# Simple histogram
+plt.figure(figsize=(10, 6))
+plt.hist(data, bins=30, color='steelblue', edgecolor='black', alpha=0.7)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram of Random Data')
+plt.axvline(data.mean(), color='red', linestyle='dashed', linewidth=2, label=f'Mean: {data.mean():.2f}')
+plt.legend()
+plt.show()
+
+# Multiple histograms
+data1 = np.random.normal(0, 1, 1000)
+data2 = np.random.normal(3, 1.5, 1000)
+
+plt.figure(figsize=(10, 6))
+plt.hist(data1, bins=30, alpha=0.5, label='Dataset 1', color='blue')
+plt.hist(data2, bins=30, alpha=0.5, label='Dataset 2', color='red')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Overlapping Histograms')
+plt.legend()
+plt.show()</code></pre>
+
+                <h3>Box Plot</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate data
+np.random.seed(42)
+data = [np.random.normal(0, std, 100) for std in range(1, 5)]
+
+# Simple box plot
+plt.figure(figsize=(10, 6))
+plt.boxplot(data, labels=['Group A', 'Group B', 'Group C', 'Group D'])
+plt.xlabel('Groups')
+plt.ylabel('Values')
+plt.title('Box Plot Comparison')
+plt.grid(True, axis='y')
+plt.show()
+
+# Horizontal box plot with colors
+plt.figure(figsize=(10, 6))
+bp = plt.boxplot(data, vert=False, patch_artist=True)
+
+colors = ['lightblue', 'lightgreen', 'lightyellow', 'lightcoral']
+for patch, color in zip(bp['boxes'], colors):
+    patch.set_facecolor(color)
+
+plt.ylabel('Groups')
+plt.xlabel('Values')
+plt.title('Horizontal Box Plot')
+plt.yticks([1, 2, 3, 4], ['Group A', 'Group B', 'Group C', 'Group D'])
+plt.show()</code></pre>
+
+                <h3>Subplots</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+
+# Create subplots
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+
+# Plot 1: Line plot
+axes[0, 0].plot(x, np.sin(x), 'b-')
+axes[0, 0].set_title('Sine Wave')
+axes[0, 0].set_xlabel('X')
+axes[0, 0].set_ylabel('Y')
+
+# Plot 2: Bar chart
+categories = ['A', 'B', 'C', 'D']
+values = [25, 40, 30, 55]
+axes[0, 1].bar(categories, values, color='green')
+axes[0, 1].set_title('Bar Chart')
+
+# Plot 3: Scatter plot
+np.random.seed(42)
+axes[1, 0].scatter(np.random.rand(50), np.random.rand(50), c='red', alpha=0.6)
+axes[1, 0].set_title('Scatter Plot')
+
+# Plot 4: Histogram
+data = np.random.randn(1000)
+axes[1, 1].hist(data, bins=30, color='purple', alpha=0.7)
+axes[1, 1].set_title('Histogram')
+
+plt.tight_layout()
+plt.show()</code></pre>
+
+                <h3>Heatmap</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+np.random.seed(42)
+data = np.random.rand(10, 10)
+
+# Create heatmap
+plt.figure(figsize=(10, 8))
+plt.imshow(data, cmap='hot', interpolation='nearest')
+plt.colorbar(label='Values')
+plt.title('Heatmap')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+
+# Heatmap with annotations
+fig, ax = plt.subplots(figsize=(10, 8))
+im = ax.imshow(data, cmap='YlOrRd')
+
+# Add colorbar
+plt.colorbar(im)
+
+# Add text annotations
+for i in range(10):
+    for j in range(10):
+        text = ax.text(j, i, f'{data[i, j]:.2f}',
+                       ha='center', va='center', color='black', fontsize=8)
+
+ax.set_title('Heatmap with Annotations')
+plt.show()</code></pre>
+
+                <h3>3D Plotting</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+# 3D Line plot
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Generate data
+t = np.linspace(0, 10, 100)
+x = np.sin(t)
+y = np.cos(t)
+z = t
+
+ax.plot(x, y, z, label='3D Curve')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Line Plot')
+ax.legend()
+plt.show()
+
+# 3D Surface plot
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+x = np.linspace(-5, 5, 50)
+y = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+ax.plot_surface(X, Y, Z, cmap='viridis')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Surface Plot')
+plt.show()</code></pre>
+
+                <h3>Saving Figures</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y)
+plt.title('Sine Wave')
+
+# Save as different formats
+plt.savefig('plot.png', dpi=300, bbox_inches='tight')
+plt.savefig('plot.pdf', format='pdf', bbox_inches='tight')
+plt.savefig('plot.svg', format='svg', bbox_inches='tight')
+plt.savefig('plot.jpg', format='jpg', dpi=150)
+
+plt.show()</code></pre>
+
+                <h3>Complete Example: Sales Dashboard</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample sales data
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+product_a = [120, 135, 150, 145, 160, 175]
+product_b = [100, 110, 125, 130, 140, 155]
+product_c = [80, 90, 95, 100, 110, 120]
+
+# Create dashboard
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+fig.suptitle('Sales Dashboard - 2024 H1', fontsize=16, fontweight='bold')
+
+# 1. Line chart - Monthly trend
+axes[0, 0].plot(months, product_a, 'b-o', label='Product A')
+axes[0, 0].plot(months, product_b, 'g-s', label='Product B')
+axes[0, 0].plot(months, product_c, 'r-^', label='Product C')
+axes[0, 0].set_title('Monthly Sales Trend')
+axes[0, 0].set_xlabel('Month')
+axes[0, 0].set_ylabel('Sales (units)')
+axes[0, 0].legend()
+axes[0, 0].grid(True, alpha=0.3)
+
+# 2. Bar chart - Total sales comparison
+products = ['Product A', 'Product B', 'Product C']
+totals = [sum(product_a), sum(product_b), sum(product_c)]
+colors = ['steelblue', 'seagreen', 'coral']
+bars = axes[0, 1].bar(products, totals, color=colors)
+axes[0, 1].set_title('Total Sales by Product')
+axes[0, 1].set_ylabel('Total Sales (units)')
+for bar, total in zip(bars, totals):
+    axes[0, 1].text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5,
+                    str(total), ha='center', fontweight='bold')
+
+# 3. Pie chart - Market share
+total_all = sum(totals)
+shares = [t/total_all*100 for t in totals]
+wedges, texts, autotexts = axes[1, 0].pie(shares, labels=products, 
+                                           autopct='%1.1f%%', colors=colors,
+                                           explode=(0.05, 0, 0))
+axes[1, 0].set_title('Market Share Distribution')
+
+# 4. Stacked area chart - Growth visualization
+axes[1, 1].fill_between(months, product_a, alpha=0.5, label='Product A', color='steelblue')
+axes[1, 1].fill_between(months, product_b, alpha=0.5, label='Product B', color='seagreen')
+axes[1, 1].fill_between(months, product_c, alpha=0.5, label='Product C', color='coral')
+axes[1, 1].set_title('Sales Growth Pattern')
+axes[1, 1].set_xlabel('Month')
+axes[1, 1].set_ylabel('Sales (units)')
+axes[1, 1].legend()
+
+plt.tight_layout()
+plt.savefig('sales_dashboard.png', dpi=300, bbox_inches='tight')
+plt.show()</code></pre>
+
+                <h3>Matplotlib Style Sheets</h3>
+                <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Available styles
+print(plt.style.available)
+# ['seaborn', 'ggplot', 'dark_background', 'fivethirtyeight', 'bmh', ...]
+
+# Use a style
+plt.style.use('seaborn')
+# or plt.style.use('ggplot')
+# or plt.style.use('dark_background')
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x, y)
+plt.title('Plot with Style')
+plt.show()
+
+# Reset to default
+plt.style.use('default')</code></pre>
             </section>
 
             <div class="unit-nav">
