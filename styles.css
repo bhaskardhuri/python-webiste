@@ -515,6 +515,47 @@ table tr:hover {
     margin-bottom: 1rem;
 }
 
+/* Practical Modules Dropdown */
+.practical-dropdown {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--light-bg);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    overflow: hidden;
+}
+
+.practical-dropdown summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 1rem 1.25rem;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.practical-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.practical-dropdown summary::after {
+    content: "+";
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.practical-dropdown[open] summary::after {
+    content: "-";
+}
+
+.practical-dropdown .table-wrapper {
+    padding: 1rem;
+    margin-bottom: 0;
+}
+
 /* Viva QA */
 .viva-qa {
     background-color: var(--light-bg);
