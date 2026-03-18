@@ -478,7 +478,25 @@ table td {
 
 .download-table th:nth-child(2),
 .download-table td:nth-child(2) {
+    text-align: left;
+}
+
+.practicals-table th:nth-child(1),
+.practicals-table td:nth-child(1),
+.practicals-table th:nth-child(3),
+.practicals-table td:nth-child(3),
+.practicals-table th:nth-child(4),
+.practicals-table td:nth-child(4) {
     text-align: center;
+}
+
+.practicals-table td:nth-child(2) {
+    min-width: 420px;
+}
+
+.practicals-page [aria-disabled="true"] {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 table th {
@@ -2085,5 +2103,63 @@ footer {
     /* Better tap highlighting */
     a, button, .btn {
         -webkit-tap-highlight-color: rgba(52, 152, 219, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .practicals-page .practicals-table {
+        display: table;
+        width: 100%;
+        overflow-x: visible;
+    }
+
+    .practicals-page .practicals-table thead {
+        display: table-header-group;
+        width: auto;
+    }
+
+    .practicals-page .practicals-table tbody {
+        display: table-row-group;
+        width: auto;
+    }
+
+    .practicals-page .practicals-table tr {
+        display: table-row;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid var(--light-bg);
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .practicals-page .practicals-table th,
+    .practicals-page .practicals-table td {
+        display: table-cell;
+        white-space: normal;
+        vertical-align: middle;
+    }
+
+    .practicals-page .practicals-table td:before {
+        content: none;
+        display: none;
+    }
+
+    .practicals-page .practicals-table .download-btn,
+    .practicals-page .practicals-table .view-btn {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .practicals-page .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .practicals-page .practicals-table {
+        min-width: 780px;
     }
 }
