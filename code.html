@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Code Lab - Python Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo"><img src="Python-Logo.png" alt="Python Logo" class="logo-img"> Python Study Hub</div>
+            <button class="hamburger" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="syllabus.html">Syllabus</a></li>
+                <li><a href="units.html">Units</a></li>
+                <li><a href="ppts.html">PPTs</a></li>
+                <li><a href="practicals.html">Practicals</a></li>
+                <li><a href="code.html" class="active">Practical Code</a></li>
+                <li><a href="viva.html">Viva Questions</a></li>
+                <li class="about-hover-trigger">
+                    <a href="#">About</a>
+                    <div id="aboutCard" class="about-hover-card">
+                        <div class="about-profile-photo">
+                            <img src="photo.png" alt="Profile Photo" class="profile-img">
+                        </div>
+                        <h3 class="profile-name">Mr. Bhaskar Bhagawan Dhuri</h3>
+                        <p class="profile-role">Lecturer</p>
+                        <div class="about-info-compact">
+                            <p><strong>🏛️ Yashwantrao Bhonsale Institute of Technology</strong></p>
+                            <p class="email-link"><a href="mailto:bbdhuri@ybit.ac.in">📧 bbdhuri@ybit.ac.in</a></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="unit-content">
+            <h1>Practical Code Lab (1 to 20)</h1>
+            <p>Simple and student-friendly Python programs. Each practical includes code, syntax highlights, and a short explanation.</p>
+
+            <div class="toc">
+                <h3>Jump To Practical</h3>
+                <ul>
+                    <li><a href="#p1">Practical 1 - Personalized Greeting</a></li>
+                    <li><a href="#p2">Practical 2 - Area of Shapes</a></li>
+                    <li><a href="#p3">Practical 3 - Gross Salary</a></li>
+                    <li><a href="#p4">Practical 4 - Arithmetic Operations</a></li>
+                    <li><a href="#p5">Practical 5 - Task List (List and Tuple)</a></li>
+                    <li><a href="#p6">Practical 6 - Set Operations</a></li>
+                    <li><a href="#p7">Practical 7 - Student Dictionary</a></li>
+                    <li><a href="#p8">Practical 8 - Even or Odd</a></li>
+                    <li><a href="#p9">Practical 9 - Factorial</a></li>
+                    <li><a href="#p10">Practical 10 - Prime Number</a></li>
+                    <li><a href="#p11">Practical 11 - Function Calculator</a></li>
+                    <li><a href="#p12">Practical 12 - File Word Length</a></li>
+                    <li><a href="#p13">Practical 13 - Create Executable</a></li>
+                    <li><a href="#p14">Practical 14 - Division with Exception Handling</a></li>
+                    <li><a href="#p15">Practical 15 - Debugging with pdb</a></li>
+                    <li><a href="#p16">Practical 16 - Regex Validation</a></li>
+                    <li><a href="#p17">Practical 17 - Regex Data Extraction</a></li>
+                    <li><a href="#p18">Practical 18 - NumPy 1D/2D/3D Arrays</a></li>
+                    <li><a href="#p19">Practical 19 - NumPy Array Operations</a></li>
+                    <li><a href="#p20">Practical 20 - Basic Statistics</a></li>
+                </ul>
+            </div>
+
+            <div id="p1" class="practical-question">
+                <h2>Practical 1: Personalized Greeting</h2>
+                <pre><code>name = input("Enter your name: ")
+city = input("Enter your city: ")
+print(f"Hello {name}! Welcome from {city}.")</code></pre>
+                <p><strong>Syntax used:</strong> input(), print(), f-string</p>
+                <p><strong>Explanation:</strong> Program takes name and city from user and prints a personalized greeting.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter your name: Asha
+Enter your city: Mumbai
+Hello Asha! Welcome from Mumbai.</code></pre>
+            </div>
+
+            <div id="p2" class="practical-question">
+                <h2>Practical 2: Area of Circle, Rectangle, Triangle</h2>
+                <pre><code>pi = 3.14
+
+r = float(input("Radius of circle: "))
+print("Area of circle:", pi * r * r)
+
+l = float(input("Length of rectangle: "))
+b = float(input("Breadth of rectangle: "))
+print("Area of rectangle:", l * b)
+
+base = float(input("Base of triangle: "))
+height = float(input("Height of triangle: "))
+print("Area of triangle:", 0.5 * base * height)</code></pre>
+                <p><strong>Syntax used:</strong> float(), arithmetic operators, print()</p>
+                <p><strong>Explanation:</strong> Calculates area of three geometric shapes using their standard formulas.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Radius of circle: 5
+Area of circle: 78.5
+Length of rectangle: 4
+Breadth of rectangle: 6
+Area of rectangle: 24.0
+Base of triangle: 8
+Height of triangle: 3
+Area of triangle: 12.0</code></pre>
+            </div>
+
+            <div id="p3" class="practical-question">
+                <h2>Practical 3: Gross Salary Calculation</h2>
+                <pre><code>bs = float(input("Enter Basic Salary: "))
+da = 0.70 * bs
+ta = 0.30 * bs
+hra = 0.10 * bs
+gross = bs + da + ta + hra
+
+print("Basic Salary:", bs)
+print("DA:", da)
+print("TA:", ta)
+print("HRA:", hra)
+print("Gross Salary:", gross)</code></pre>
+                <p><strong>Syntax used:</strong> variables, percentage calculation, arithmetic operators</p>
+                <p><strong>Explanation:</strong> Computes DA, TA, HRA based on basic salary and adds them to find gross salary.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter Basic Salary: 10000
+Basic Salary: 10000.0
+DA: 7000.0
+TA: 3000.0
+HRA: 1000.0
+Gross Salary: 21000.0</code></pre>
+            </div>
+
+            <div id="p4" class="practical-question">
+                <h2>Practical 4: Basic Arithmetic Operations</h2>
+                <pre><code>a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)</code></pre>
+                <p><strong>Syntax used:</strong> +, -, *, /, % operators</p>
+                <p><strong>Explanation:</strong> Takes two numbers and performs all required arithmetic operations.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter first number: 10
+Enter second number: 3
+Addition: 13.0
+Subtraction: 7.0
+Multiplication: 30.0
+Division: 3.3333333333333335
+Modulus: 1.0</code></pre>
+            </div>
+
+            <div id="p5" class="practical-question">
+                <h2>Practical 5: Task List Using List and Tuple</h2>
+                <pre><code>tasks = ["Study Python", "Write notes", "Solve practicals"]
+
+# Add task
+tasks.append("Revision")
+
+# Update task
+tasks[1] = "Write unit notes"
+
+# Remove task
+tasks.remove("Solve practicals")
+
+# Sort tasks
+tasks.sort()
+
+# Convert to tuple
+final_tasks = tuple(tasks)
+
+print("Task List (Tuple):", final_tasks)</code></pre>
+                <p><strong>Syntax used:</strong> list methods append(), remove(), sort(), tuple()</p>
+                <p><strong>Explanation:</strong> Demonstrates add, update, remove, sort operations using list and final storage in tuple.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Task List (Tuple): ('Revision', 'Study Python', 'Write unit notes')</code></pre>
+            </div>
+
+            <div id="p6" class="practical-question">
+                <h2>Practical 6: Set Operations</h2>
+                <pre><code>python_students = {"Amit", "Riya", "Sana", "Jay"}
+math_students = {"Riya", "Jay", "Neha"}
+
+print("Union:", python_students | math_students)
+print("Intersection:", python_students & math_students)
+print("Difference (Python - Math):", python_students - math_students)</code></pre>
+                <p><strong>Syntax used:</strong> set literals {}, union |, intersection &, difference -</p>
+                <p><strong>Explanation:</strong> Shows students in either class, both classes, and only Python class.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Union: {'Amit', 'Riya', 'Sana', 'Jay', 'Neha'}
+Intersection: {'Riya', 'Jay'}
+Difference (Python - Math): {'Amit', 'Sana'}</code></pre>
+            </div>
+
+            <div id="p7" class="practical-question">
+                <h2>Practical 7: Student Dictionary Records</h2>
+                <pre><code>student = {
+    "name": "Anaya",
+    "grade": "A",
+    "attendance": 92
+}
+
+print("Original:", student)
+
+# Update values
+student["grade"] = "A+"
+student["attendance"] = 95
+
+print("Updated:", student)</code></pre>
+                <p><strong>Syntax used:</strong> dictionary key-value pairs, update using keys</p>
+                <p><strong>Explanation:</strong> Creates student record and updates grade and attendance.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Original: {'name': 'Anaya', 'grade': 'A', 'attendance': 92}
+Updated: {'name': 'Anaya', 'grade': 'A+', 'attendance': 95}</code></pre>
+            </div>
+
+            <div id="p8" class="practical-question">
+                <h2>Practical 8: Even or Odd Using Conditions and Loop</h2>
+                <pre><code>for i in range(1, 6):
+    num = int(input(f"Enter number {i}: "))
+    if num % 2 == 0:
+        print(num, "is Even")
+    else:
+        print(num, "is Odd")</code></pre>
+                <p><strong>Syntax used:</strong> for loop, if-else, modulus operator</p>
+                <p><strong>Explanation:</strong> Repeats input 5 times and checks each number as even or odd.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter number 1: 2
+2 is Even
+Enter number 2: 5
+5 is Odd</code></pre>
+            </div>
+
+            <div id="p9" class="practical-question">
+                <h2>Practical 9: Factorial of N</h2>
+                <pre><code>n = int(input("Enter a number: "))
+fact = 1
+
+for i in range(1, n + 1):
+    fact *= i
+
+print("Factorial =", fact)</code></pre>
+                <p><strong>Syntax used:</strong> loop with range(), multiplication assignment *=</p>
+                <p><strong>Explanation:</strong> Multiplies numbers from 1 to n to find factorial.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter a number: 5
+Factorial = 120</code></pre>
+            </div>
+
+            <div id="p10" class="practical-question">
+                <h2>Practical 10: Prime Number Check Using Function</h2>
+                <pre><code>def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+num = int(input("Enter number: "))
+if is_prime(num):
+    print(num, "is Prime")
+else:
+    print(num, "is Not Prime")</code></pre>
+                <p><strong>Syntax used:</strong> def, return, for loop, condition checking</p>
+                <p><strong>Explanation:</strong> Function checks if number has any divisor other than 1 and itself.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter number: 7
+7 is Prime</code></pre>
+            </div>
+
+            <div id="p11" class="practical-question">
+                <h2>Practical 11: Calculator Using Functions</h2>
+                <pre><code>def add(a, b):
+    return a + b
+
+def sub(a, b):
+    return a - b
+
+def mul(a, b):
+    return a * b
+
+def div(a, b):
+    return a / b
+
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+
+print("Add:", add(a, b))
+print("Sub:", sub(a, b))
+print("Mul:", mul(a, b))
+print("Div:", div(a, b))</code></pre>
+                <p><strong>Syntax used:</strong> function definition, function call, return</p>
+                <p><strong>Explanation:</strong> Uses separate functions for each arithmetic operation to build a simple calculator.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter first number: 8
+Enter second number: 2
+Add: 10.0
+Sub: 6.0
+Mul: 16.0
+Div: 4.0</code></pre>
+            </div>
+
+            <div id="p12" class="practical-question">
+                <h2>Practical 12: Read File and Print Words of Given Length</h2>
+                <pre><code>filename = "sample.txt"
+length = int(input("Enter word length to print: "))
+
+with open(filename, "r") as f:
+    text = f.read()
+
+words = text.split()
+print("Words with length", length, ":")
+for w in words:
+    if len(w) == length:
+        print(w)</code></pre>
+                <p><strong>Syntax used:</strong> with open(), read(), split(), len()</p>
+                <p><strong>Explanation:</strong> Reads file content and prints only words matching user-specified length.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter word length to print: 5
+Words with length 5:
+apple
+study</code></pre>
+            </div>
+
+            <div id="p13" class="practical-question">
+                <h2>Practical 13: Create Executable File</h2>
+                <pre><code># app.py
+print("Hello, this is my executable Python app!")</code></pre>
+                <pre><code># Command in terminal
+# Install: pip install pyinstaller
+# Build executable: pyinstaller --onefile app.py</code></pre>
+                <p><strong>Syntax used:</strong> terminal command, pyinstaller --onefile</p>
+                <p><strong>Explanation:</strong> Write program in app.py, then use PyInstaller to generate .exe inside dist folder.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Hello, this is my executable Python app!
+
+After running pyinstaller, an executable file is created in the dist folder.</code></pre>
+            </div>
+
+            <div id="p14" class="practical-question">
+                <h2>Practical 14: Division with Exception Handling</h2>
+                <pre><code>try:
+    a = float(input("Enter numerator: "))
+    b = float(input("Enter denominator: "))
+    result = a / b
+    print("Result:", result)
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+except ValueError:
+    print("Error: Please enter valid numeric input.")</code></pre>
+                <p><strong>Syntax used:</strong> try, except ZeroDivisionError, except ValueError</p>
+                <p><strong>Explanation:</strong> Handles two common runtime errors: zero division and invalid input.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter numerator: 10
+Enter denominator: 2
+Result: 5.0</code></pre>
+            </div>
+
+            <div id="p15" class="practical-question">
+                <h2>Practical 15: Debugging with pdb</h2>
+                <pre><code>import pdb
+
+num = int(input("Enter a number: "))
+pdb.set_trace()  # Breakpoint
+square = num * num
+print("Square:", square)</code></pre>
+                <pre><code># Useful pdb commands inside debugger
+# n  -> next line
+# p num -> print variable
+# c  -> continue program</code></pre>
+                <p><strong>Syntax used:</strong> import pdb, pdb.set_trace()</p>
+                <p><strong>Explanation:</strong> Program pauses at breakpoint so you can inspect variables and step through execution.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter a number: 6
+&gt; ... pdb debugger starts here ...
+Square: 36</code></pre>
+            </div>
+
+            <div id="p16" class="practical-question">
+                <h2>Practical 16: Validate Phone and Email Using Regex</h2>
+                <pre><code>import re
+
+phone = input("Enter phone (10 digits): ")
+email = input("Enter email: ")
+
+phone_pattern = r"^[6-9]\d{9}$"
+email_pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+
+print("Phone valid:", bool(re.match(phone_pattern, phone)))
+print("Email valid:", bool(re.match(email_pattern, email)))</code></pre>
+                <p><strong>Syntax used:</strong> import re, re.match(), regex patterns</p>
+                <p><strong>Explanation:</strong> Uses regular expressions to check valid phone format and email format.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Enter phone (10 digits): 9876543210
+Enter email: test@gmail.com
+Phone valid: True
+Email valid: True</code></pre>
+            </div>
+
+            <div id="p17" class="practical-question">
+                <h2>Practical 17: Extract Names, Emails, Phones Using Regex</h2>
+                <pre><code>import re
+
+text = """
+Asha 9876543210 asha@gmail.com
+Rohan 9123456789 rohan@yahoo.com
+"""
+
+names = re.findall(r"[A-Z][a-z]+", text)
+emails = re.findall(r"[\w\.-]+@[\w\.-]+\.\w+", text)
+phones = re.findall(r"[6-9]\d{9}", text)
+
+print("Names:", names)
+print("Emails:", emails)
+print("Phones:", phones)</code></pre>
+                <p><strong>Syntax used:</strong> re.findall(), character classes, quantifiers</p>
+                <p><strong>Explanation:</strong> Extracts all matching names, emails, and phone numbers from text data.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Names: ['Asha', 'Rohan']
+Emails: ['asha@gmail.com', 'rohan@yahoo.com']
+Phones: ['9876543210', '9123456789']</code></pre>
+            </div>
+
+            <div id="p18" class="practical-question">
+                <h2>Practical 18: Create 1D, 2D, 3D NumPy Arrays</h2>
+                <pre><code>import numpy as np
+
+a1 = np.array([10, 20, 30, 40])
+a2 = np.array([[1, 2], [3, 4]])
+a3 = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+
+print("1D array:\n", a1)
+print("2D array:\n", a2)
+print("3D array:\n", a3)
+
+print("Reshape 1D to 2x2:\n", a1.reshape(2, 2))
+print("Slice 2D first row:", a2[0])
+print("Index from 3D:", a3[1, 0, 1])</code></pre>
+                <p><strong>Syntax used:</strong> np.array(), reshape(), slicing, indexing</p>
+                <p><strong>Explanation:</strong> Demonstrates NumPy array creation and basic operations like reshape, slice, and index access.</p>
+                                <p><strong>Expected output:</strong></p>
+                                <pre><code>1D array:
+[10 20 30 40]
+2D array:
+[[1 2]
+ [3 4]]
+3D array:
+[[[1 2]
+    [3 4]]
+
+ [[5 6]
+    [7 8]]]
+Reshape 1D to 2x2:
+[[10 20]
+ [30 40]]
+Slice 2D first row: [1 2]
+Index from 3D: 6</code></pre>
+            </div>
+
+            <div id="p19" class="practical-question">
+                <h2>Practical 19: Array Arithmetic, Dot Product, Cross Product</h2>
+                <pre><code>import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Dot Product:", np.dot(a, b))
+print("Cross Product:", np.cross(a, b))</code></pre>
+                <p><strong>Syntax used:</strong> vector operations, np.dot(), np.cross()</p>
+                <p><strong>Explanation:</strong> Performs element-wise arithmetic and vector products on two NumPy arrays.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Addition: [5 7 9]
+Subtraction: [-3 -3 -3]
+Multiplication: [ 4 10 18]
+Division: [0.25 0.4  0.5 ]
+Dot Product: 32
+Cross Product: [-3  6 -3]</code></pre>
+            </div>
+
+            <div id="p20" class="practical-question">
+                <h2>Practical 20: Mean, Median, Standard Deviation, Variance, Correlation</h2>
+                <pre><code>import numpy as np
+
+x = np.array([10, 20, 30, 40, 50])
+y = np.array([12, 18, 33, 37, 52])
+
+print("Mean:", np.mean(x))
+print("Median:", np.median(x))
+print("Standard Deviation:", np.std(x))
+print("Variance:", np.var(x))
+print("Correlation Coefficient:\n", np.corrcoef(x, y))</code></pre>
+                <p><strong>Syntax used:</strong> np.mean(), np.median(), np.std(), np.var(), np.corrcoef()</p>
+                <p><strong>Explanation:</strong> Computes important statistical measures and correlation between two datasets.</p>
+                <p><strong>Expected output:</strong></p>
+                <pre><code>Mean: 30.0
+Median: 30.0
+Standard Deviation: 14.142135623730951
+Variance: 200.0
+Correlation Coefficient:
+[[1.         0.997...]
+ [0.997...    1.        ]]</code></pre>
+            </div>
+
+            <div class="unit-nav">
+                <a href="practicals.html" class="btn btn-secondary">Back to Practicals</a>
+                <a href="viva.html" class="btn btn-primary">Go to Viva Questions</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025-2026 Python Study Hub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

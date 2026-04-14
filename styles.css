@@ -519,6 +519,37 @@ table tr:hover {
     color: var(--text-light);
 }
 
+.practical-code-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, #e8f4ff 0%, #f7fbff 100%);
+    border-left: 5px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.practical-code-banner h2 {
+    margin: 0 0 0.5rem;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}
+
+.practical-code-banner p {
+    margin: 0;
+    color: var(--text-dark);
+    max-width: 720px;
+}
+
+.practical-code-btn {
+    min-width: 220px;
+    text-align: center;
+    white-space: nowrap;
+}
+
 /* Practical Questions */
 .practical-question {
     background-color: var(--light-bg);
@@ -832,6 +863,17 @@ footer {
     .unit-nav .btn {
         width: 100%;
         min-height: 48px;
+    }
+
+    .practical-code-banner {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.25rem;
+    }
+
+    .practical-code-btn {
+        width: 100%;
+        min-width: 0;
     }
 
     /* Tables */
